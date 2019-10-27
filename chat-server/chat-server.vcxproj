@@ -92,12 +92,13 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>..\externals\MySQL\include\;..\externals\boost\include\</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\externals\MySQL\libs\;..\externals\boost\libs\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libboost_date_time-vc141-mt-x32-1_71.lib;libboost_exception-vc141-mt-gd-x32-1_71.lib;libboost_regex-vc141-mt-gd-x32-1_71.lib;libmysql.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\externals\MySQL\libs\vs14\;..\externals\boost\libs\;..\externals\MySQL\libs\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libboost_date_time-vc141-mt-x32-1_71.lib;libboost_exception-vc141-mt-gd-x32-1_71.lib;libboost_regex-vc141-mt-gd-x32-1_71.lib;libcrypto.lib;mysqlcppconn8.lib;mysqlcppconn-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
