@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "ServerSession.h"
-#include "ChattingServer.h"
+#include "LogonServer.h"
+#include "Define.h"
+#include "PacketDispatcher.h"
 
 
 Session::Session(int nSessionID, boost::asio::io_context& io_context, Server* pServer)
@@ -31,7 +33,7 @@ void Session::PostReceive()
 	boost::asio::async_read_until (m_Socket, m_buffer, "\r\n",
 		boost::bind (&Session::handle_receive, this,
 			boost::asio::placeholders::error,
-			boost::ref (m_buffer))
+			boost::asio::placeholders::bytes_transferred)
 	);
 }
 
@@ -72,13 +74,11 @@ void Session::handle_write(const boost::system::error_code& error, size_t bytes_
 	{
 		char* pData = m_SendDataQueue.front();
 		
-		PACKET_HEADER* pHeader = (PACKET_HEADER*)pData;
-
-		PostSend( true, pHeader->nSize, pData );
+		PostSend( true, std::strlen(pData), pData );
 	}
 }
 
-void Session::handle_receive( const boost::system::error_code& error, boost::asio::streambuf& buffer )
+void Session::handle_receive( const boost::system::error_code& error, size_t bytes_transferred)
 {
 	if( error )
 	{
@@ -95,8 +95,9 @@ void Session::handle_receive( const boost::system::error_code& error, boost::asi
 	}
 	else
 	{
-		m_pServer->ProcessPacket( m_nSessionID,
-			boost::asio::buffer_cast<const char*>(buffer.data()));	
+		m_pServer->GetPacketDispather()->DoDispatch( this,
+			boost::asio::buffer_cast<const char*>(m_buffer.data())
+		);	
 		PostReceive(); 
 	}
 }

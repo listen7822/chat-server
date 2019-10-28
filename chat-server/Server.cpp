@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Server.h"
+#include "Define.h"
 
 
 Server::Server (boost::asio::io_service & io_service)

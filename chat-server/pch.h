@@ -9,6 +9,9 @@
 #ifndef PCH_H
 #define PCH_H
 
+//#include <boost/log/core.hpp>
+//#include <boost/log/trivial.hpp>
+//#include <boost/log/expressions.hpp>
 // TODO: add headers that you want to pre-compile here
 
 #endif //PCH_H

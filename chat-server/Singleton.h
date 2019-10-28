@@ -1,29 +1,38 @@
 #pragma once
-#include <list>
+#include "Monitor.h"
 
 template <typename T>
-class Singleton
+class Singleton : public Monitor
 {
+private:
+	static T* instance_;
+	static Monitor m_csSingleton;
+
 public:
-		typedef std::list<Singleton* > SINGLETON_LIST;
-
-		Singleton ();
-		virtual ~Singleton ();
-
-		static T* Instance () {
-			if(nullptr == m_Instance)
-			{
-				m_Instance = new T;
-			}
-			return m_Instance;
+	static T* Instance (void)
+	{
+		if (nullptr == instance_)
+		{
+			MakeInstance ();
 		}
 
-		virtual void releaseInstance () = 0;
-		static void releaseAll ();
+		return instance_;
+	}
 
-private:
-	static T* m_Instance;
-	static SINGLETON_LIST m_listSigleton;
-
+	static void MakeInstance (void)
+	{
+		Monitor::Owner lock (m_csSingleton);
+		{
+			if (nullptr == instance_)
+			{
+				instance_ = new T;
+			}
+		}
+	}
 };
+
+template<typename T>
+T* Singleton<T>::instance_;
+template<typename T>
+Monitor Singleton<T>::m_csSingleton;
 

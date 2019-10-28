@@ -1,53 +1,36 @@
-#include "LibODBCHeader.h"
-
-ODBCObject* ODBCObject::mpThis = NULL;
+#include "pch.h"
+#if defined(WIN32) || defined(WIN64)
+#include <Windows.h>
+#endif
+#include <sql.h>
+#include "ODBCObject.h"
+#include "ODBC.h"
+#include "ODBCDatabase.h"
 
 ODBCObject::ODBCObject (void)
 {
-	for (int i = 0; i < MAX_DATABASE_COUNT; ++i)
-	{
-		mDatabases[i] = NULL;
-	}
+	m_Database = nullptr;
 }
 
 ODBCObject::~ODBCObject (void)
 {
-	for (int i = 0; i < MAX_DATABASE_COUNT; ++i)
-	{
-		if (mDatabases[i] != NULL)
-		{
-			delete mDatabases[i];
-		}
-		mDatabases[i] = NULL;
-	}
+	delete m_Database;
 }
 
-ODBC* ODBCObject::GetODBC (DB_TYPE eType, int msTimeOut)
+ODBC* ODBCObject::GetODBC ()
 {
-	//for to wait 0.01 sec
-	const int subtractionPerTick = msTimeOut > 0 ? 10 : 0;
 	int waitCnt = 0;
-	ODBC *pCon = NULL;
+	ODBC *pCon = nullptr;
 	do
 	{
 		// connection pool null check
-		if (mDatabases[eType] == NULL)
+		if (nullptr == m_Database)
 		{
-			_Logf (GLog::LL_FATAL, "[ODBC] connection pool is null type[%d]", eType);
-			return NULL;
+			//_Logf (GLog::LL_FATAL, "[ODBC] connection pool is null type[%d]", eType);
+			return nullptr;
 		}
 
-		pCon = mDatabases[eType]->GetConnection ();
-		// if not gain ODBC, wait 0.01 sec.
-		if (!pCon)
-		{
-			if ((msTimeOut -= subtractionPerTick) < 0)
-			{
-				return NULL;
-			}
-			_Logf (GLog::LL_DEBUG, "[ODBC] not gain DB connection. wait[%d] sec, remain wating time is [%d]ms.", MS_WAIT_PER_TICK * ++waitCnt, msTimeOut);
-			XSystem::Threading::Sleep (MS_WAIT_PER_TICK);
-		}
+		pCon = m_Database->GetConnection ();
 	} while (!pCon);
 
 	return pCon;
@@ -55,17 +38,14 @@ ODBC* ODBCObject::GetODBC (DB_TYPE eType, int msTimeOut)
 
 void ODBCObject::CheckDatabase ()
 {
-	for (int i = 0; i < MAX_DATABASE_COUNT; ++i)
+	// database null check
+	if (nullptr == m_Database)
 	{
-		// database null check
-		if (mDatabases[i] == NULL)
-		{
-			continue;
-		}
-
-		// health check connection 
-		mDatabases[i]->CheckConnection ();
+		return;
 	}
+
+	// health check connection 
+	m_Database->CheckConnection ();
 }
 
 bool ODBCObject::IsSuccessQuery (int retSQL)

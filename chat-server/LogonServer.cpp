@@ -1,5 +1,7 @@
 #include "pch.h"
-#include "ChattingServer.h"
+#include "LogonServer.h"
+#include "Define.h"
+#include "PacketDispatcher.h"
 
 LogonServer::LogonServer (boost::asio::io_service & io_service)
 	: Server(io_service)
@@ -8,26 +10,6 @@ LogonServer::LogonServer (boost::asio::io_service & io_service)
 
 LogonServer::~LogonServer ()
 {
-}
-
-
-void LogonServer::ProcessPacket (const int nSessionID, const char * pData)
-{
-	if (0 == strcmp (pData, "/quit")) {
-		// quit server.
-		m_SessionList[nSessionID]->Socket ().close ();
-	}
-
-	if (0 == strncmp (pData, "/nick ", 6)) {
-		m_SessionList[nSessionID]->SetName ("Yun");
-		char sztmpMessage[MAX_MESSAGE_LEN] = { 0 };
-		strcpy_s (sztmpMessage, MAX_MESSAGE_LEN, "Hello ");
-		::strcat_s (sztmpMessage, m_SessionList[nSessionID]->GetName ());
-		::strcat_s (sztmpMessage, "\r\n");
-		m_SessionList[nSessionID]->PostSend (false, strlen(sztmpMessage), sztmpMessage);
-	}
-
-	return;
 }
 
 void LogonServer::handle_accept (Session * pSession, const boost::system::error_code & error)

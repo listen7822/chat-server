@@ -10,18 +10,18 @@ ODBC::ODBC (void)
 
 	m_bUsing = false;
 
-	memset (m_szDBType, 0, sizeof (m_szDBType));
-	memset (m_szDriver, 0, sizeof (m_szDriver));
-	memset (m_szDBName, 0, sizeof (m_szDBName));
-	memset (m_szDSN, 0, sizeof (m_szDSN));
+	std::memset (m_szDBType, 0, sizeof (m_szDBType));
+	std::memset (m_szDriver, 0, sizeof (m_szDriver));
+	std::memset (m_szDBName, 0, sizeof (m_szDBName));
+	std::memset (m_szDSN, 0, sizeof (m_szDSN));
 
-	memset (m_szID, 0, sizeof (m_szID));
-	memset (m_szPW, 0, sizeof (m_szPW));
+	std::memset (m_szID, 0, sizeof (m_szID));
+	std::memset (m_szPW, 0, sizeof (m_szPW));
 
-	memset (m_szIP, 0, sizeof (m_szIP));
+	std::memset (m_szIP, 0, sizeof (m_szIP));
 	m_nPort = 0;
 
-	memset (m_szErrorMessage, 0, sizeof (m_szErrorMessage));
+	std::memset (m_szErrorMessage, 0, sizeof (m_szErrorMessage));
 }
 
 ODBC::~ODBC (void)
@@ -147,7 +147,7 @@ void ODBC::DisplayError ()
 
 	for (int i = 1; i < 10/*no whileloop*/; ++i)
 	{
-		memset (szMessage, 0, sizeof (szMessage));
+		std::memset (szMessage, 0, sizeof (szMessage));
 		SQLRETURN ret1 = SQLGetDiagRec (SQL_HANDLE_STMT, m_hStmt, i, szSqlState, &nNativeError, szMessage, SQL_MAX_MESSAGE_LENGTH, &nMessageLen);
 		if (ret1 == SQL_NO_DATA)
 			return;
@@ -173,20 +173,20 @@ void ODBC::CheckError (int retSQL, const char *pExecute)
 	// SQL_NEED_DATA          99       추가 데이터 필요
 	// SQL_STILL_EXECUTING    2        아직 (비동기)실해중
 	/////////////////////////////////////////////////////////////////////////////////////////////////
-	memset (m_szErrorMessage, 0, sizeof (m_szErrorMessage));
+	std::memset (m_szErrorMessage, 0, sizeof (m_szErrorMessage));
 	if (retSQL == SQL_SUCCESS)
 	{
-		strncpy (m_szErrorMessage, SQL_MSG_SUCCESS, SQL_MAX_MESSAGE_LENGTH);
+		strncpy_s (m_szErrorMessage, SQL_MSG_SUCCESS, SQL_MAX_MESSAGE_LENGTH);
 		return;
 	}
 	else if (retSQL == SQL_SUCCESS_WITH_INFO)
 	{
-		strncpy (m_szErrorMessage, SQL_MSG_SUCCESS, SQL_MAX_MESSAGE_LENGTH);
+		strncpy_s (m_szErrorMessage, SQL_MSG_SUCCESS, SQL_MAX_MESSAGE_LENGTH);
 		return;
 	}
 	else if (retSQL == SQL_NO_DATA)
 	{
-		strncpy (m_szErrorMessage, SQL_MSG_NO_DATA, SQL_MAX_MESSAGE_LENGTH);
+		strncpy_s (m_szErrorMessage, SQL_MSG_NO_DATA, SQL_MAX_MESSAGE_LENGTH);
 		return;
 	}
 
@@ -211,7 +211,7 @@ void ODBC::CheckError (int retSQL, const char *pExecute)
 	// 리턴 : SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_ERROR, or SQL_INVALID_HANDLE
 	for (int i = 1; i < 10; i++)
 	{
-		memset (szMessageText, 0, sizeof (szMessageText));
+		std::memset (szMessageText, 0, sizeof (szMessageText));
 		// 진단
 		//retSQL2 = SQLGetDiagRec(SQL_HANDLE_ENV, m_hEnv, i, szSqlstate, &nNativeError, szMessageText, SQL_MAX_MESSAGE_LENGTH, &nTextLength);
 		//_Logf(GLog::LL_ERROR, "[ODBC] SQL_HANDLE_TYPE = SQL_HANDLE_ENV,  RecNumber = %d, SQLState = %s, NativeError = %d, ErrorMessage = %s", i, szSqlstate, nNativeError, szMessageText);
@@ -230,8 +230,8 @@ void ODBC::CheckError (int retSQL, const char *pExecute)
 		// 첫번째 에러메시지로 설정한다.
 		if (i == 1)
 		{
-			memset (m_szErrorMessage, 0, sizeof (m_szErrorMessage));
-			strcpy (m_szErrorMessage, (char*)szMessageText);
+			std::memset (m_szErrorMessage, 0, sizeof (m_szErrorMessage));
+			strncpy_s (m_szErrorMessage, (char*)szMessageText, SQL_MAX_MESSAGE_LENGTH);
 			// 에러가 발생한 쿼리를 서버에 로그로 남기지만 Client 에게는 "DB Error" 라는 메시지만 전달한다.
 			//strcpy(m_szErrorMessage, "DB Error");
 		}
@@ -269,14 +269,14 @@ void ODBC::SetOnUsing (bool bUsing)
 
 int ODBC::Connect (const char *pDBType, const char *pDriver, const char *pIP, int nPort, const char *pDSN, const char *pDBName, const char *pID, const char *pPW)
 {
-	strncpy (m_szDBType, pDBType, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
-	strncpy (m_szDriver, pDriver, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
-	strncpy (m_szIP, pIP, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
+	strncpy_s (m_szDBType, pDBType, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
+	strncpy_s (m_szDriver, pDriver, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
+	strncpy_s (m_szIP, pIP, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
 	m_nPort = nPort;
-	strncpy (m_szDSN, pDSN, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
-	strncpy (m_szDBName, pDBName, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
-	strncpy (m_szID, pID, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
-	strncpy (m_szPW, pPW, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
+	strncpy_s (m_szDSN, pDSN, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
+	strncpy_s (m_szDBName, pDBName, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
+	strncpy_s (m_szID, pID, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
+	strncpy_s (m_szPW, pPW, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
 
 	SQLRETURN retSQL = SQL_INVALID_HANDLE;
 
@@ -307,16 +307,16 @@ int ODBC::Connect (const char *pDBType, const char *pDriver, const char *pIP, in
 	// SQLDriverConnect를 사용하여 연결할 경우
 	// DB 타입에 따른 드라이버 연결 문자열 만들기
 	char szDriverConnect[SQL_MAX_MESSAGE_LENGTH];
-	memset (szDriverConnect, 0, sizeof (char) * 512);
-	if (strncmp (m_szDBType, SQL_DB_TYPE_ORACLE, sizeof (SQL_DB_TYPE_ORACLE)) == 0)
+	std::memset (szDriverConnect, 0, sizeof (char) * 512);
+	if (std::strncmp (m_szDBType, SQL_DB_TYPE_ORACLE, sizeof (SQL_DB_TYPE_ORACLE)) == 0)
 	{
 		sprintf_s (szDriverConnect, sizeof (szDriverConnect), "Driver={%s};Server=%s;Port=%d;Uid=%s;Pwd=%s;", m_szDriver, m_szDSN, m_nPort, m_szID, m_szPW);
 	}
-	else if (strncmp (m_szDBType, SQL_DB_TYPE_MY_SQL, sizeof (SQL_DB_TYPE_MY_SQL)) == 0)
+	else if (std::strncmp (m_szDBType, SQL_DB_TYPE_MY_SQL, sizeof (SQL_DB_TYPE_MY_SQL)) == 0)
 	{
 		sprintf_s (szDriverConnect, sizeof (szDriverConnect), "Driver={%s};Server=%s;Port=%d;Database=%s;User=%s;Password=%s;stmt=set names euckr;", m_szDriver, m_szIP, m_nPort, m_szDBName, m_szID, m_szPW);
 	}
-	else if (strncmp (m_szDBType, SQL_DB_TYPE_MS_SQL, sizeof (SQL_DB_TYPE_MS_SQL)) == 0)
+	else if (std::strncmp (m_szDBType, SQL_DB_TYPE_MS_SQL, sizeof (SQL_DB_TYPE_MS_SQL)) == 0)
 	{
 		sprintf_s (szDriverConnect, sizeof (szDriverConnect), "Driver={%s};Server=%s,%d;DSN=%s;Database=%s;Uid=%s;Pwd=%s;", m_szDriver, m_szIP, m_nPort, m_szDSN, m_szDBName, m_szID, m_szPW);
 	}
@@ -328,7 +328,7 @@ int ODBC::Connect (const char *pDBType, const char *pDriver, const char *pIP, in
 
 	// 연결 결과를 저정할 문자열
 	SQLCHAR SqlConnStrOut[SQL_MAX_MESSAGE_LENGTH];
-	memset (SqlConnStrOut, 0, sizeof (SQLCHAR)*SQL_MAX_MESSAGE_LENGTH);
+	std::memset (SqlConnStrOut, 0, sizeof (SQLCHAR)*SQL_MAX_MESSAGE_LENGTH);
 	// 연결 결과를 저정할 문자열 길이
 	SQLSMALLINT	SqlcbConnStrOut = 0;
 	// ODBC DB 드라이버 연결
@@ -370,116 +370,6 @@ int ODBC::Connect (const char *pDBType, const char *pDriver, const char *pIP, in
 	return retSQL;
 }
 
-//-- [ORACLE FADE-OUT]
-int ODBC::Connect (const char *pDBType, const char *pDriver, const char *pIP, int nPort, const char *pDSN, const char *pDBName, const char *pID, const char *pPW, bool bAutoCommit)
-{
-	strncpy (m_szDBType, pDBType, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
-	strncpy (m_szDriver, pDriver, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
-	strncpy (m_szIP, pIP, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
-	m_nPort = nPort;
-	strncpy (m_szDSN, pDSN, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
-	strncpy (m_szDBName, pDBName, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
-	strncpy (m_szID, pID, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
-	strncpy (m_szPW, pPW, sizeof (char)*SQL_MAX_MESSAGE_LENGTH);
-
-	SQLRETURN retSQL = SQL_INVALID_HANDLE;
-
-	// 초기 NULL 로 ODBC 환경 핸들 생성
-	retSQL = SQLAllocHandle (SQL_HANDLE_ENV, SQL_NULL_HANDLE, &m_hEnv);
-	if (retSQL != SQL_SUCCESS && retSQL != SQL_SUCCESS_WITH_INFO)
-	{
-		//_Logf (GLog::LL_ERROR, "[ODBC] fail to m_hEnv SQLAllocHandle retSQL(%d)", retSQL);
-		return retSQL;
-	}
-
-	// ODBC 환경 설정
-	retSQL = SQLSetEnvAttr (m_hEnv, SQL_ATTR_ODBC_VERSION, (void *)SQL_OV_ODBC3, SQL_IS_INTEGER);
-	if (retSQL != SQL_SUCCESS && retSQL != SQL_SUCCESS_WITH_INFO)
-	{
-		//_Logf (GLog::LL_ERROR, "[ODBC] fail to m_hEnv SQLSetEnvAttr retSQL(%d)", retSQL);
-		return retSQL;
-	}
-
-	// ODBC 연결 핸들 생성
-	retSQL = SQLAllocHandle (SQL_HANDLE_DBC, m_hEnv, &m_hDBC);
-	if (retSQL != SQL_SUCCESS && retSQL != SQL_SUCCESS_WITH_INFO)
-	{
-		//_Logf (GLog::LL_ERROR, "[ODBC] fail to m_hDBC SQLAllocHandle retSQL(%d)", retSQL);
-		return retSQL;
-	}
-
-	// SQLDriverConnect를 사용하여 연결할 경우
-	// DB 타입에 따른 드라이버 연결 문자열 만들기
-	char szDriverConnect[SQL_MAX_MESSAGE_LENGTH];
-	memset (szDriverConnect, 0, sizeof (char) * 512);
-	if (strncmp (m_szDBType, SQL_DB_TYPE_ORACLE, sizeof (SQL_DB_TYPE_ORACLE)) == 0)
-	{
-		sprintf_s (szDriverConnect, sizeof (szDriverConnect), "Driver={%s};Server=%s;Port=%d;Uid=%s;Pwd=%s;", m_szDriver, m_szDSN, m_nPort, m_szID, m_szPW);
-	}
-	else if (strncmp (m_szDBType, SQL_DB_TYPE_MY_SQL, sizeof (SQL_DB_TYPE_MY_SQL)) == 0)
-	{
-		sprintf_s (szDriverConnect, sizeof (szDriverConnect), "Driver={%s};Server=%s;Port=%d;Database=%s;User=%s;Password=%s;stmt=set names euckr;", m_szDriver, m_szIP, m_nPort, m_szDBName, m_szID, m_szPW);
-	}
-	else if (strncmp (m_szDBType, SQL_DB_TYPE_MS_SQL, sizeof (SQL_DB_TYPE_MS_SQL)) == 0)
-	{
-		sprintf_s (szDriverConnect, sizeof (szDriverConnect), "Driver={%s};Server=%s,%d;DSN=%s;Database=%s;Uid=%s;Pwd=%s;", m_szDriver, m_szIP, m_nPort, m_szDSN, m_szDBName, m_szID, m_szPW);
-	}
-	else
-	{
-		//_Logf (GLog::LL_ERROR, "[ODBC] fail to match DB Type(%s, %s, %s), dbtype(%s)", SQL_DB_TYPE_ORACLE, SQL_DB_TYPE_MY_SQL, SQL_DB_TYPE_MS_SQL, m_szDBType);
-		return -1;
-	}
-
-	// 연결 결과를 저정할 문자열
-	SQLCHAR SqlConnStrOut[SQL_MAX_MESSAGE_LENGTH];
-	memset (SqlConnStrOut, 0, sizeof (SQLCHAR)*SQL_MAX_MESSAGE_LENGTH);
-	// 연결 결과를 저정할 문자열 길이
-	SQLSMALLINT	SqlcbConnStrOut = 0;
-	// ODBC DB 드라이버 연결
-	retSQL = SQLDriverConnect (m_hDBC, NULL, (SQLCHAR*)szDriverConnect, SQL_NTS, SqlConnStrOut, SQL_MAX_MESSAGE_LENGTH, &SqlcbConnStrOut, SQL_DRIVER_NOPROMPT);
-	if (retSQL != SQL_SUCCESS && retSQL != SQL_SUCCESS_WITH_INFO)
-	{
-		ExtractError (__FUNCTION__, m_hDBC, SQL_HANDLE_DBC);
-		SQLFreeHandle (SQL_HANDLE_DBC, m_hDBC);
-		m_hDBC = NULL;
-		//_Logf (GLog::LL_ERROR, "[ODBC] fail to m_hDBC SQLDriverConnect : %s retSQL(%d)", szDriverConnect, retSQL);
-		return retSQL;
-	}
-
-
-	if (!bAutoCommit)
-	{
-		// ODBC 연결 속성 설정
-		// 쿼리 실행이 성공이면 자동 커밋되도록
-		//retSQL = SQLSetConnectAttr(m_hDBC, SQL_ATTR_AUTOCOMMIT, (SQLPOINTER)SQL_AUTOCOMMIT_ON, 0);
-		// SQLEndTran() 를 사용하여 트랜잭션 처리시
-		retSQL = SQLSetConnectAttr (m_hDBC, SQL_ATTR_AUTOCOMMIT, (SQLPOINTER)SQL_AUTOCOMMIT_OFF, 0);
-		if (retSQL != SQL_SUCCESS && retSQL != SQL_SUCCESS_WITH_INFO)
-		{
-			SQLFreeHandle (SQL_HANDLE_DBC, m_hDBC);
-			m_hDBC = NULL;
-			//_Logf (GLog::LL_ERROR, "[ODBC] fail to m_hDBC SQLSetConnectAttr retSQL(%d)", retSQL);
-			return retSQL;
-		}
-	}
-
-	// ODBC 명령 핸들 생성
-	retSQL = SQLAllocHandle (SQL_HANDLE_STMT, m_hDBC, &m_hStmt);
-	if (retSQL != SQL_SUCCESS && retSQL != SQL_SUCCESS_WITH_INFO)
-	{
-		SQLFreeHandle (SQL_HANDLE_DBC, m_hDBC);
-		m_hDBC = NULL;
-		//_Logf (GLog::LL_ERROR, "[ODBC] fail to m_hStmt allocation retSQL(%d)", retSQL);
-		return retSQL;
-	}
-
-	//_Logf (GLog::LL_INFO, "[ODBC] Connect Database Success [DBType:%s][Driver:%s][IP:%s][Port:%d][DSN:%s][Name:%s][retSQL:%d]", pDBType, pDriver, pIP, nPort, pDSN, pDBName, retSQL);
-
-	return retSQL;
-}
-
-
-
 bool ODBC::FreeStmt (SQLUSMALLINT option)
 {
 	if (m_hStmt == NULL)
@@ -505,14 +395,14 @@ bool ODBC::BindParameter (SQLUSMALLINT ipar, SQLSMALLINT fParamType, SQLSMALLINT
 {
 	if (m_hStmt == NULL)
 	{
-		_Logf (GLog::LL_ERROR, "[ODBC] m_hStmt == NULL");
+		//_Logf (GLog::LL_ERROR, "[ODBC] m_hStmt == NULL");
 		return false;
 	}
 
 	SQLRETURN ret = SQLBindParameter (m_hStmt, ipar, fParamType, fCType, fSqlType, cbColDef, ibScale, rgbValue, cbValueMax, pcbValue);
 	if (ret != SQL_SUCCESS)
 	{
-		_Logf (GLog::LL_ERROR, "[ODBC] ret != SQL_SUCCESS, ret=%d", ret);
+		//_Logf (GLog::LL_ERROR, "[ODBC] ret != SQL_SUCCESS, ret=%d", ret);
 		DisplayError ();
 		return false;
 	}
@@ -524,14 +414,14 @@ bool ODBC::Execute (SQLCHAR* statementText)
 {
 	if (m_hStmt == NULL)
 	{
-		_Logf (GLog::LL_ERROR, "[ODBC] m_hStmt == NULL");
+		//_Logf (GLog::LL_ERROR, "[ODBC] m_hStmt == NULL");
 		return false;
 	}
 
 	SQLRETURN ret = SQLExecDirect (m_hStmt, statementText, SQL_NTS);
 	if (ret != SQL_SUCCESS)
 	{
-		_Logf (GLog::LL_ERROR, "[ODBC] ret != SQL_SUCCESS, ret=%d", ret);
+		//_Logf (GLog::LL_ERROR, "[ODBC] ret != SQL_SUCCESS, ret=%d", ret);
 		DisplayError ();
 		return false;
 	}
@@ -543,14 +433,14 @@ bool ODBC::Prepare (SQLCHAR* statementText)
 {
 	if (m_hStmt == NULL)
 	{
-		_Logf (GLog::LL_ERROR, "[ODBC] m_hStmt == NULL");
+		//_Logf (GLog::LL_ERROR, "[ODBC] m_hStmt == NULL");
 		return false;
 	}
 
 	SQLRETURN ret = SQLPrepare (m_hStmt, statementText, SQL_NTS);
 	if (ret != SQL_SUCCESS)
 	{
-		_Logf (GLog::LL_ERROR, "[ODBC] ret != SQL_SUCCESS, ret=%d", ret);
+		//_Logf (GLog::LL_ERROR, "[ODBC] ret != SQL_SUCCESS, ret=%d", ret);
 		DisplayError ();
 		return false;
 	}
@@ -562,14 +452,14 @@ bool ODBC::Execute ()
 {
 	if (m_hStmt == NULL)
 	{
-		_Logf (GLog::LL_ERROR, "[ODBC] m_hStmt == NULL");
+		//_Logf (GLog::LL_ERROR, "[ODBC] m_hStmt == NULL");
 		return false;
 	}
 
 	SQLRETURN ret = SQLExecute (m_hStmt);
 	if (ret != SQL_SUCCESS)
 	{
-		_Logf (GLog::LL_ERROR, "[ODBC] ret != SQL_SUCCESS, ret=%d", ret);
+		//_Logf (GLog::LL_ERROR, "[ODBC] ret != SQL_SUCCESS, ret=%d", ret);
 		DisplayError ();
 		return false;
 	}
@@ -579,7 +469,7 @@ bool ODBC::Execute ()
 
 int ODBC::Query (const char *pQuery)
 {
-	_Logf (GLog::LL_DEBUG, "[ODBCQueryTrace] %s", pQuery);
+	//_Logf (GLog::LL_DEBUG, "[ODBCQueryTrace] %s", pQuery);
 
 	SQLRETURN retSQL = SQL_INVALID_HANDLE;
 
@@ -617,11 +507,11 @@ int ODBC::CheckConnection ()
 		retSQL = Connect (m_szDBType, m_szDriver, m_szIP, m_nPort, m_szDSN, m_szDBName, m_szID, m_szPW);
 		if (retSQL != SQL_SUCCESS && retSQL != SQL_SUCCESS_WITH_INFO)
 		{
-			_Logf (GLog::LL_ERROR, "[ODBC] fail to reconnect db");
+			//_Logf (GLog::LL_ERROR, "[ODBC] fail to reconnect db");
 		}
 		else
 		{
-			_Logf (GLog::LL_INFO, "[ODBC] %x, DB Reconnected.", m_hDBC);
+			//_Logf (GLog::LL_INFO, "[ODBC] %x, DB Reconnected.", m_hDBC);
 		}
 	}
 
@@ -708,24 +598,6 @@ int ODBC::CloseCursor ()
 }
 
 int ODBC::GetData (int nColNum, bool &nResult)
-{
-	SQLRETURN retSQL = SQL_INVALID_HANDLE;
-	SQLLEN ind = SQL_NTS;
-
-	// 명령 핸들이 없다면 실패
-	if (m_hStmt == NULL)
-	{
-		return retSQL;
-	}
-	// 지정한 컬럼의 데이터 가져오기(SQLGetData 내부에서 SQLFetch 사용)
-	retSQL = SQLGetData (m_hStmt, (SQLUSMALLINT)nColNum, SQL_C_TINYINT, &nResult, sizeof (nResult), &ind);
-
-	CheckError (retSQL, "GetData()");
-
-	return retSQL;
-}
-
-int ODBC::GetData (int nColNum, byte &nResult)
 {
 	SQLRETURN retSQL = SQL_INVALID_HANDLE;
 	SQLLEN ind = SQL_NTS;
@@ -855,19 +727,19 @@ int ODBC::GetData (int nColNum, char* &pResult)
 	// 데이터 길이가 파악된다면 해당 크기만큼 버퍼할당하여 가져오기
 	if (retSQL == SQL_SUCCESS_WITH_INFO && ind > 0)
 	{
-		_Logf (GLog::LL_INFO, "[ODBC] GetData() Buffer Size : Current-Data Length(%d)", ind);
+		//_Logf (GLog::LL_INFO, "[ODBC] GetData() Buffer Size : Current-Data Length(%d)", ind);
 		// 이 함수에서 메모리 할당을 하기때문에 호출한 곳에서 해줘야 한다.
 		pTemp = new char[ind + 1];
-		memset (pTemp, 0, sizeof (pTemp));
+		std::memset (pTemp, 0, sizeof (pTemp));
 		// 지정한 컬럼의 데이터 가져오기(SQLGetData 내부에서 SQLFetch 사용)
 		retSQL = SQLGetData (m_hStmt, (SQLUSMALLINT)nColNum, SQL_C_CHAR, pTemp, ind + 1, &ind);
 	}
 	// 너무 커서 길이를 파악할 수 없다면 고정 크기로 버퍼할당하여 가져오기
 	else if (ind == SQL_NO_TOTAL)
 	{
-		_Logf (GLog::LL_INFO, "[ODBC] GetData() Buffer Size : Fix Length(1024*10)");
+		//_Logf (GLog::LL_INFO, "[ODBC] GetData() Buffer Size : Fix Length(1024*10)");
 		pTemp = new char[1024 * 10];
-		memset (pTemp, 0, sizeof (char)*(1024 * 10));
+		std::memset (pTemp, 0, sizeof (char)*(1024 * 10));
 		// 지정한 컬럼의 데이터 가져오기(SQLGetData 내부에서 SQLFetch 사용)
 		retSQL = SQLGetData (m_hStmt, (SQLUSMALLINT)nColNum, SQL_C_CHAR, pTemp, 1024 * 10, &ind);
 	}
@@ -892,66 +764,6 @@ int ODBC::GetData (int nColNum, char *szResult, int nSize, int *pIndex)
 	retSQL = SQLGetData (m_hStmt, (SQLUSMALLINT)nColNum, SQL_C_CHAR, szResult, nSize, &ind);
 	(*pIndex) = ind;
 
-	CheckError (retSQL, "GetData()");
-
-	return retSQL;
-}
-
-int ODBC::GetData (int nColNum, tm &tmResult)
-{
-	SQLRETURN retSQL = SQL_INVALID_HANDLE;
-	SQLLEN ind = SQL_NTS;
-
-	// 명령 핸들이 없다면 실패
-	if (m_hStmt == NULL)
-	{
-		return SQL_INVALID_HANDLE;
-	}
-
-	TIMESTAMP_STRUCT timestamp;
-
-	// 지정한 컬럼의 데이터 가져오기(SQLGetData 내부에서 SQLFetch 사용)
-	retSQL = SQLGetData (m_hStmt, (SQLUSMALLINT)nColNum, SQL_C_TYPE_TIMESTAMP, &timestamp, sizeof (timestamp), &ind);
-	if (retSQL == SQL_SUCCESS)
-	{
-		tmResult.tm_year = timestamp.year - 1900;
-		tmResult.tm_mon = timestamp.month - 1;
-		tmResult.tm_mday = timestamp.day;
-		tmResult.tm_hour = timestamp.hour;
-		tmResult.tm_min = timestamp.minute;
-		tmResult.tm_sec = timestamp.second;
-		timestamp.fraction;
-	}
-	CheckError (retSQL, "GetData()");
-
-	return retSQL;
-}
-
-int ODBC::GetData (int nColNum, SYSTEMTIME& stResult)
-{
-	SQLRETURN retSQL = SQL_INVALID_HANDLE;
-	SQLLEN ind = SQL_NTS;
-
-	// 명령 핸들이 없다면 실패
-	if (m_hStmt == NULL)
-	{
-		return SQL_INVALID_HANDLE;
-	}
-
-	TIMESTAMP_STRUCT timestamp;
-
-	// 지정한 컬럼의 데이터 가져오기(SQLGetData 내부에서 SQLFetch 사용)
-	retSQL = SQLGetData (m_hStmt, (SQLUSMALLINT)nColNum, SQL_C_TYPE_TIMESTAMP, &timestamp, sizeof (timestamp), &ind);
-	if (retSQL == SQL_SUCCESS && ind > 0)
-	{
-		stResult.wYear = timestamp.year;
-		stResult.wMonth = timestamp.month;
-		stResult.wDay = timestamp.day;
-		stResult.wHour = timestamp.hour;
-		stResult.wMinute = timestamp.minute;
-		stResult.wSecond = timestamp.second;
-		timestamp.fraction;
-	}
 	CheckError (retSQL, "GetData()");
 
 	return retSQL;
@@ -1020,81 +832,9 @@ char* ODBC::GetLastError ()
 	return m_szErrorMessage;
 }
 
-void ODBC::SetCaller (const string& strCaller)
+void ODBC::SetCaller (const std::string& strCaller)
 {
 	m_StrCaller.clear ();
 	m_StrCaller = strCaller;
-}
-
-//-- [ORACLE FADE-OUT]
-SQLHSTMT ODBC::GetSqlHstmt ()
-{
-	return m_hStmt;
-}
-
-//-- [ORACLE FADE-OUT]
-bool ODBC::Fetch (bool *nodata)
-{
-
-	SQLRETURN retSQL = SQLFetch (m_hStmt);
-	if (nodata) {
-		*nodata = (retSQL == SQL_NO_DATA);
-		return true;
-	}
-
-	if (retSQL == SQL_SUCCESS || retSQL == SQL_SUCCESS_WITH_INFO) {
-		return true;
-	}
-	else {
-		if (retSQL != SQL_NO_DATA) {
-			CheckError (retSQL, "Fetch()");
-		}
-		return false;
-	}
-
-	return false;
-}
-
-//-- [ORACLE FADE-OUT]
-int ODBC::ExecuteDirect (const char *pQuery, char *pCaller)
-{
-	_Logf (GLog::LL_DEBUG, "[ODBC] %s", pQuery);
-
-	SQLRETURN retSQL = SQL_INVALID_HANDLE;
-
-	unsigned long ulStartSec = ::GetTickCount ();
-
-	// 쿼리 실행하기
-	retSQL = SQLExecDirect (m_hStmt, (SQLCHAR *)pQuery, (SQLINTEGER)strlen (pQuery));
-	if (!SQL_SUCCEEDED (retSQL)) {
-		CheckError (retSQL, pQuery);
-	}
-
-	unsigned long ulEndSec = ::GetTickCount ();
-
-	if ((ulEndSec - ulStartSec) > 1000)
-	{
-		_Logf (GLog::LL_ERROR, "[ODBC][ODBC::ExecuteDirect][Caller:%s][Sec:%d delayed]",
-			pCaller, ulEndSec - ulStartSec);
-	}
-
-	return retSQL;
-}
-
-
-//-- [ORACLE FADE-OUT]
-int ODBC::ExecuteDirect (const char *pQuery)
-{
-	_Logf (GLog::LL_DEBUG, "[ODBC] %s", pQuery);
-
-	SQLRETURN retSQL = SQL_INVALID_HANDLE;
-
-	// 쿼리 실행하기
-	retSQL = SQLExecDirect (m_hStmt, (SQLCHAR *)pQuery, (SQLINTEGER)strlen (pQuery));
-	if (!SQL_SUCCEEDED (retSQL)) {
-		CheckError (retSQL, pQuery);
-	}
-
-	return retSQL;
 }
 

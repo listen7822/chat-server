@@ -8,7 +8,8 @@
 #include <vector>
 
 #include "ServerSession.h"
-#include "Protocol.h"
+
+class PacketDispatcher;
 
 class Server
 {
@@ -19,7 +20,7 @@ public:
 	void Init (const int nMaxSessionCount);
 	void Start ();
 	void CloseSession (const int nSessionID);
-	virtual void ProcessPacket (const int nSessionID, const char*pData) = 0;
+	PacketDispatcher* GetPacketDispather () { return m_pPacketDispatcher; }	
 
 protected:
 	bool PostAccept ();
@@ -31,5 +32,7 @@ protected:
 
 	std::vector< Session* > m_SessionList;
 	std::deque< int > m_SessionQueue;
+
+	PacketDispatcher* m_pPacketDispatcher;
 };
 

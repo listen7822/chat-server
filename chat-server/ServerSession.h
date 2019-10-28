@@ -5,9 +5,6 @@
 #include <boost/bind.hpp>
 #include <boost/asio.hpp>
 
-#include "Protocol.h"
-
-
 class Server;
 
 class Session 
@@ -31,7 +28,7 @@ public:
 
 private:
 	void handle_write(const boost::system::error_code& error, size_t bytes_transferred);	
-	void handle_receive( const boost::system::error_code& error, boost::asio::streambuf& buffer );
+	void handle_receive( const boost::system::error_code& error, size_t bytes_transferred);
 	
 	int m_nSessionID;
 	boost::asio::ip::tcp::socket m_Socket;

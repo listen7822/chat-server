@@ -1,8 +1,12 @@
 #pragma once
-#include <odbcinst.h>
-#include <sqlext.h>
-#include <sql.h>
+#if defined(WIN32) || defined(WIN64)
+#include <Windows.h>
+#endif
 #include <string>
+#include <sql.h>
+#include <sqlext.h>
+#include <sqltypes.h>
+
 static const char* SQL_MSG_SUCCESS = "Success.";
 static const char* SQL_MSG_NO_DATA = "No Data";
 
@@ -79,10 +83,6 @@ public:
 	int Fetch ();
 	// Fetch 로 진행한 쿼리 닫기
 	int CloseCursor ();
-
-	// DB 쿼리 결과 집합의 지정 컬럼을 매개변수에 바인딩 한다.
-	int BindColumn (int nColNum, int nDataType, void *pResult, int &nResultLength);
-
 	// DB 쿼리 결과 집합의 로우 개수 가져온다.
 	int GetNumOfResultRows ();
 	// DB 쿼리 결과 집합의 컬럼 개수 가져온다.
@@ -121,11 +121,4 @@ public:
 	bool Prepare (SQLCHAR* statementText);
 	bool Execute (SQLCHAR* statementText);
 	bool Execute ();
-
-	//-- [ORACLE FADE-OUT]
-	SQLHSTMT	GetSqlHstmt ();
-	bool		Fetch (bool *nodata);
-	int			Connect (const char *pDBType, const char *pDriver, const char *pIP, int nPort, const char *pDSN, const char *pDBName, const char *pID, const char *pPW, bool bAutoCommit);
-	int			ExecuteDirect (const char *pQuery);
-	int			ExecuteDirect (const char *pQuery, char *pCaller);
 };
