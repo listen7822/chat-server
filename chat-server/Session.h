@@ -4,10 +4,11 @@
 
 #include <boost/bind.hpp>
 #include <boost/asio.hpp>
+#include "Monitor.h"
 
 class Server;
 
-class Session 
+class Session : Monitor
 {
 public:
 	Session(int nSessionID, boost::asio::io_context& io_context, Server* pServer);
@@ -22,6 +23,7 @@ public:
 	void PostReceive();
 	
 	void PostSend( const bool bImmediately, const int nSize, char* pData );
+	bool CloseSocket ();
 
 	const char* GetName() { return m_Name.c_str(); }
 	void SetName (std::string name) { m_Name = name; }
@@ -36,4 +38,5 @@ private:
 	std::string m_Name;
 	boost::asio::streambuf m_buffer;
 	Server* m_pServer;
+	Monitor m_csSession;
 };

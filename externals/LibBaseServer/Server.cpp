@@ -4,7 +4,7 @@
 
 
 Server::Server (boost::asio::io_service & io_service)
-	: m_acceptor (io_service, boost::asio::ip::tcp::endpoint (boost::asio::ip::tcp::v4 (), PORT_NUMBER))
+	: m_acceptor (io_service, boost::asio::ip::tcp::endpoint (boost::asio::ip::tcp::v4 (), LOGON_PORT_NUMBER))
 {
 	m_bIsAccepting = false;
 }
@@ -40,11 +40,9 @@ void Server::Start ()
 	PostAccept ();
 }
 
-void Server::CloseSession (const int nSessionID)
+void Server::MoveSessionToQueue (const int nSessionID)
 {
 	std::cout << "클라이언트 접속 종료. 세션 ID: " << nSessionID << std::endl;
-
-	m_SessionList[nSessionID]->Socket ().close ();
 
 	m_SessionQueue.push_back (nSessionID);
 

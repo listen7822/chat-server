@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "stdafx.h"
 #include "ScopedODBC.h"
 #include "ODBCObject.h"
 #include "ODBC.h"

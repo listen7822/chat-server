@@ -1,7 +1,7 @@
 #pragma once
 
 #include <map>
-#include "ServerSession.h"
+#include "Session.h"
 
 class PacketDispatcher
 {

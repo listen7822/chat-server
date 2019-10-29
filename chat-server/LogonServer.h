@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 
-#include "ServerSession.h"
+#include "Session.h"
 #include "Server.h"
 
 class LogonServer : public Server

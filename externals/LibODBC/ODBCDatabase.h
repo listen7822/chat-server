@@ -10,7 +10,6 @@
 #include <sqltypes.h>
 #include "ODBC.h"
 #include "Monitor.h"
-#include "Define.h"
 
 static const std::string HEALTH_CHECK_QUERY_STRING = "select 1;";
 

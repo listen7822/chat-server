@@ -7,5 +7,7 @@ class LogonPacketDispatcher :
 public:
 	LogonPacketDispatcher ();
 	virtual ~LogonPacketDispatcher ();
+
+	PacketDispatcher::COMMAND_TYPE GetCommandType (const char* pData) override;
 };
 

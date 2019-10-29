@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 
-#include "ServerSession.h"
+#include "Session.h"
 
 class PacketDispatcher;
 
@@ -19,7 +19,7 @@ public:
 
 	void Init (const int nMaxSessionCount);
 	void Start ();
-	void CloseSession (const int nSessionID);
+	void MoveSessionToQueue (const int nSessionID);
 	PacketDispatcher* GetPacketDispather () { return m_pPacketDispatcher; }	
 
 protected:
@@ -30,8 +30,8 @@ protected:
 
 	boost::asio::ip::tcp::acceptor m_acceptor;
 
-	std::vector< Session* > m_SessionList;
-	std::deque< int > m_SessionQueue;
+	std::vector<Session*> m_SessionList;
+	std::deque<int> m_SessionQueue;
 
 	PacketDispatcher* m_pPacketDispatcher;
 };

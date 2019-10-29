@@ -1,22 +1,21 @@
 #include "pch.h"
-#include "LogonServer.h"
+#include "RoomServer.h"
 #include "Define.h"
-#include "PacketDispatcher.h"
+#include <string>
 
-LogonServer::LogonServer (boost::asio::io_service & io_service)
-	: Server(io_service)
+RoomServer::RoomServer (boost::asio::io_service & io_service) : Server(io_service)
 {
 }
 
-LogonServer::~LogonServer ()
+RoomServer::~RoomServer ()
 {
 }
 
-void LogonServer::handle_accept (Session * pSession, const boost::system::error_code & error)
+void RoomServer::handle_accept (Session * pSession, const boost::system::error_code & error)
 {
 	if (!error)
 	{
-		std::cout << "肺弊牢 立加 己傍. SessionID: "
+		std::cout << "冯 立加 己傍. SessionID: "
 			<< pSession->SessionID ()
 			<< "Name: "
 			<< pSession->GetName()
@@ -37,4 +36,3 @@ void LogonServer::handle_accept (Session * pSession, const boost::system::error_
 		std::cout << "error No: " << error.value () << " error Message: " << error.message () << std::endl;
 	}
 }
-

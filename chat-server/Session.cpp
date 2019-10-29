@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "ServerSession.h"
+#include "Session.h"
 #include "LogonServer.h"
 #include "Define.h"
 #include "PacketDispatcher.h"
@@ -65,40 +65,59 @@ void Session::PostSend( const bool bImmediately, const int nSize, char* pData )
 							);
 }
 
+bool Session::CloseSocket ()
+{
+	Monitor::Owner lock (m_csSession);
+	{
+		if (m_Socket.is_open ()) {
+			m_Socket.close ();
+			return true;
+		}
+	}
+
+	return false;
+}
+
 void Session::handle_write(const boost::system::error_code& error, size_t bytes_transferred)
 {
-	delete[] m_SendDataQueue.front();
-	m_SendDataQueue.pop_front();
-
-	if( m_SendDataQueue.empty() == false )
+	Monitor::Owner lock (m_csSession);
 	{
-		char* pData = m_SendDataQueue.front();
-		
-		PostSend( true, std::strlen(pData), pData );
+		delete[] m_SendDataQueue.front();
+		m_SendDataQueue.pop_front();
+
+		if( m_SendDataQueue.empty() == false )
+		{
+			char* pData = m_SendDataQueue.front();
+			
+			PostSend( true, std::strlen(pData), pData );
+		}
 	}
 }
 
 void Session::handle_receive( const boost::system::error_code& error, size_t bytes_transferred)
 {
-	if( error )
+	Monitor::Owner lock (m_csSession);
 	{
-		if( error == boost::asio::error::eof )
+		if( error )
 		{
-			std::cout << "클라이언트와 연결이 끊어졌습니다" << std::endl;
-		}
-		else 
-		{
-			std::cout << "error No: " << error.value() << " error Message: " << error.message() << std::endl;
-		}
+			if( error == boost::asio::error::eof )
+			{
+				std::cout << "클라이언트와 연결이 끊어졌습니다" << std::endl;
+			}
+			else 
+			{
+				std::cout << "error No: " << error.value() << " error Message: " << error.message() << std::endl;
+			}
 
-		m_pServer->CloseSession( m_nSessionID );
-	}
-	else
-	{
-		m_pServer->GetPacketDispather()->DoDispatch( this,
-			boost::asio::buffer_cast<const char*>(m_buffer.data())
-		);	
-		PostReceive(); 
+			m_pServer->MoveSessionToQueue( m_nSessionID );
+		}
+		else
+		{
+			m_pServer->GetPacketDispather()->DoDispatch( this,
+				boost::asio::buffer_cast<const char*>(m_buffer.data())
+			);	
+			PostReceive(); 
+		}
 	}
 }
 

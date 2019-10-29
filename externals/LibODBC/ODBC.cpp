@@ -1,7 +1,7 @@
-#include "pch.h"
+#include "stdafx.h"
 #include "ODBC.h"
 
-ODBC::ODBC (void)
+ODBC::ODBC::ODBC (void)
 {
 	m_hEnv = NULL;
 	m_hStmt = NULL;
