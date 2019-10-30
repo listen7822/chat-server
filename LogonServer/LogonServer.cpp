@@ -1,21 +1,33 @@
-// LogonServer.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include "pch.h"
-#include <iostream>
+#include "LogonServer.h"
 
-int main()
+LogonServer::LogonServer (int threadPoolSize, int port)
+	: Server(threadPoolSize, port)
 {
-    std::cout << "Hello World!\n"; 
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+LogonServer::~LogonServer ()
+{
+}
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+void LogonServer::Init (const int nMaxSessionCount)
+{
+	m_pPacketDispatcher.reset(new LogonPacketDispatcher ());
+	Server::Init (nMaxSessionCount);
+}
+
+void LogonServer::OnAccept (int sessionId)
+{
+	m_SessionList[sessionId]->SetNickname ("Spiderman");
+	std::cout << "로그인 접속 성공. SessionID: "
+		<< std::to_string(sessionId)
+		<< " Nickname: "
+		<< m_SessionList[sessionId]->GetNickname()
+		<< std::endl;
+
+	std::string msg;
+	msg.append ("Hello ");
+	msg.append (m_SessionList[sessionId]->GetNickname ());
+	msg.append ("\r\n");
+	m_SessionList[sessionId]->Send (false, msg.length(), msg.c_str());
+}

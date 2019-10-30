@@ -6,37 +6,34 @@
 #include <boost/asio.hpp>
 #include "Monitor.h"
 
-class Server;
+class PacketDispatcher;
 
-class Session : Monitor
+class Session
 {
 public:
-	Session(int nSessionID, boost::asio::io_context& io_context, Server* pServer);
+	Session(int nSessionID, boost::asio::io_context& io_context);
 	~Session();
 
-	int SessionID() { return m_nSessionID; }
-
 	boost::asio::ip::tcp::socket& Socket() { return m_Socket; }
-
-	void Init (std::string name);
-
-	void PostReceive();
-	
-	void PostSend( const bool bImmediately, const int nSize, char* pData );
-	bool CloseSocket ();
-
-	const char* GetName() { return m_Name.c_str(); }
-	void SetName (std::string name) { m_Name = name; }
+	void Init (std::string nickname);
+	void Receive();
+	void Send( const bool bImmediately, const int nSize, char* pData );
+	const char* GetName() { return m_Nicname.c_str(); }
+	void SetName (std::string nickname) { m_Nicname = nickname; }
+	int SessionID() { return m_SessionId; }
 
 private:
+	void OnReceieve( const boost::system::error_code& error, size_t bytes_transferred);
 	void handle_write(const boost::system::error_code& error, size_t bytes_transferred);	
-	void handle_receive( const boost::system::error_code& error, size_t bytes_transferred);
 	
-	int m_nSessionID;
+	int m_SessionId;
 	boost::asio::ip::tcp::socket m_Socket;
-	std::deque< char* > m_SendDataQueue;
-	std::string m_Name;
-	boost::asio::streambuf m_buffer;
-	Server* m_pServer;
-	Monitor m_csSession;
+	std::deque<char*> m_SendDataQueue;
+	std::string m_Nicname;
+	boost::asio::streambuf m_Buffer;
+	boost::asio::io_service::strand m_Strand;
+	boost::shared_ptr<PacketDispatcher> m_pDispatcher;
+
+protected:
+	void OnReceive (const char* pData) = 0;
 };

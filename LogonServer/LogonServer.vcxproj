@@ -24,14 +24,14 @@
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>LogonServer</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
-    <ProjectName>3.LogonServer</ProjectName>
+    <ProjectName>1.LogonServer</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -107,10 +107,13 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>..\externals\3rdParty\boost\include\;..\externals\LibODBC\;..\externals\LibBaseServer\;..\externals\LibUtil\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\externals\3rdParty\boost\libs\;..\externals\LibBaseServer\libs\;..\externals\LibODBC\libs\;..\externals\LibUtil\libs\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libboost_date_time-vc141-mt-gd-x32-1_71.lib;libboost_exception-vc141-mt-gd-x32-1_71.lib;libboost_regex-vc141-mt-gd-x32-1_71.lib;libboost_thread-vc141-mt-gd-x32-1_71.lib;libboost_chrono-vc141-mt-gd-x32-1_71.lib;LibBaseServer-mdd.lib;LibODBC-mdd.lib;LibUtil-mdd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -152,16 +155,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="LogonPacketDispatcher.h" />
+    <ClInclude Include="LogonServer.h" />
+    <ClInclude Include="MySqlObject.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="LogonPacketDispatcher.cpp" />
     <ClCompile Include="LogonServer.cpp" />
+    <ClCompile Include="MySqlObject.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ServerMain.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
