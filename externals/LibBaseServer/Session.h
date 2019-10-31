@@ -23,6 +23,7 @@ public:
 	void Init (std::string nickname);
 	void Receive ();
 	void Send (const bool immediately, const int size, const char* pData);
+	void QuitServer ();
 	const char* GetNickname () { return m_Nickname.c_str (); }
 	void SetNickname (std::string nickname) { m_Nickname = nickname; }
 	int SessionID () { return m_SessionId; }
@@ -30,7 +31,6 @@ public:
 private:
 	void OnReceive (const boost::system::error_code& error, std::size_t bytes_transferred);
 	void OnWrite (const boost::system::error_code& error, std::size_t bytes_transferred);
-	void handle_write (const boost::system::error_code& error, std::size_t bytes_transferred);
 
 	int m_SessionId;
 	boost::asio::ip::tcp::socket m_Socket;

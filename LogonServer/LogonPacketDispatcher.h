@@ -11,6 +11,6 @@ public:
 
 private:
 protected:
-	PacketDispatcher::COMMAND_TYPE GetCommandType (const char* pData) override;
+	void GetCommandTypeAndParam (COMMAND_TYPE& commandType, std::string& param, const char* pData) override;
 };
 

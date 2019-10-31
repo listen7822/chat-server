@@ -40,7 +40,7 @@ void Session::Send (const bool immediately, const int size, const char * pData)
 	{
 		static const int MAX_MESSAGE_SIZE = 128;
 		pSendData = new char[MAX_MESSAGE_SIZE];
-		memcpy( pSendData, pData, size);
+		memcpy( pSendData, pData, size + 1);
 
 		m_SendDataQueue.push_back( pSendData );
 	}
@@ -63,6 +63,11 @@ void Session::Send (const bool immediately, const int size, const char * pData)
 	);
 }
 
+void Session::QuitServer ()
+{
+	m_pServer->MoveSessionToQueue(m_SessionId);
+}
+
 void Session::OnReceive (const boost::system::error_code & error, std::size_t bytes_transferred)
 {
 	if (error)
@@ -76,11 +81,11 @@ void Session::OnReceive (const boost::system::error_code & error, std::size_t by
 			std::cout << "error No: " << error.value() << " error Message: " << error.message() << std::endl;
 		}
 
-		m_pServer->MoveSessionToQueue(m_SessionId);
+		QuitServer ();
 		return;
 	}
 
-	m_pServer->GetPacketDispather()->DoDispatch(m_SessionId,
+	m_pServer->GetPacketDispather()->DoDispatch(this,
 		boost::asio::buffer_cast<const char*>(m_Buffer.data())
 	);	
 	m_Buffer.consume (bytes_transferred);

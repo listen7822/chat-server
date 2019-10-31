@@ -155,12 +155,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Handler.h" />
     <ClInclude Include="LogonPacketDispatcher.h" />
     <ClInclude Include="LogonServer.h" />
     <ClInclude Include="MySqlObject.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Handler.cpp" />
     <ClCompile Include="LogonPacketDispatcher.cpp" />
     <ClCompile Include="LogonServer.cpp" />
     <ClCompile Include="MySqlObject.cpp" />

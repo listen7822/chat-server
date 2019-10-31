@@ -7,6 +7,8 @@ public:
 	MySqlObject ();
 	~MySqlObject ();
 
-	std::string GetUserToken ();
+	bool GetUserToken (std::string nickname, std::string& token);
+	bool ChangeUserNickname (std::string preNickname, std::string postNikcname);
+	bool CreateUser (std::string& nickname, std::string& token);
 };
 

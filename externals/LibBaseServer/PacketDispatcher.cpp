@@ -1,20 +1,20 @@
 #include "stdafx.h"
+#include <vector>
 #include "PacketDispatcher.h"
-#include "Handler.h"
-
 
 PacketDispatcher::PacketDispatcher ()
 {
-	AddHandler (COMMAND_TYPE::WRONG_COMMAND, &Handler::WrongCommand);
 }
 
 PacketDispatcher::~PacketDispatcher ()
 {
 }
 
-bool PacketDispatcher::DoDispatch (int sessionId, const char * pData)
+bool PacketDispatcher::DoDispatch (Session* pSession, const char * pData)
 {
-	COMMAND_TYPE commandType = GetCommandType (pData);
+	COMMAND_TYPE commandType = COMMAND_TYPE::NONE;
+	std::string param;
+	GetCommandTypeAndParam (commandType, param, pData);
 	auto iter = m_HandlerMap.find (commandType);
 	if (iter == m_HandlerMap.end ()) {
 		return false;
@@ -22,15 +22,7 @@ bool PacketDispatcher::DoDispatch (int sessionId, const char * pData)
 
 	const TFunctor& functor = iter->second;
 	
-	return (*functor.callback)(sessionId, pData);
-}
-
-PacketDispatcher::COMMAND_TYPE PacketDispatcher::GetCommandType (const char * pData)
-{
-	if ('/' == pData[0]) {
-	}
-
-	return WRONG_COMMAND;
+	return (*functor.callback)(pSession, param);
 }
 
 void PacketDispatcher::AddHandler (COMMAND_TYPE commandType, void* handler)

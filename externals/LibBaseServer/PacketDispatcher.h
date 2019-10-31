@@ -15,12 +15,12 @@ public:
 		NONE = 0,
 		WRONG_COMMAND,
 		QUIT,
-		CAHNGE_NAME
+		CAHNGE_NICKNAME
 	};
-	bool DoDispatch (int sessionId, const char* pData);
+	bool DoDispatch (Session* pSession, const char* pData);
 
 private:
-	typedef bool (__stdcall *TCallback)(int sessionId, const char* pData);
+	typedef bool (__stdcall *TCallback)(Session* pSession, std::string param);
 	struct TFunctor
 	{
 		TFunctor () : callback (NULL) {}
@@ -33,7 +33,7 @@ private:
 	TMessageMap m_HandlerMap;
 
 protected:
-	virtual COMMAND_TYPE GetCommandType (const char* pData);
+	virtual void GetCommandTypeAndParam (COMMAND_TYPE& commandType, std::string& command, const char* pData) = 0;
 	void AddHandler(COMMAND_TYPE commandType, void* handler);
 };
 

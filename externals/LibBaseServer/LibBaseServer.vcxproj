@@ -159,7 +159,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Handler.h" />
     <ClInclude Include="PacketDispatcher.h" />
     <ClInclude Include="Server.h" />
     <ClInclude Include="Session.h" />
@@ -167,7 +166,6 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Handler.cpp" />
     <ClCompile Include="PacketDispatcher.cpp" />
     <ClCompile Include="Server.cpp" />
     <ClCompile Include="Session.cpp" />

@@ -1,6 +1,7 @@
 #pragma once 
 
 #include <Server.h>
+#include <Singleton.h>
 #include "LogonPacketDispatcher.h"
 
 class LogonServer : public Server

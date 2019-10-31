@@ -18,7 +18,8 @@ public:
 	virtual void Init (const int nMaxSessionCount);
 	void Start ();
 	void MoveSessionToQueue (const int sessionID);
-	boost::shared_ptr<PacketDispatcher> GetPacketDispather () { return m_pPacketDispatcher; }	
+	boost::shared_ptr<PacketDispatcher> GetPacketDispather () { return m_pPacketDispatcher; }
+	boost::shared_ptr<Session> GetSession (int sessionId) { return m_SessionList[sessionId]; }
 
 private:
 	bool Accept ();

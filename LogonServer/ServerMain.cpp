@@ -1,8 +1,6 @@
 #pragma once
 #include "pch.h"
 #include <boost/asio.hpp>
-#include <MySqlDatabase.h>
-#include "MySqlObject.h"
 #include "LogonServer.h"
 
 
@@ -13,6 +11,7 @@ int main()
 	LogonServer server(MAX_SESSION_COUNT, 31400);
 	server.Init(MAX_SESSION_COUNT);
 	server.Start();
+
 
 	std:: cout << "네트웍 접속 종료" << std::endl;
 

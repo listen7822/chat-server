@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Server.h"
 
-
 Server::Server (int threadPoolSize, int port)
 	: m_IsAccepting(false),
 	m_ThreadPoolSize(threadPoolSize),
@@ -46,13 +45,13 @@ void Server::Start ()
 void Server::MoveSessionToQueue (const int sessionID)
 {
 	std::cout << "클라이언트 접속 종료. 세션 ID: " << sessionID << std::endl;
-
+	boost::system::error_code error;
 	m_SessionList[sessionID]->Socket ().close ();
 	m_SessionQueue.push_back (sessionID);
 
 	if (false == m_IsAccepting)
 	{
-		Accept ();
+		//Accept ();
 	}
 }
 
@@ -87,5 +86,5 @@ void Server::OnAccept (int sessionId, const boost::system::error_code & error)
 
 	OnAccept (sessionId);
 	m_SessionList[sessionId]->Receive ();
-	Accept ();
+	//Accept ();
 }
