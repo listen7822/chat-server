@@ -15,7 +15,7 @@ protected:
 	const std::string GetConfigDBName () override;
 	const std::string GetConfigDBID () override;
 	const std::string GetConfigDBPwd () override;
-	const int GetConfigDBPort () override;
-	const int GetConfigDBConnCnt () override;
+	int GetConfigDBPort () override;
+	int GetConfigDBConnCnt () override;
 };
 

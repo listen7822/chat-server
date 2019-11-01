@@ -18,7 +18,6 @@ Session::~Session()
 
 void Session::Init(std::string nickname)
 {
-	m_Nickname = nickname;
 }
 
 void Session::Receive ()
@@ -32,7 +31,7 @@ void Session::Receive ()
 	);
 }
 
-void Session::Send (const bool immediately, const int size, const char * pData)
+void Session::Send (const bool immediately, int size, const char * pData)
 {
 	char* pSendData = nullptr;
 
@@ -63,10 +62,6 @@ void Session::Send (const bool immediately, const int size, const char * pData)
 	);
 }
 
-void Session::QuitServer ()
-{
-	m_pServer->MoveSessionToQueue(m_SessionId);
-}
 
 void Session::OnReceive (const boost::system::error_code & error, std::size_t bytes_transferred)
 {
@@ -81,13 +76,13 @@ void Session::OnReceive (const boost::system::error_code & error, std::size_t by
 			std::cout << "error No: " << error.value() << " error Message: " << error.message() << std::endl;
 		}
 
-		QuitServer ();
+		m_pServer->MoveSessionToQueue(m_SessionId);
 		return;
 	}
 
-	m_pServer->GetPacketDispather()->DoDispatch(this,
-		boost::asio::buffer_cast<const char*>(m_Buffer.data())
-	);	
+	std::string tmp (boost::asio::buffers_begin (m_Buffer.data()),
+		boost::asio::buffers_begin (m_Buffer.data()) + bytes_transferred);
+	m_pDispatcher->DoDispatch(shared_from_this(), tmp.c_str());	
 	m_Buffer.consume (bytes_transferred);
 	Receive ();
 }

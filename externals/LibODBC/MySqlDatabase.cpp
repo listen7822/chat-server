@@ -41,12 +41,12 @@ const std::string MySqlDatabase::GetConfigDBPwd ()
 	return "123!@#";
 }
 
-const int MySqlDatabase::GetConfigDBPort ()
+int MySqlDatabase::GetConfigDBPort ()
 {
 	return 13306;
 }
 
-const int MySqlDatabase::GetConfigDBConnCnt ()
+int MySqlDatabase::GetConfigDBConnCnt ()
 {
 	return 10;
 }

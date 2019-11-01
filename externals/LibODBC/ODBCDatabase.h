@@ -1,8 +1,9 @@
 #pragma once
 
 #if defined(WIN32) || defined(WIN64)
-#include <Windows.h>
+//#include <Windows.h>
 #endif
+#include <boost/winapi/basic_types.hpp>
 #include <string>
 #include <list>
 #include <sql.h>
@@ -48,7 +49,7 @@ protected:
 	// ODBC 연결시 사용하는 DB 계정 Pwd 반환 함수
 	virtual const std::string GetConfigDBPwd () = 0;
 	// ODBC 연결시 사용하는 DB 포트 반환 함수
-	virtual const int GetConfigDBPort () = 0;
+	virtual int GetConfigDBPort () = 0;
 	// ODBC Connection 생성 개수 반환 함수
-	virtual const int GetConfigDBConnCnt () = 0;
+	virtual int GetConfigDBConnCnt () = 0;
 };

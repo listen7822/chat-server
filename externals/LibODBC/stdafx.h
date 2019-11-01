@@ -8,7 +8,7 @@
 #include "targetver.h"
 
 #define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
-
+#define BOOST_USE_WINDOWS_H
 
 
 // reference additional headers your program requires here

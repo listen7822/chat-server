@@ -15,12 +15,18 @@ public:
 		NONE = 0,
 		WRONG_COMMAND,
 		QUIT,
-		CAHNGE_NICKNAME
+		AUTH_TOKEN,
+		CAHNGE_NICKNAME,
+		ROOM_LIST,
+		JOIN_ROOM,
+		EXIT_ROOM,
+		SEND_MESSAGE,
+		BROADCASE
 	};
-	bool DoDispatch (Session* pSession, const char* pData);
+	bool DoDispatch (boost::shared_ptr < Session> pSession, const char* pData);
 
 private:
-	typedef bool (__stdcall *TCallback)(Session* pSession, std::string param);
+	typedef bool (__stdcall *TCallback)(boost::shared_ptr <Session> pSession, std::string param);
 	struct TFunctor
 	{
 		TFunctor () : callback (NULL) {}
@@ -33,7 +39,7 @@ private:
 	TMessageMap m_HandlerMap;
 
 protected:
-	virtual void GetCommandTypeAndParam (COMMAND_TYPE& commandType, std::string& command, const char* pData) = 0;
+	virtual void GetCommandTypeAndParam (COMMAND_TYPE& commandType, std::string& param, const char* pData) = 0;
 	void AddHandler(COMMAND_TYPE commandType, void* handler);
 };
 

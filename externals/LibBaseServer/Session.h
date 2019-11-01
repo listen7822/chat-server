@@ -1,32 +1,32 @@
 #pragma once
 
 #include <deque>
-
 #include <boost/bind.hpp>
 #include <boost/asio.hpp>
 #include <boost/thread.hpp>
 #include <boost/shared_ptr.hpp>
 #include <boost/enable_shared_from_this.hpp>
 #include <boost/noncopyable.hpp>
+#include "PacketDispatcher.h"
 
-class PacketDispatcher;
 class Server;
 
 class Session : public boost::enable_shared_from_this<Session>,
 	private boost::noncopyable
 {
 public:
-	Session (Server* pServer, int nSessionID, boost::asio::io_service& io_service);
-	~Session ();
+	Session (Server* pServer, int sessionId, boost::asio::io_service& io_service);
+	virtual ~Session ();
 
 	boost::asio::ip::tcp::socket& Socket () { return m_Socket; }
 	void Init (std::string nickname);
 	void Receive ();
-	void Send (const bool immediately, const int size, const char* pData);
-	void QuitServer ();
+	void Send (const bool immediately, int size, const char* pData);
 	const char* GetNickname () { return m_Nickname.c_str (); }
 	void SetNickname (std::string nickname) { m_Nickname = nickname; }
 	int SessionID () { return m_SessionId; }
+	void SetDispatcher (PacketDispatcher* pDispatcher) { m_pDispatcher.reset(pDispatcher); }
+	Server* GetServer () { return m_pServer; }
 
 private:
 	void OnReceive (const boost::system::error_code& error, std::size_t bytes_transferred);
@@ -42,4 +42,5 @@ private:
 
 protected:
 	Server* m_pServer;
+	boost::shared_ptr<PacketDispatcher> m_pPacketDispatcher;
 };

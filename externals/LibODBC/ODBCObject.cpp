@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #if defined(WIN32) || defined(WIN64)
-#include <Windows.h>
+//#include <Windows.h>
 #endif
+#include <boost/winapi/basic_types.hpp>
 #include <sql.h>
 #include "ODBCObject.h"
 #include "ODBC.h"

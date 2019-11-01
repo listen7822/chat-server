@@ -18,27 +18,21 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MySqlObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="LogonServer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LogonPacketDispatcher.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Handler.h">
+    <ClInclude Include="LogonHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LogonODBCObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ServerMain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MySqlObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LogonServer.cpp">
@@ -47,7 +41,13 @@
     <ClCompile Include="LogonPacketDispatcher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Handler.cpp">
+    <ClCompile Include="LogonODBCObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LogonServerMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LogonHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

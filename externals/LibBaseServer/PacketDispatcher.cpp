@@ -10,7 +10,7 @@ PacketDispatcher::~PacketDispatcher ()
 {
 }
 
-bool PacketDispatcher::DoDispatch (Session* pSession, const char * pData)
+bool PacketDispatcher::DoDispatch (boost::shared_ptr<Session> pSession, const char * pData)
 {
 	COMMAND_TYPE commandType = COMMAND_TYPE::NONE;
 	std::string param;
