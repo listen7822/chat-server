@@ -9,5 +9,5 @@
 > * Debug | x86
 ## 3.Reference
 > * Doxygen(ClassDiagram, UML)
-> * UML(skatched UML)
+> * Flow chart
 > * 
