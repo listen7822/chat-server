@@ -9,6 +9,5 @@
 > * Debug | x86
 ## 3.Reference
 > * Doxygen(ClassDiagram, UML)
-  > Doc/doxygen/SimpleChatServer/html/index
 > * UML(skatched UML)
-  > Doc/UML.pdf
+> * 
