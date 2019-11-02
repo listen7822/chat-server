@@ -124,6 +124,9 @@ bool __stdcall ChatHandler::ExitRoom (boost::shared_ptr <Session> pSession, std:
 	pChatSession->SetLocation (ChatSession::LOCATION::LOBBY);
 	if (1 == pRoom->GetUserList ().size ()) {
 		pRoom->Clear ();
+		std::string msg;
+		msg.append (">Room is destroyed.\r\n");
+		pChatSession->Send (false, msg.length (), msg.c_str ());
 	} else {
 		pRoom->RemoveUser (pChatSession->GetNickname());
 	}
