@@ -9,6 +9,7 @@
 > * Choose configuration and platform
 > * Debug | x86
 > * Release | x86
+> * Select Rebuild solution
 ## 3.Reference(in Doc directory)
 > * Doxygen(ClassDiagram, UML)
 > * Flow chart
