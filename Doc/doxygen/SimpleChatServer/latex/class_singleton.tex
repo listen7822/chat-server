@@ -1,0 +1,224 @@
+\hypertarget{class_singleton}{}\doxysection{Singleton$<$ T $>$ Class Template Reference}
+\label{class_singleton}\index{Singleton$<$ T $>$@{Singleton$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Singleton.\+h$>$}
+
+
+
+Inheritance diagram for Singleton$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{class_singleton__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Singleton$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=263pt]{class_singleton__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}{Try\+Enter}} ()
+\item 
+void \mbox{\hyperlink{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}{Enter}} ()
+\item 
+void \mbox{\hyperlink{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}{Leave}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static T $\ast$ \mbox{\hyperlink{class_singleton_a32e9ccdbb5bdf4662cb8c1fd0c8d047a}{Instance}} (void)
+\item 
+static void \mbox{\hyperlink{class_singleton_a98ea34301337737d80c17055f884cef0}{Make\+Instance}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::recursive\+\_\+mutex \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\+\_\+\+Sync\+Oject}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static T $\ast$ \mbox{\hyperlink{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}{instance\+\_\+}}
+\item 
+static \mbox{\hyperlink{class_monitor}{Monitor}} \mbox{\hyperlink{class_singleton_a6ce2c5830384b09bb760c4ed4eb0bf73}{m\+\_\+cs\+Singleton}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Singleton$<$ T $>$}
+
+
+
+Definition at line 5 of file Singleton.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}\label{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}} 
+\index{Singleton$<$ T $>$@{Singleton$<$ T $>$}!Enter@{Enter}}
+\index{Enter@{Enter}!Singleton$<$ T $>$@{Singleton$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Enter()}{Enter()}}
+{\footnotesize\ttfamily void Monitor\+::\+Enter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 22 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     \textcolor{comment}{// Enter Lock.}}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\_SyncOject}}.lock ();}
+\DoxyCodeLine{26 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_singleton_a32e9ccdbb5bdf4662cb8c1fd0c8d047a}\label{class_singleton_a32e9ccdbb5bdf4662cb8c1fd0c8d047a}} 
+\index{Singleton$<$ T $>$@{Singleton$<$ T $>$}!Instance@{Instance}}
+\index{Instance@{Instance}!Singleton$<$ T $>$@{Singleton$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+static T$\ast$ \mbox{\hyperlink{class_singleton}{Singleton}}$<$ T $>$\+::Instance (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line 12 of file Singleton.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13     \{}
+\DoxyCodeLine{14         \textcolor{keywordflow}{if} (\textcolor{keyword}{nullptr} == \mbox{\hyperlink{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}{instance\_}})}
+\DoxyCodeLine{15         \{}
+\DoxyCodeLine{16             \mbox{\hyperlink{class_singleton_a98ea34301337737d80c17055f884cef0}{MakeInstance}} ();}
+\DoxyCodeLine{17         \}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}{instance\_}};}
+\DoxyCodeLine{20     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}\label{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}} 
+\index{Singleton$<$ T $>$@{Singleton$<$ T $>$}!Leave@{Leave}}
+\index{Leave@{Leave}!Singleton$<$ T $>$@{Singleton$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Leave()}{Leave()}}
+{\footnotesize\ttfamily void Monitor\+::\+Leave (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 28 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \textcolor{comment}{// Leave Lock.}}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\_SyncOject}}.unlock ();}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_singleton_a98ea34301337737d80c17055f884cef0}\label{class_singleton_a98ea34301337737d80c17055f884cef0}} 
+\index{Singleton$<$ T $>$@{Singleton$<$ T $>$}!MakeInstance@{MakeInstance}}
+\index{MakeInstance@{MakeInstance}!Singleton$<$ T $>$@{Singleton$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{MakeInstance()}{MakeInstance()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+static void \mbox{\hyperlink{class_singleton}{Singleton}}$<$ T $>$\+::Make\+Instance (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line 22 of file Singleton.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23     \{}
+\DoxyCodeLine{24         \mbox{\hyperlink{class_monitor_1_1_owner}{Monitor::Owner}} lock (\mbox{\hyperlink{class_singleton_a6ce2c5830384b09bb760c4ed4eb0bf73}{m\_csSingleton}});}
+\DoxyCodeLine{25         \{}
+\DoxyCodeLine{26             \textcolor{keywordflow}{if} (\textcolor{keyword}{nullptr} == \mbox{\hyperlink{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}{instance\_}})}
+\DoxyCodeLine{27             \{}
+\DoxyCodeLine{28                 \mbox{\hyperlink{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}{instance\_}} = \textcolor{keyword}{new} T;}
+\DoxyCodeLine{29             \}}
+\DoxyCodeLine{30         \}}
+\DoxyCodeLine{31     \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_singleton_a98ea34301337737d80c17055f884cef0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}\label{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}} 
+\index{Singleton$<$ T $>$@{Singleton$<$ T $>$}!TryEnter@{TryEnter}}
+\index{TryEnter@{TryEnter}!Singleton$<$ T $>$@{Singleton$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TryEnter()}{TryEnter()}}
+{\footnotesize\ttfamily bool Monitor\+::\+Try\+Enter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 16 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     \textcolor{comment}{// Make Spin Lock.}}
+\DoxyCodeLine{19     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{20 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}\label{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}} 
+\index{Singleton$<$ T $>$@{Singleton$<$ T $>$}!instance\_@{instance\_}}
+\index{instance\_@{instance\_}!Singleton$<$ T $>$@{Singleton$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{instance\_}{instance\_}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+T $\ast$ \mbox{\hyperlink{class_singleton}{Singleton}}$<$ T $>$\+::instance\+\_\+\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line 8 of file Singleton.\+h.
+
+\mbox{\Hypertarget{class_singleton_a6ce2c5830384b09bb760c4ed4eb0bf73}\label{class_singleton_a6ce2c5830384b09bb760c4ed4eb0bf73}} 
+\index{Singleton$<$ T $>$@{Singleton$<$ T $>$}!m\_csSingleton@{m\_csSingleton}}
+\index{m\_csSingleton@{m\_csSingleton}!Singleton$<$ T $>$@{Singleton$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{m\_csSingleton}{m\_csSingleton}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\mbox{\hyperlink{class_monitor}{Monitor}} \mbox{\hyperlink{class_singleton}{Singleton}}$<$ T $>$\+::m\+\_\+cs\+Singleton\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line 9 of file Singleton.\+h.
+
+\mbox{\Hypertarget{class_monitor_aa6ef00d7122694ab317011623adb5599}\label{class_monitor_aa6ef00d7122694ab317011623adb5599}} 
+\index{Singleton$<$ T $>$@{Singleton$<$ T $>$}!m\_SyncOject@{m\_SyncOject}}
+\index{m\_SyncOject@{m\_SyncOject}!Singleton$<$ T $>$@{Singleton$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{m\_SyncOject}{m\_SyncOject}}
+{\footnotesize\ttfamily std\+::recursive\+\_\+mutex Monitor\+::m\+\_\+\+Sync\+Oject\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 27 of file Monitor.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/externals/\+Lib\+Util/\mbox{\hyperlink{_singleton_8h}{Singleton.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,591 @@
+\hypertarget{class_o_d_b_c_database}{}\doxysection{O\+D\+B\+C\+Database Class Reference}
+\label{class_o_d_b_c_database}\index{ODBCDatabase@{ODBCDatabase}}
+
+
+{\ttfamily \#include $<$O\+D\+B\+C\+Database.\+h$>$}
+
+
+
+Inheritance diagram for O\+D\+B\+C\+Database\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_o_d_b_c_database__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for O\+D\+B\+C\+Database\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{class_o_d_b_c_database__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_o_d_b_c_database_a7063cee35ebca9fb46f8ed0e5a6099d4}{O\+D\+B\+C\+Database}} ()
+\item 
+\mbox{\hyperlink{class_o_d_b_c_database_a29d5f683d22fee0c9a2d5444689fb8d3}{$\sim$\+O\+D\+B\+C\+Database}} ()
+\item 
+bool \mbox{\hyperlink{class_o_d_b_c_database_a606fd4348a872e67b9ac79d23344a450}{Initialize}} ()
+\item 
+\mbox{\hyperlink{class_o_d_b_c}{O\+D\+BC}} $\ast$ \mbox{\hyperlink{class_o_d_b_c_database_a69db5068ab2fc85c1407531e518f8dae}{Get\+Connection}} ()
+\item 
+void \mbox{\hyperlink{class_o_d_b_c_database_a0f7c8b7a1e8c8cbe544e7acbfaa573e1}{Check\+Connection}} ()
+\item 
+bool \mbox{\hyperlink{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}{Try\+Enter}} ()
+\item 
+void \mbox{\hyperlink{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}{Enter}} ()
+\item 
+void \mbox{\hyperlink{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}{Leave}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual const std\+::string \mbox{\hyperlink{class_o_d_b_c_database_a9da7ab930033cf350f4c41addb7f9dd4}{Get\+Config\+D\+B\+Type}} ()=0
+\item 
+virtual const std\+::string \mbox{\hyperlink{class_o_d_b_c_database_a8a41bab4e12b425bdf85f520e6d77d93}{Get\+Config\+D\+B\+Driver}} ()=0
+\item 
+virtual const std\+::string \mbox{\hyperlink{class_o_d_b_c_database_a7fef1e3964734f36eac7ac7a3c1b6e0f}{Get\+Config\+D\+B\+IP}} ()=0
+\item 
+virtual const std\+::string \mbox{\hyperlink{class_o_d_b_c_database_a583dc66aa10f01fe64d0b52644c172e0}{Get\+Config\+D\+B\+Name}} ()=0
+\item 
+virtual const std\+::string \mbox{\hyperlink{class_o_d_b_c_database_a111148f19abade804d0a090fe44c0cc5}{Get\+Config\+D\+B\+ID}} ()=0
+\item 
+virtual const std\+::string \mbox{\hyperlink{class_o_d_b_c_database_ad15bb6e2a8a9a22fa697a64885f59603}{Get\+Config\+D\+B\+Pwd}} ()=0
+\item 
+virtual int \mbox{\hyperlink{class_o_d_b_c_database_ac18ef14fdb513e97a28992feecf95826}{Get\+Config\+D\+B\+Port}} ()=0
+\item 
+virtual int \mbox{\hyperlink{class_o_d_b_c_database_ac04698991c68e9ba9e7af45ef36c8bc4}{Get\+Config\+D\+B\+Conn\+Cnt}} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::list$<$ \mbox{\hyperlink{class_o_d_b_c}{O\+D\+BC}} $\ast$ $>$ \mbox{\hyperlink{class_o_d_b_c_database_ac1d298b8f5d0b445623b164ce1f8c197}{m\+Pool}}
+\item 
+\mbox{\hyperlink{class_monitor}{Monitor}} \mbox{\hyperlink{class_o_d_b_c_database_ab45ac321697e40519009aee6bac23ea7}{m\+\_\+cs\+O\+D\+B\+C\+Database}}
+\item 
+std\+::recursive\+\_\+mutex \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\+\_\+\+Sync\+Oject}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 21 of file O\+D\+B\+C\+Database.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_o_d_b_c_database_a7063cee35ebca9fb46f8ed0e5a6099d4}\label{class_o_d_b_c_database_a7063cee35ebca9fb46f8ed0e5a6099d4}} 
+\index{ODBCDatabase@{ODBCDatabase}!ODBCDatabase@{ODBCDatabase}}
+\index{ODBCDatabase@{ODBCDatabase}!ODBCDatabase@{ODBCDatabase}}
+\doxysubsubsection{\texorpdfstring{ODBCDatabase()}{ODBCDatabase()}}
+{\footnotesize\ttfamily O\+D\+B\+C\+Database\+::\+O\+D\+B\+C\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 4 of file O\+D\+B\+C\+Database.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_o_d_b_c_database_a29d5f683d22fee0c9a2d5444689fb8d3}\label{class_o_d_b_c_database_a29d5f683d22fee0c9a2d5444689fb8d3}} 
+\index{ODBCDatabase@{ODBCDatabase}!````~ODBCDatabase@{$\sim$ODBCDatabase}}
+\index{````~ODBCDatabase@{$\sim$ODBCDatabase}!ODBCDatabase@{ODBCDatabase}}
+\doxysubsubsection{\texorpdfstring{$\sim$ODBCDatabase()}{~ODBCDatabase()}}
+{\footnotesize\ttfamily O\+D\+B\+C\+Database\+::$\sim$\+O\+D\+B\+C\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 8 of file O\+D\+B\+C\+Database.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_monitor_1_1_owner}{Monitor::Owner}} lock (\mbox{\hyperlink{class_o_d_b_c_database_ab45ac321697e40519009aee6bac23ea7}{m\_csODBCDatabase}});}
+\DoxyCodeLine{11     \{}
+\DoxyCodeLine{12         \textcolor{keywordflow}{for} (std::list<ODBC*>::iterator iter = \mbox{\hyperlink{class_o_d_b_c_database_ac1d298b8f5d0b445623b164ce1f8c197}{mPool}}.begin (); iter != \mbox{\hyperlink{class_o_d_b_c_database_ac1d298b8f5d0b445623b164ce1f8c197}{mPool}}.end (); ++iter)}
+\DoxyCodeLine{13         \{}
+\DoxyCodeLine{14             \mbox{\hyperlink{class_o_d_b_c}{ODBC}}* pODBC = *iter;}
+\DoxyCodeLine{15             \textcolor{keyword}{delete} pODBC;}
+\DoxyCodeLine{16         \}}
+\DoxyCodeLine{17         \mbox{\hyperlink{class_o_d_b_c_database_ac1d298b8f5d0b445623b164ce1f8c197}{mPool}}.clear ();}
+\DoxyCodeLine{18     \}}
+\DoxyCodeLine{19 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_o_d_b_c_database_a0f7c8b7a1e8c8cbe544e7acbfaa573e1}\label{class_o_d_b_c_database_a0f7c8b7a1e8c8cbe544e7acbfaa573e1}} 
+\index{ODBCDatabase@{ODBCDatabase}!CheckConnection@{CheckConnection}}
+\index{CheckConnection@{CheckConnection}!ODBCDatabase@{ODBCDatabase}}
+\doxysubsubsection{\texorpdfstring{CheckConnection()}{CheckConnection()}}
+{\footnotesize\ttfamily void O\+D\+B\+C\+Database\+::\+Check\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 133 of file O\+D\+B\+C\+Database.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{134 \{}
+\DoxyCodeLine{135     \mbox{\hyperlink{class_o_d_b_c}{ODBC}} *pODBCCon = NULL;}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137     \mbox{\hyperlink{class_monitor_1_1_owner}{Monitor::Owner}} lock (\mbox{\hyperlink{class_o_d_b_c_database_ab45ac321697e40519009aee6bac23ea7}{m\_csODBCDatabase}});}
+\DoxyCodeLine{138     \{}
+\DoxyCodeLine{139         \textcolor{keywordflow}{for} (std::list<ODBC*>::iterator iter = \mbox{\hyperlink{class_o_d_b_c_database_ac1d298b8f5d0b445623b164ce1f8c197}{mPool}}.begin (); iter != \mbox{\hyperlink{class_o_d_b_c_database_ac1d298b8f5d0b445623b164ce1f8c197}{mPool}}.end (); ++iter)}
+\DoxyCodeLine{140         \{}
+\DoxyCodeLine{141             pODBCCon = *iter;}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143             \textcolor{keywordflow}{if} (pODBCCon-\/>\mbox{\hyperlink{class_o_d_b_c_a7294688d3ecfc9382264c33d671e005d}{IsOnUsing}} ())}
+\DoxyCodeLine{144             \{}
+\DoxyCodeLine{145                 pODBCCon = NULL;}
+\DoxyCodeLine{146             \}}
+\DoxyCodeLine{147             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{148             \{}
+\DoxyCodeLine{149                 \textcolor{comment}{// Excute query.}}
+\DoxyCodeLine{150                 pODBCCon-\/>\mbox{\hyperlink{class_o_d_b_c_a337350a016c21dd2887de1c74b6bb684}{SetOnUsing}} (\textcolor{keyword}{true});}
+\DoxyCodeLine{151                 \textcolor{keywordtype}{int} retSQL = pODBCCon-\/>\mbox{\hyperlink{class_o_d_b_c_ac5cb49aa366811dbf728fddbbaaf2cd8}{Query}} (\mbox{\hyperlink{_o_d_b_c_database_8h_aaaa0787fe4170cce2c2f1b3f8cbcbbc1}{HEALTH\_CHECK\_QUERY\_STRING}}.c\_str ());}
+\DoxyCodeLine{152                 \textcolor{keywordflow}{if} (retSQL == SQL\_SUCCESS)}
+\DoxyCodeLine{153                 \{}
+\DoxyCodeLine{154                 \}}
+\DoxyCodeLine{155                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{156                 \{}
+\DoxyCodeLine{157                     BOOST\_LOG\_TRIVIAL (error) << \textcolor{stringliteral}{"Func: "}<< \_\_FUNCTION\_\_ << \textcolor{stringliteral}{" Line: "} <<\_\_LINE\_\_;}
+\DoxyCodeLine{158                 \}}
+\DoxyCodeLine{159                 pODBCCon-\/>\mbox{\hyperlink{class_o_d_b_c_ace1eef1331afb3fc2a610af24f4e868b}{Commit}} ();}
+\DoxyCodeLine{160                 pODBCCon-\/>\mbox{\hyperlink{class_o_d_b_c_a337350a016c21dd2887de1c74b6bb684}{SetOnUsing}} (\textcolor{keyword}{false});}
+\DoxyCodeLine{161             \}}
+\DoxyCodeLine{162         \}}
+\DoxyCodeLine{163     \}}
+\DoxyCodeLine{164 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_database_a0f7c8b7a1e8c8cbe544e7acbfaa573e1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_database_a0f7c8b7a1e8c8cbe544e7acbfaa573e1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}\label{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}} 
+\index{ODBCDatabase@{ODBCDatabase}!Enter@{Enter}}
+\index{Enter@{Enter}!ODBCDatabase@{ODBCDatabase}}
+\doxysubsubsection{\texorpdfstring{Enter()}{Enter()}}
+{\footnotesize\ttfamily void Monitor\+::\+Enter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 22 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     \textcolor{comment}{// Enter Lock.}}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\_SyncOject}}.lock ();}
+\DoxyCodeLine{26 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_o_d_b_c_database_ac04698991c68e9ba9e7af45ef36c8bc4}\label{class_o_d_b_c_database_ac04698991c68e9ba9e7af45ef36c8bc4}} 
+\index{ODBCDatabase@{ODBCDatabase}!GetConfigDBConnCnt@{GetConfigDBConnCnt}}
+\index{GetConfigDBConnCnt@{GetConfigDBConnCnt}!ODBCDatabase@{ODBCDatabase}}
+\doxysubsubsection{\texorpdfstring{GetConfigDBConnCnt()}{GetConfigDBConnCnt()}}
+{\footnotesize\ttfamily virtual int O\+D\+B\+C\+Database\+::\+Get\+Config\+D\+B\+Conn\+Cnt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_my_sql_database_a42fa574bf5652ce6ff5d7f2aaa1e8d39}{My\+Sql\+Database}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_database_ac04698991c68e9ba9e7af45ef36c8bc4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_o_d_b_c_database_a8a41bab4e12b425bdf85f520e6d77d93}\label{class_o_d_b_c_database_a8a41bab4e12b425bdf85f520e6d77d93}} 
+\index{ODBCDatabase@{ODBCDatabase}!GetConfigDBDriver@{GetConfigDBDriver}}
+\index{GetConfigDBDriver@{GetConfigDBDriver}!ODBCDatabase@{ODBCDatabase}}
+\doxysubsubsection{\texorpdfstring{GetConfigDBDriver()}{GetConfigDBDriver()}}
+{\footnotesize\ttfamily virtual const std\+::string O\+D\+B\+C\+Database\+::\+Get\+Config\+D\+B\+Driver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_my_sql_database_a18a865f38a07e6717cb45c3054299121}{My\+Sql\+Database}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_database_a8a41bab4e12b425bdf85f520e6d77d93_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_o_d_b_c_database_a111148f19abade804d0a090fe44c0cc5}\label{class_o_d_b_c_database_a111148f19abade804d0a090fe44c0cc5}} 
+\index{ODBCDatabase@{ODBCDatabase}!GetConfigDBID@{GetConfigDBID}}
+\index{GetConfigDBID@{GetConfigDBID}!ODBCDatabase@{ODBCDatabase}}
+\doxysubsubsection{\texorpdfstring{GetConfigDBID()}{GetConfigDBID()}}
+{\footnotesize\ttfamily virtual const std\+::string O\+D\+B\+C\+Database\+::\+Get\+Config\+D\+B\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_my_sql_database_aae55f5877dbc36ba503462f588bfa5e8}{My\+Sql\+Database}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_database_a111148f19abade804d0a090fe44c0cc5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_o_d_b_c_database_a7fef1e3964734f36eac7ac7a3c1b6e0f}\label{class_o_d_b_c_database_a7fef1e3964734f36eac7ac7a3c1b6e0f}} 
+\index{ODBCDatabase@{ODBCDatabase}!GetConfigDBIP@{GetConfigDBIP}}
+\index{GetConfigDBIP@{GetConfigDBIP}!ODBCDatabase@{ODBCDatabase}}
+\doxysubsubsection{\texorpdfstring{GetConfigDBIP()}{GetConfigDBIP()}}
+{\footnotesize\ttfamily virtual const std\+::string O\+D\+B\+C\+Database\+::\+Get\+Config\+D\+B\+IP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_my_sql_database_a1bf9c61b57ba32d42cfaa3823b798036}{My\+Sql\+Database}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_database_a7fef1e3964734f36eac7ac7a3c1b6e0f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_o_d_b_c_database_a583dc66aa10f01fe64d0b52644c172e0}\label{class_o_d_b_c_database_a583dc66aa10f01fe64d0b52644c172e0}} 
+\index{ODBCDatabase@{ODBCDatabase}!GetConfigDBName@{GetConfigDBName}}
+\index{GetConfigDBName@{GetConfigDBName}!ODBCDatabase@{ODBCDatabase}}
+\doxysubsubsection{\texorpdfstring{GetConfigDBName()}{GetConfigDBName()}}
+{\footnotesize\ttfamily virtual const std\+::string O\+D\+B\+C\+Database\+::\+Get\+Config\+D\+B\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_my_sql_database_a3cc2853f12eb2afb1f7ade675ede9c42}{My\+Sql\+Database}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_database_a583dc66aa10f01fe64d0b52644c172e0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_o_d_b_c_database_ac18ef14fdb513e97a28992feecf95826}\label{class_o_d_b_c_database_ac18ef14fdb513e97a28992feecf95826}} 
+\index{ODBCDatabase@{ODBCDatabase}!GetConfigDBPort@{GetConfigDBPort}}
+\index{GetConfigDBPort@{GetConfigDBPort}!ODBCDatabase@{ODBCDatabase}}
+\doxysubsubsection{\texorpdfstring{GetConfigDBPort()}{GetConfigDBPort()}}
+{\footnotesize\ttfamily virtual int O\+D\+B\+C\+Database\+::\+Get\+Config\+D\+B\+Port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_my_sql_database_a1507e68121803acb64a17c5687548431}{My\+Sql\+Database}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_database_ac18ef14fdb513e97a28992feecf95826_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_o_d_b_c_database_ad15bb6e2a8a9a22fa697a64885f59603}\label{class_o_d_b_c_database_ad15bb6e2a8a9a22fa697a64885f59603}} 
+\index{ODBCDatabase@{ODBCDatabase}!GetConfigDBPwd@{GetConfigDBPwd}}
+\index{GetConfigDBPwd@{GetConfigDBPwd}!ODBCDatabase@{ODBCDatabase}}
+\doxysubsubsection{\texorpdfstring{GetConfigDBPwd()}{GetConfigDBPwd()}}
+{\footnotesize\ttfamily virtual const std\+::string O\+D\+B\+C\+Database\+::\+Get\+Config\+D\+B\+Pwd (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_my_sql_database_a5907caefcf25bd8db0f9fe5af62597c3}{My\+Sql\+Database}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_database_ad15bb6e2a8a9a22fa697a64885f59603_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_o_d_b_c_database_a9da7ab930033cf350f4c41addb7f9dd4}\label{class_o_d_b_c_database_a9da7ab930033cf350f4c41addb7f9dd4}} 
+\index{ODBCDatabase@{ODBCDatabase}!GetConfigDBType@{GetConfigDBType}}
+\index{GetConfigDBType@{GetConfigDBType}!ODBCDatabase@{ODBCDatabase}}
+\doxysubsubsection{\texorpdfstring{GetConfigDBType()}{GetConfigDBType()}}
+{\footnotesize\ttfamily virtual const std\+::string O\+D\+B\+C\+Database\+::\+Get\+Config\+D\+B\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_my_sql_database_a216b3b7a59bb66f4f1e294b1f8abf8a6}{My\+Sql\+Database}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_database_a9da7ab930033cf350f4c41addb7f9dd4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_o_d_b_c_database_a69db5068ab2fc85c1407531e518f8dae}\label{class_o_d_b_c_database_a69db5068ab2fc85c1407531e518f8dae}} 
+\index{ODBCDatabase@{ODBCDatabase}!GetConnection@{GetConnection}}
+\index{GetConnection@{GetConnection}!ODBCDatabase@{ODBCDatabase}}
+\doxysubsubsection{\texorpdfstring{GetConnection()}{GetConnection()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_o_d_b_c}{O\+D\+BC}} $\ast$ O\+D\+B\+C\+Database\+::\+Get\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 90 of file O\+D\+B\+C\+Database.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{91 \{}
+\DoxyCodeLine{92     \textcolor{keyword}{static} \textcolor{keywordtype}{int} nMaxTerm = 0, nMaxTotal = 0;}
+\DoxyCodeLine{93     \textcolor{keyword}{static} time\_t tmLog = 0;}
+\DoxyCodeLine{94     \textcolor{keywordtype}{int} nUsing = 0;}
+\DoxyCodeLine{95     \mbox{\hyperlink{class_o_d_b_c}{ODBC}}* pODBCCon = NULL;}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97     \mbox{\hyperlink{class_monitor_1_1_owner}{Monitor::Owner}} lock (\mbox{\hyperlink{class_o_d_b_c_database_ab45ac321697e40519009aee6bac23ea7}{m\_csODBCDatabase}});}
+\DoxyCodeLine{98     \{}
+\DoxyCodeLine{99         \textcolor{keywordflow}{for} (std::list<ODBC*>::iterator iter = \mbox{\hyperlink{class_o_d_b_c_database_ac1d298b8f5d0b445623b164ce1f8c197}{mPool}}.begin (); iter != \mbox{\hyperlink{class_o_d_b_c_database_ac1d298b8f5d0b445623b164ce1f8c197}{mPool}}.end (); ++iter)}
+\DoxyCodeLine{100         \{}
+\DoxyCodeLine{101             pODBCCon = *iter;}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103             \textcolor{keywordflow}{if} (pODBCCon-\/>\mbox{\hyperlink{class_o_d_b_c_a7294688d3ecfc9382264c33d671e005d}{IsOnUsing}} ())}
+\DoxyCodeLine{104             \{}
+\DoxyCodeLine{105                 pODBCCon = NULL;}
+\DoxyCodeLine{106                 ++nUsing;}
+\DoxyCodeLine{107             \}}
+\DoxyCodeLine{108             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{109             \{}
+\DoxyCodeLine{110                 \textcolor{keywordflow}{if} (nMaxTerm < nUsing + 1)}
+\DoxyCodeLine{111                 \{}
+\DoxyCodeLine{112                     nMaxTerm = nUsing + 1;}
+\DoxyCodeLine{113                 \}}
+\DoxyCodeLine{114                 \textcolor{keywordflow}{if} (nMaxTotal < nUsing + 1)}
+\DoxyCodeLine{115                 \{}
+\DoxyCodeLine{116                     nMaxTotal = nUsing + 1;}
+\DoxyCodeLine{117                 \}}
+\DoxyCodeLine{118                 \textcolor{keywordflow}{if} (tmLog + \mbox{\hyperlink{_o_d_b_c_database_8h_a727de7a63009363ea43a37b522d52517}{LOG\_TERM}} <= time (NULL))}
+\DoxyCodeLine{119                 \{}
+\DoxyCodeLine{120                     tmLog = time (NULL);}
+\DoxyCodeLine{121                     \textcolor{comment}{// TODO: occurred error!}}
+\DoxyCodeLine{122                     nMaxTerm = 0;}
+\DoxyCodeLine{123                 \}}
+\DoxyCodeLine{124                 pODBCCon-\/>\mbox{\hyperlink{class_o_d_b_c_a337350a016c21dd2887de1c74b6bb684}{SetOnUsing}} (\textcolor{keyword}{true});}
+\DoxyCodeLine{125                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{126             \}}
+\DoxyCodeLine{127         \}}
+\DoxyCodeLine{128     \}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130     \textcolor{keywordflow}{return} pODBCCon;}
+\DoxyCodeLine{131 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_database_a69db5068ab2fc85c1407531e518f8dae_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_database_a69db5068ab2fc85c1407531e518f8dae_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_o_d_b_c_database_a606fd4348a872e67b9ac79d23344a450}\label{class_o_d_b_c_database_a606fd4348a872e67b9ac79d23344a450}} 
+\index{ODBCDatabase@{ODBCDatabase}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!ODBCDatabase@{ODBCDatabase}}
+\doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily bool O\+D\+B\+C\+Database\+::\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 23 of file O\+D\+B\+C\+Database.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     std::string strDBType = \mbox{\hyperlink{class_o_d_b_c_database_a9da7ab930033cf350f4c41addb7f9dd4}{GetConfigDBType}} ();}
+\DoxyCodeLine{26     \textcolor{keywordflow}{if} (strDBType == \textcolor{stringliteral}{""})}
+\DoxyCodeLine{27     \{}
+\DoxyCodeLine{28         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{29     \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     std::string strDBDriver = \mbox{\hyperlink{class_o_d_b_c_database_a8a41bab4e12b425bdf85f520e6d77d93}{GetConfigDBDriver}} ();}
+\DoxyCodeLine{32     \textcolor{keywordflow}{if} (strDBDriver == \textcolor{stringliteral}{""})}
+\DoxyCodeLine{33     \{}
+\DoxyCodeLine{34         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{35     \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     std::string strDBIP = \mbox{\hyperlink{class_o_d_b_c_database_a7fef1e3964734f36eac7ac7a3c1b6e0f}{GetConfigDBIP}} ();}
+\DoxyCodeLine{38     \textcolor{keywordflow}{if} (strDBIP == \textcolor{stringliteral}{""})}
+\DoxyCodeLine{39     \{}
+\DoxyCodeLine{40         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{41     \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     std::string strDBName = \mbox{\hyperlink{class_o_d_b_c_database_a583dc66aa10f01fe64d0b52644c172e0}{GetConfigDBName}} ();}
+\DoxyCodeLine{44     \textcolor{keywordflow}{if} (strDBName == \textcolor{stringliteral}{""})}
+\DoxyCodeLine{45     \{}
+\DoxyCodeLine{46         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{47     \}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     std::string strDBID = \mbox{\hyperlink{class_o_d_b_c_database_a111148f19abade804d0a090fe44c0cc5}{GetConfigDBID}} ();}
+\DoxyCodeLine{50     \textcolor{keywordflow}{if} (strDBID == \textcolor{stringliteral}{""})}
+\DoxyCodeLine{51     \{}
+\DoxyCodeLine{52         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     std::string strDBPWD = \mbox{\hyperlink{class_o_d_b_c_database_ad15bb6e2a8a9a22fa697a64885f59603}{GetConfigDBPwd}} ();}
+\DoxyCodeLine{56     \textcolor{keywordflow}{if} (strDBPWD == \textcolor{stringliteral}{""})}
+\DoxyCodeLine{57     \{}
+\DoxyCodeLine{58         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordtype}{int} nDBPort = \mbox{\hyperlink{class_o_d_b_c_database_ac18ef14fdb513e97a28992feecf95826}{GetConfigDBPort}} ();}
+\DoxyCodeLine{62     \textcolor{keywordflow}{if} (nDBPort <= 0)}
+\DoxyCodeLine{63     \{}
+\DoxyCodeLine{64         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{65     \}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{keywordtype}{int} nDBCnt = \mbox{\hyperlink{class_o_d_b_c_database_ac04698991c68e9ba9e7af45ef36c8bc4}{GetConfigDBConnCnt}} ();}
+\DoxyCodeLine{68     \textcolor{keywordflow}{if} (nDBCnt <= 0)}
+\DoxyCodeLine{69     \{}
+\DoxyCodeLine{70         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{71     \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{comment}{// Make connection.}}
+\DoxyCodeLine{74     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nDBCnt; ++i)}
+\DoxyCodeLine{75     \{}
+\DoxyCodeLine{76         \mbox{\hyperlink{class_o_d_b_c}{ODBC}}* pODBC = \textcolor{keyword}{new} \mbox{\hyperlink{class_o_d_b_c}{ODBC}} ();}
+\DoxyCodeLine{77         \textcolor{keywordtype}{int} dwRet = pODBC-\/>\mbox{\hyperlink{class_o_d_b_c_aae8e25ec34fc0b24f2f75f150383647d}{Connect}} (strDBType.c\_str (), strDBDriver.c\_str (), strDBIP.c\_str (), nDBPort, \textcolor{stringliteral}{"DummyDSN"}, strDBName.c\_str (), strDBID.c\_str (), strDBPWD.c\_str ());}
+\DoxyCodeLine{78         \textcolor{keywordflow}{if} (dwRet != SQL\_SUCCESS)}
+\DoxyCodeLine{79         \{}
+\DoxyCodeLine{80             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{81             BOOST\_LOG\_TRIVIAL (error) << \textcolor{stringliteral}{"Func: "}<< \_\_FUNCTION\_\_ << \textcolor{stringliteral}{" Line: "} <<\_\_LINE\_\_;}
+\DoxyCodeLine{82         \}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84         \mbox{\hyperlink{class_o_d_b_c_database_ac1d298b8f5d0b445623b164ce1f8c197}{mPool}}.push\_back (pODBC);}
+\DoxyCodeLine{85     \}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{88 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_database_a606fd4348a872e67b9ac79d23344a450_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}\label{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}} 
+\index{ODBCDatabase@{ODBCDatabase}!Leave@{Leave}}
+\index{Leave@{Leave}!ODBCDatabase@{ODBCDatabase}}
+\doxysubsubsection{\texorpdfstring{Leave()}{Leave()}}
+{\footnotesize\ttfamily void Monitor\+::\+Leave (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 28 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \textcolor{comment}{// Leave Lock.}}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\_SyncOject}}.unlock ();}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}\label{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}} 
+\index{ODBCDatabase@{ODBCDatabase}!TryEnter@{TryEnter}}
+\index{TryEnter@{TryEnter}!ODBCDatabase@{ODBCDatabase}}
+\doxysubsubsection{\texorpdfstring{TryEnter()}{TryEnter()}}
+{\footnotesize\ttfamily bool Monitor\+::\+Try\+Enter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 16 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     \textcolor{comment}{// Make Spin Lock.}}
+\DoxyCodeLine{19     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{20 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_o_d_b_c_database_ab45ac321697e40519009aee6bac23ea7}\label{class_o_d_b_c_database_ab45ac321697e40519009aee6bac23ea7}} 
+\index{ODBCDatabase@{ODBCDatabase}!m\_csODBCDatabase@{m\_csODBCDatabase}}
+\index{m\_csODBCDatabase@{m\_csODBCDatabase}!ODBCDatabase@{ODBCDatabase}}
+\doxysubsubsection{\texorpdfstring{m\_csODBCDatabase}{m\_csODBCDatabase}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_monitor}{Monitor}} O\+D\+B\+C\+Database\+::m\+\_\+cs\+O\+D\+B\+C\+Database\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 24 of file O\+D\+B\+C\+Database.\+h.
+
+\mbox{\Hypertarget{class_monitor_aa6ef00d7122694ab317011623adb5599}\label{class_monitor_aa6ef00d7122694ab317011623adb5599}} 
+\index{ODBCDatabase@{ODBCDatabase}!m\_SyncOject@{m\_SyncOject}}
+\index{m\_SyncOject@{m\_SyncOject}!ODBCDatabase@{ODBCDatabase}}
+\doxysubsubsection{\texorpdfstring{m\_SyncOject}{m\_SyncOject}}
+{\footnotesize\ttfamily std\+::recursive\+\_\+mutex Monitor\+::m\+\_\+\+Sync\+Oject\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 27 of file Monitor.\+h.
+
+\mbox{\Hypertarget{class_o_d_b_c_database_ac1d298b8f5d0b445623b164ce1f8c197}\label{class_o_d_b_c_database_ac1d298b8f5d0b445623b164ce1f8c197}} 
+\index{ODBCDatabase@{ODBCDatabase}!mPool@{mPool}}
+\index{mPool@{mPool}!ODBCDatabase@{ODBCDatabase}}
+\doxysubsubsection{\texorpdfstring{mPool}{mPool}}
+{\footnotesize\ttfamily std\+::list$<$\mbox{\hyperlink{class_o_d_b_c}{O\+D\+BC}}$\ast$$>$ O\+D\+B\+C\+Database\+::m\+Pool\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 23 of file O\+D\+B\+C\+Database.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/externals/\+Lib\+O\+D\+B\+C/\mbox{\hyperlink{_o_d_b_c_database_8h}{O\+D\+B\+C\+Database.\+h}}\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/externals/\+Lib\+O\+D\+B\+C/\mbox{\hyperlink{_o_d_b_c_database_8cpp}{O\+D\+B\+C\+Database.\+cpp}}\end{DoxyCompactItemize}

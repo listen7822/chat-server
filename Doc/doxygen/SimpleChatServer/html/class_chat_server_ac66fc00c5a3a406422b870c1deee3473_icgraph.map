@@ -1,0 +1,7 @@
+<map id="ChatServer::GetRoomList" name="ChatServer::GetRoomList">
+<area shape="rect" id="node1" title=" " alt="" coords="483,45,652,71"/>
+<area shape="rect" id="node2" href="$class_chat_handler.html#af365bd4d4813c9f919721e328e422c43" title=" " alt="" coords="221,17,435,43"/>
+<area shape="rect" id="node4" href="$class_chat_handler.html#a1e9ba75f62b923ab8bb27826dea93d1a" title=" " alt="" coords="239,71,417,98"/>
+<area shape="rect" id="node3" href="$class_room_packet_dispatcher.html#a50b25b82d7cea80c665bec3ee0ac16e0" title=" " alt="" coords="6,5,173,47"/>
+<area shape="rect" id="node5" href="$class_lobby_packet_dispatcher.html#a7f8afcaa49b94d4149f6d878a2a27ce7" title=" " alt="" coords="5,71,173,112"/>
+</map>

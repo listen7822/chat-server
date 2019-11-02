@@ -1,0 +1,466 @@
+\hypertarget{class_queue}{}\doxysection{Queue$<$ T $>$ Class Template Reference}
+\label{class_queue}\index{Queue$<$ T $>$@{Queue$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Queue.\+h$>$}
+
+
+
+Inheritance diagram for Queue$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{class_queue__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Queue$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{class_queue__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_queue_a0e28382f1c9bd25260d8bec58378d181}{Queue}} (int max\+Size=M\+A\+X\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+S\+I\+ZE)
+\item 
+\mbox{\hyperlink{class_queue_aa7eef1b427e24555780505de20e9acbc}{$\sim$\+Queue}} ()
+\item 
+bool \mbox{\hyperlink{class_queue_a751844032079fdfe6450bf176259d689}{Push\+Queue}} (T type\+Queue\+Item)
+\item 
+void \mbox{\hyperlink{class_queue_aef4cfcaacae7b789c82b83c8970653cc}{Pop\+Queue}} ()
+\item 
+bool \mbox{\hyperlink{class_queue_a0a2603afa715b149a33ece140054d208}{Is\+Empty\+Queue}} ()
+\item 
+T \mbox{\hyperlink{class_queue_a71857aa6e0b27220107838441865c63a}{Get\+Front\+Queue}} ()
+\item 
+int \mbox{\hyperlink{class_queue_ae7576eaf851d0461b032666a103ebb05}{Get\+Queue\+Size}} ()
+\item 
+int \mbox{\hyperlink{class_queue_a5bef53d1b8254762e5f1d57ce3346ef0}{Get\+Queue\+Max\+Size}} ()
+\item 
+void \mbox{\hyperlink{class_queue_af1e01917f6e0e244995363b4cb035e5d}{Set\+Queue\+Max\+Size}} (int max\+Size)
+\item 
+void \mbox{\hyperlink{class_queue_a52b34753966c0e70290841b75226adbf}{Clear\+Queue}} ()
+\item 
+bool \mbox{\hyperlink{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}{Try\+Enter}} ()
+\item 
+void \mbox{\hyperlink{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}{Enter}} ()
+\item 
+void \mbox{\hyperlink{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}{Leave}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+T $\ast$ \mbox{\hyperlink{class_queue_a939f78a6b17f7e998b1b39b0b03f3fab}{m\+\_\+arr\+Queue}}
+\item 
+int \mbox{\hyperlink{class_queue_a87315276960b9ce0ce7cf9782001e483}{m\+\_\+\+Queue\+Max\+Size}}
+\item 
+\mbox{\hyperlink{class_monitor}{Monitor}} \mbox{\hyperlink{class_queue_a88abc9802267672dedc015f3d9cbcc5a}{m\+\_\+cs\+Queue}}
+\item 
+int \mbox{\hyperlink{class_queue_a27fa3bf3cd11ad3fff885105ab0da1de}{m\+\_\+\+Curent\+Size}}
+\item 
+int \mbox{\hyperlink{class_queue_abfd30f473703db6e12e25d993aef4b98}{m\+\_\+\+End\+Mark}}
+\item 
+int \mbox{\hyperlink{class_queue_a3b681371377d98577c2874c08e44c891}{m\+\_\+\+Begin\+Mark}}
+\item 
+std\+::recursive\+\_\+mutex \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\+\_\+\+Sync\+Oject}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Queue$<$ T $>$}
+
+
+
+Definition at line 5 of file Queue.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_queue_a0e28382f1c9bd25260d8bec58378d181}\label{class_queue_a0e28382f1c9bd25260d8bec58378d181}} 
+\index{Queue$<$ T $>$@{Queue$<$ T $>$}!Queue@{Queue}}
+\index{Queue@{Queue}!Queue$<$ T $>$@{Queue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Queue()}{Queue()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_queue}{Queue}}$<$ T $>$\+::\mbox{\hyperlink{class_queue}{Queue}} (\begin{DoxyParamCaption}\item[{int}]{max\+Size = {\ttfamily MAX\+\_\+QUEUE\+\_\+SIZE} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 5 of file Queue.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7     \mbox{\hyperlink{class_queue_a939f78a6b17f7e998b1b39b0b03f3fab}{m\_arrQueue}} = \textcolor{keyword}{new} T[maxSize];}
+\DoxyCodeLine{8     \mbox{\hyperlink{class_queue_a87315276960b9ce0ce7cf9782001e483}{m\_QueueMaxSize}} = maxSize;}
+\DoxyCodeLine{9     \mbox{\hyperlink{class_queue_a52b34753966c0e70290841b75226adbf}{ClearQueue}} ();}
+\DoxyCodeLine{10 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_queue_aa7eef1b427e24555780505de20e9acbc}\label{class_queue_aa7eef1b427e24555780505de20e9acbc}} 
+\index{Queue$<$ T $>$@{Queue$<$ T $>$}!````~Queue@{$\sim$Queue}}
+\index{````~Queue@{$\sim$Queue}!Queue$<$ T $>$@{Queue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$Queue()}{~Queue()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_queue}{Queue}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{class_queue}{Queue}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 13 of file Queue.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15     \textcolor{keyword}{delete}[] \mbox{\hyperlink{class_queue_a939f78a6b17f7e998b1b39b0b03f3fab}{m\_arrQueue}};}
+\DoxyCodeLine{16 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_queue_a52b34753966c0e70290841b75226adbf}\label{class_queue_a52b34753966c0e70290841b75226adbf}} 
+\index{Queue$<$ T $>$@{Queue$<$ T $>$}!ClearQueue@{ClearQueue}}
+\index{ClearQueue@{ClearQueue}!Queue$<$ T $>$@{Queue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ClearQueue()}{ClearQueue()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_queue}{Queue}}$<$ T $>$\+::Clear\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 97 of file Queue.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{98 \{}
+\DoxyCodeLine{99     \mbox{\hyperlink{class_monitor_1_1_owner}{Monitor::Owner}} lock (\mbox{\hyperlink{class_queue_a88abc9802267672dedc015f3d9cbcc5a}{m\_csQueue}});}
+\DoxyCodeLine{100     \{}
+\DoxyCodeLine{101         \mbox{\hyperlink{class_queue_a27fa3bf3cd11ad3fff885105ab0da1de}{m\_CurentSize}} = 0;}
+\DoxyCodeLine{102         \mbox{\hyperlink{class_queue_abfd30f473703db6e12e25d993aef4b98}{m\_EndMark}} = 0;}
+\DoxyCodeLine{103         \mbox{\hyperlink{class_queue_a3b681371377d98577c2874c08e44c891}{m\_BeginMark}} = 0;}
+\DoxyCodeLine{104     \}}
+\DoxyCodeLine{105 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}\label{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}} 
+\index{Queue$<$ T $>$@{Queue$<$ T $>$}!Enter@{Enter}}
+\index{Enter@{Enter}!Queue$<$ T $>$@{Queue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Enter()}{Enter()}}
+{\footnotesize\ttfamily void Monitor\+::\+Enter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 22 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     \textcolor{comment}{// Enter Lock.}}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\_SyncOject}}.lock ();}
+\DoxyCodeLine{26 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_queue_a71857aa6e0b27220107838441865c63a}\label{class_queue_a71857aa6e0b27220107838441865c63a}} 
+\index{Queue$<$ T $>$@{Queue$<$ T $>$}!GetFrontQueue@{GetFrontQueue}}
+\index{GetFrontQueue@{GetFrontQueue}!Queue$<$ T $>$@{Queue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetFrontQueue()}{GetFrontQueue()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{class_queue}{Queue}}$<$ T $>$\+::Get\+Front\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 63 of file Queue.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64 \{}
+\DoxyCodeLine{65     T queueItem;}
+\DoxyCodeLine{66     \mbox{\hyperlink{class_monitor_1_1_owner}{Monitor::Owner}} lock (\mbox{\hyperlink{class_queue_a88abc9802267672dedc015f3d9cbcc5a}{m\_csQueue}});}
+\DoxyCodeLine{67     \{}
+\DoxyCodeLine{68         \textcolor{keywordflow}{if} (0 >= \mbox{\hyperlink{class_queue_a27fa3bf3cd11ad3fff885105ab0da1de}{m\_CurentSize}})}
+\DoxyCodeLine{69         \{}
+\DoxyCodeLine{70             \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{71         \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_queue_a3b681371377d98577c2874c08e44c891}{m\_BeginMark}} == \mbox{\hyperlink{class_queue_a87315276960b9ce0ce7cf9782001e483}{m\_QueueMaxSize}})}
+\DoxyCodeLine{74         \{}
+\DoxyCodeLine{75             \mbox{\hyperlink{class_queue_a3b681371377d98577c2874c08e44c891}{m\_BeginMark}} = 0;}
+\DoxyCodeLine{76         \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78         queueItem = \mbox{\hyperlink{class_queue_a939f78a6b17f7e998b1b39b0b03f3fab}{m\_arrQueue}}[\mbox{\hyperlink{class_queue_a3b681371377d98577c2874c08e44c891}{m\_BeginMark}}];}
+\DoxyCodeLine{79     \}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     \textcolor{keywordflow}{return} queueItem;}
+\DoxyCodeLine{82 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_queue_a5bef53d1b8254762e5f1d57ce3346ef0}\label{class_queue_a5bef53d1b8254762e5f1d57ce3346ef0}} 
+\index{Queue$<$ T $>$@{Queue$<$ T $>$}!GetQueueMaxSize@{GetQueueMaxSize}}
+\index{GetQueueMaxSize@{GetQueueMaxSize}!Queue$<$ T $>$@{Queue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetQueueMaxSize()}{GetQueueMaxSize()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{class_queue}{Queue}}$<$ T $>$\+::Get\+Queue\+Max\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 17 of file Queue.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_queue_a87315276960b9ce0ce7cf9782001e483}{m\_QueueMaxSize}}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_queue_ae7576eaf851d0461b032666a103ebb05}\label{class_queue_ae7576eaf851d0461b032666a103ebb05}} 
+\index{Queue$<$ T $>$@{Queue$<$ T $>$}!GetQueueSize@{GetQueueSize}}
+\index{GetQueueSize@{GetQueueSize}!Queue$<$ T $>$@{Queue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetQueueSize()}{GetQueueSize()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{class_queue}{Queue}}$<$ T $>$\+::Get\+Queue\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 85 of file Queue.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{86 \{}
+\DoxyCodeLine{87     \textcolor{keywordtype}{int} size;}
+\DoxyCodeLine{88     \mbox{\hyperlink{class_monitor_1_1_owner}{Monitor::Owner}} lock (\mbox{\hyperlink{class_queue_a88abc9802267672dedc015f3d9cbcc5a}{m\_csQueue}});}
+\DoxyCodeLine{89     \{}
+\DoxyCodeLine{90         size = \mbox{\hyperlink{class_queue_a27fa3bf3cd11ad3fff885105ab0da1de}{m\_CurentSize}};}
+\DoxyCodeLine{91     \}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93     \textcolor{keywordflow}{return} size;}
+\DoxyCodeLine{94 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_queue_a0a2603afa715b149a33ece140054d208}\label{class_queue_a0a2603afa715b149a33ece140054d208}} 
+\index{Queue$<$ T $>$@{Queue$<$ T $>$}!IsEmptyQueue@{IsEmptyQueue}}
+\index{IsEmptyQueue@{IsEmptyQueue}!Queue$<$ T $>$@{Queue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{IsEmptyQueue()}{IsEmptyQueue()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{class_queue}{Queue}}$<$ T $>$\+::Is\+Empty\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 51 of file Queue.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52 \{}
+\DoxyCodeLine{53     \textcolor{keywordtype}{bool} flag = \textcolor{keyword}{false};}
+\DoxyCodeLine{54     \mbox{\hyperlink{class_monitor_1_1_owner}{Monitor::Owner}} lock (\mbox{\hyperlink{class_queue_a88abc9802267672dedc015f3d9cbcc5a}{m\_csQueue}});}
+\DoxyCodeLine{55     \{}
+\DoxyCodeLine{56         flag = (\mbox{\hyperlink{class_queue_a27fa3bf3cd11ad3fff885105ab0da1de}{m\_CurentSize}} > 0) ? \textcolor{keyword}{false} : \textcolor{keyword}{true};}
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keywordflow}{return} flag;}
+\DoxyCodeLine{60 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}\label{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}} 
+\index{Queue$<$ T $>$@{Queue$<$ T $>$}!Leave@{Leave}}
+\index{Leave@{Leave}!Queue$<$ T $>$@{Queue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Leave()}{Leave()}}
+{\footnotesize\ttfamily void Monitor\+::\+Leave (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 28 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \textcolor{comment}{// Leave Lock.}}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\_SyncOject}}.unlock ();}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_queue_aef4cfcaacae7b789c82b83c8970653cc}\label{class_queue_aef4cfcaacae7b789c82b83c8970653cc}} 
+\index{Queue$<$ T $>$@{Queue$<$ T $>$}!PopQueue@{PopQueue}}
+\index{PopQueue@{PopQueue}!Queue$<$ T $>$@{Queue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{PopQueue()}{PopQueue()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_queue}{Queue}}$<$ T $>$\+::Pop\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 41 of file Queue.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42 \{}
+\DoxyCodeLine{43     \mbox{\hyperlink{class_monitor_1_1_owner}{Monitor::Owner}} lock (\mbox{\hyperlink{class_queue_a88abc9802267672dedc015f3d9cbcc5a}{m\_csQueue}});}
+\DoxyCodeLine{44     \{}
+\DoxyCodeLine{45         -\/-\/\mbox{\hyperlink{class_queue_a27fa3bf3cd11ad3fff885105ab0da1de}{m\_CurentSize}};}
+\DoxyCodeLine{46         ++\mbox{\hyperlink{class_queue_a3b681371377d98577c2874c08e44c891}{m\_BeginMark}};}
+\DoxyCodeLine{47     \}}
+\DoxyCodeLine{48 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_queue_a751844032079fdfe6450bf176259d689}\label{class_queue_a751844032079fdfe6450bf176259d689}} 
+\index{Queue$<$ T $>$@{Queue$<$ T $>$}!PushQueue@{PushQueue}}
+\index{PushQueue@{PushQueue}!Queue$<$ T $>$@{Queue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{PushQueue()}{PushQueue()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{class_queue}{Queue}}$<$ T $>$\+::Push\+Queue (\begin{DoxyParamCaption}\item[{T}]{type\+Queue\+Item }\end{DoxyParamCaption})}
+
+
+
+Definition at line 19 of file Queue.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_monitor_1_1_owner}{Monitor::Owner}} lock (\mbox{\hyperlink{class_queue_a88abc9802267672dedc015f3d9cbcc5a}{m\_csQueue}});}
+\DoxyCodeLine{22     \{}
+\DoxyCodeLine{23         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_queue_a27fa3bf3cd11ad3fff885105ab0da1de}{m\_CurentSize}} >= \mbox{\hyperlink{class_queue_a87315276960b9ce0ce7cf9782001e483}{m\_QueueMaxSize}})}
+\DoxyCodeLine{24         \{}
+\DoxyCodeLine{25             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{26         \}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28         ++\mbox{\hyperlink{class_queue_a27fa3bf3cd11ad3fff885105ab0da1de}{m\_CurentSize}};}
+\DoxyCodeLine{29         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_queue_abfd30f473703db6e12e25d993aef4b98}{m\_EndMark}} == \mbox{\hyperlink{class_queue_a87315276960b9ce0ce7cf9782001e483}{m\_QueueMaxSize}})}
+\DoxyCodeLine{30         \{}
+\DoxyCodeLine{31             \mbox{\hyperlink{class_queue_abfd30f473703db6e12e25d993aef4b98}{m\_EndMark}} = 0;}
+\DoxyCodeLine{32         \}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         \mbox{\hyperlink{class_queue_a939f78a6b17f7e998b1b39b0b03f3fab}{m\_arrQueue}}[\mbox{\hyperlink{class_queue_abfd30f473703db6e12e25d993aef4b98}{m\_EndMark}}++] = typeQueueItem;}
+\DoxyCodeLine{35     \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{38 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_queue_af1e01917f6e0e244995363b4cb035e5d}\label{class_queue_af1e01917f6e0e244995363b4cb035e5d}} 
+\index{Queue$<$ T $>$@{Queue$<$ T $>$}!SetQueueMaxSize@{SetQueueMaxSize}}
+\index{SetQueueMaxSize@{SetQueueMaxSize}!Queue$<$ T $>$@{Queue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SetQueueMaxSize()}{SetQueueMaxSize()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_queue}{Queue}}$<$ T $>$\+::Set\+Queue\+Max\+Size (\begin{DoxyParamCaption}\item[{int}]{max\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 18 of file Queue.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{18 \{ \mbox{\hyperlink{class_queue_a87315276960b9ce0ce7cf9782001e483}{m\_QueueMaxSize}} = maxSize; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}\label{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}} 
+\index{Queue$<$ T $>$@{Queue$<$ T $>$}!TryEnter@{TryEnter}}
+\index{TryEnter@{TryEnter}!Queue$<$ T $>$@{Queue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TryEnter()}{TryEnter()}}
+{\footnotesize\ttfamily bool Monitor\+::\+Try\+Enter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 16 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     \textcolor{comment}{// Make Spin Lock.}}
+\DoxyCodeLine{19     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{20 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_queue_a939f78a6b17f7e998b1b39b0b03f3fab}\label{class_queue_a939f78a6b17f7e998b1b39b0b03f3fab}} 
+\index{Queue$<$ T $>$@{Queue$<$ T $>$}!m\_arrQueue@{m\_arrQueue}}
+\index{m\_arrQueue@{m\_arrQueue}!Queue$<$ T $>$@{Queue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{m\_arrQueue}{m\_arrQueue}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T$\ast$ \mbox{\hyperlink{class_queue}{Queue}}$<$ T $>$\+::m\+\_\+arr\+Queue\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 22 of file Queue.\+h.
+
+\mbox{\Hypertarget{class_queue_a3b681371377d98577c2874c08e44c891}\label{class_queue_a3b681371377d98577c2874c08e44c891}} 
+\index{Queue$<$ T $>$@{Queue$<$ T $>$}!m\_BeginMark@{m\_BeginMark}}
+\index{m\_BeginMark@{m\_BeginMark}!Queue$<$ T $>$@{Queue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{m\_BeginMark}{m\_BeginMark}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{class_queue}{Queue}}$<$ T $>$\+::m\+\_\+\+Begin\+Mark\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 28 of file Queue.\+h.
+
+\mbox{\Hypertarget{class_queue_a88abc9802267672dedc015f3d9cbcc5a}\label{class_queue_a88abc9802267672dedc015f3d9cbcc5a}} 
+\index{Queue$<$ T $>$@{Queue$<$ T $>$}!m\_csQueue@{m\_csQueue}}
+\index{m\_csQueue@{m\_csQueue}!Queue$<$ T $>$@{Queue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{m\_csQueue}{m\_csQueue}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_monitor}{Monitor}} \mbox{\hyperlink{class_queue}{Queue}}$<$ T $>$\+::m\+\_\+cs\+Queue\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 24 of file Queue.\+h.
+
+\mbox{\Hypertarget{class_queue_a27fa3bf3cd11ad3fff885105ab0da1de}\label{class_queue_a27fa3bf3cd11ad3fff885105ab0da1de}} 
+\index{Queue$<$ T $>$@{Queue$<$ T $>$}!m\_CurentSize@{m\_CurentSize}}
+\index{m\_CurentSize@{m\_CurentSize}!Queue$<$ T $>$@{Queue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{m\_CurentSize}{m\_CurentSize}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{class_queue}{Queue}}$<$ T $>$\+::m\+\_\+\+Curent\+Size\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 26 of file Queue.\+h.
+
+\mbox{\Hypertarget{class_queue_abfd30f473703db6e12e25d993aef4b98}\label{class_queue_abfd30f473703db6e12e25d993aef4b98}} 
+\index{Queue$<$ T $>$@{Queue$<$ T $>$}!m\_EndMark@{m\_EndMark}}
+\index{m\_EndMark@{m\_EndMark}!Queue$<$ T $>$@{Queue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{m\_EndMark}{m\_EndMark}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{class_queue}{Queue}}$<$ T $>$\+::m\+\_\+\+End\+Mark\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 27 of file Queue.\+h.
+
+\mbox{\Hypertarget{class_queue_a87315276960b9ce0ce7cf9782001e483}\label{class_queue_a87315276960b9ce0ce7cf9782001e483}} 
+\index{Queue$<$ T $>$@{Queue$<$ T $>$}!m\_QueueMaxSize@{m\_QueueMaxSize}}
+\index{m\_QueueMaxSize@{m\_QueueMaxSize}!Queue$<$ T $>$@{Queue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{m\_QueueMaxSize}{m\_QueueMaxSize}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{class_queue}{Queue}}$<$ T $>$\+::m\+\_\+\+Queue\+Max\+Size\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 23 of file Queue.\+h.
+
+\mbox{\Hypertarget{class_monitor_aa6ef00d7122694ab317011623adb5599}\label{class_monitor_aa6ef00d7122694ab317011623adb5599}} 
+\index{Queue$<$ T $>$@{Queue$<$ T $>$}!m\_SyncOject@{m\_SyncOject}}
+\index{m\_SyncOject@{m\_SyncOject}!Queue$<$ T $>$@{Queue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{m\_SyncOject}{m\_SyncOject}}
+{\footnotesize\ttfamily std\+::recursive\+\_\+mutex Monitor\+::m\+\_\+\+Sync\+Oject\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 27 of file Monitor.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/externals/\+Lib\+Util/\mbox{\hyperlink{_queue_8h}{Queue.\+h}}\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/externals/\+Lib\+Util/\mbox{\hyperlink{_queue_8cpp}{Queue.\+cpp}}\end{DoxyCompactItemize}

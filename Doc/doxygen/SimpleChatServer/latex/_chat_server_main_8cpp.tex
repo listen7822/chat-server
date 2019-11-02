@@ -1,0 +1,57 @@
+\hypertarget{_chat_server_main_8cpp}{}\doxysection{C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/\+Chat\+Server/\+Chat\+Server\+Main.cpp File Reference}
+\label{_chat_server_main_8cpp}\index{C:/Users/YunJun/Documents/chat-\/server/ChatServer/ChatServerMain.cpp@{C:/Users/YunJun/Documents/chat-\/server/ChatServer/ChatServerMain.cpp}}
+{\ttfamily \#include \char`\"{}pch.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$boost/asio.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}Chat\+Server.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Config.\+h\char`\"{}}\newline
+Include dependency graph for Chat\+Server\+Main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_chat_server_main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_chat_server_main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_chat_server_main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{_chat_server_main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{ChatServerMain.cpp@{ChatServerMain.cpp}!main@{main}}
+\index{main@{main}!ChatServerMain.cpp@{ChatServerMain.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 8 of file Chat\+Server\+Main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10     boost::asio::io\_service io\_service;}
+\DoxyCodeLine{11     boost::asio::io\_service::work woker (io\_service);}
+\DoxyCodeLine{12     \mbox{\hyperlink{class_chat_server}{ChatServer}} server (io\_service, \mbox{\hyperlink{namespace_l_o_b_b_y_a39367d6f91c7dc5bb9690530e2b94408}{LOBBY::SERVER\_PORT}});}
+\DoxyCodeLine{13     server.Init (io\_service, \mbox{\hyperlink{namespace_l_o_b_b_y_a01be8bc60add06272efc8f49603d8b82}{LOBBY::MAX\_SESSION\_COUNT}}, \mbox{\hyperlink{namespace_l_o_b_b_y_a927e549bb6c6141735c02c16211024b8}{LOBBY::MAX\_THREAD\_POOL\_SIZE}}, \mbox{\hyperlink{namespace_l_o_b_b_y_a2aed4ba29163da5f40515515acb62015}{LOBBY::MAX\_ROOM\_COUNT}});}
+\DoxyCodeLine{14     BOOST\_LOG\_TRIVIAL (info) << \textcolor{stringliteral}{"Chat server start ..."};}
+\DoxyCodeLine{15     server.Start ();}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     BOOST\_LOG\_TRIVIAL (info) << \textcolor{stringliteral}{"Closed server."};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     getchar ();}
+\DoxyCodeLine{20     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{21 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_chat_server_main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,476 @@
+\hypertarget{class_chat_o_d_b_c_object}{}\doxysection{Chat\+O\+D\+B\+C\+Object Class Reference}
+\label{class_chat_o_d_b_c_object}\index{ChatODBCObject@{ChatODBCObject}}
+
+
+{\ttfamily \#include $<$Chat\+O\+D\+B\+C\+Object.\+h$>$}
+
+
+
+Inheritance diagram for Chat\+O\+D\+B\+C\+Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_chat_o_d_b_c_object__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Chat\+O\+D\+B\+C\+Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_chat_o_d_b_c_object__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chat_o_d_b_c_object_a0f908560025bfa3031652c271bc85146}{Chat\+O\+D\+B\+C\+Object}} ()
+\item 
+virtual \mbox{\hyperlink{class_chat_o_d_b_c_object_a221a862041fa695a82655a9306de90c7}{$\sim$\+Chat\+O\+D\+B\+C\+Object}} ()
+\item 
+bool \mbox{\hyperlink{class_chat_o_d_b_c_object_acfc26d8d017cf68c19ad4bf2a30d6899}{Get\+User\+Name\+Using\+Token}} (std\+::string \&nickname, std\+::string token)
+\item 
+\mbox{\hyperlink{class_o_d_b_c}{O\+D\+BC}} $\ast$ \mbox{\hyperlink{class_o_d_b_c_object_a6d682855a10f069ef934a8f2082c94dc}{Get\+O\+D\+BC}} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{class_o_d_b_c_object_aa3abccee88c82fa9eadaa61722d5c2cd}{Add\+Database}} ()
+\item 
+void \mbox{\hyperlink{class_o_d_b_c_object_a66b183e6b360b8205f22ccf08845baea}{Check\+Database}} ()
+\item 
+bool \mbox{\hyperlink{class_o_d_b_c_object_a582189731f53b3c6dc547e9d2197fe56}{Is\+Success\+Query}} (int ret\+S\+QL)
+\item 
+bool \mbox{\hyperlink{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}{Try\+Enter}} ()
+\item 
+void \mbox{\hyperlink{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}{Enter}} ()
+\item 
+void \mbox{\hyperlink{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}{Leave}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_o_d_b_c_object}{O\+D\+B\+C\+Object}} $\ast$ \mbox{\hyperlink{class_singleton_a32e9ccdbb5bdf4662cb8c1fd0c8d047a}{Instance}} (void)
+\item 
+static void \mbox{\hyperlink{class_singleton_a98ea34301337737d80c17055f884cef0}{Make\+Instance}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_o_d_b_c_database}{O\+D\+B\+C\+Database}} $\ast$ \mbox{\hyperlink{class_o_d_b_c_object_a81e9ef39e2fad64cc2df16e07cb7b2e8}{m\+\_\+\+Database}}
+\item 
+std\+::recursive\+\_\+mutex \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\+\_\+\+Sync\+Oject}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_o_d_b_c_object}{O\+D\+B\+C\+Object}} $\ast$ \mbox{\hyperlink{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}{instance\+\_\+}}
+\item 
+static \mbox{\hyperlink{class_monitor}{Monitor}} \mbox{\hyperlink{class_singleton_a6ce2c5830384b09bb760c4ed4eb0bf73}{m\+\_\+cs\+Singleton}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 4 of file Chat\+O\+D\+B\+C\+Object.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_chat_o_d_b_c_object_a0f908560025bfa3031652c271bc85146}\label{class_chat_o_d_b_c_object_a0f908560025bfa3031652c271bc85146}} 
+\index{ChatODBCObject@{ChatODBCObject}!ChatODBCObject@{ChatODBCObject}}
+\index{ChatODBCObject@{ChatODBCObject}!ChatODBCObject@{ChatODBCObject}}
+\doxysubsubsection{\texorpdfstring{ChatODBCObject()}{ChatODBCObject()}}
+{\footnotesize\ttfamily Chat\+O\+D\+B\+C\+Object\+::\+Chat\+O\+D\+B\+C\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 7 of file Chat\+O\+D\+B\+C\+Object.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_chat_o_d_b_c_object_a221a862041fa695a82655a9306de90c7}\label{class_chat_o_d_b_c_object_a221a862041fa695a82655a9306de90c7}} 
+\index{ChatODBCObject@{ChatODBCObject}!````~ChatODBCObject@{$\sim$ChatODBCObject}}
+\index{````~ChatODBCObject@{$\sim$ChatODBCObject}!ChatODBCObject@{ChatODBCObject}}
+\doxysubsubsection{\texorpdfstring{$\sim$ChatODBCObject()}{~ChatODBCObject()}}
+{\footnotesize\ttfamily Chat\+O\+D\+B\+C\+Object\+::$\sim$\+Chat\+O\+D\+B\+C\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line 12 of file Chat\+O\+D\+B\+C\+Object.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_o_d_b_c_object_aa3abccee88c82fa9eadaa61722d5c2cd}\label{class_o_d_b_c_object_aa3abccee88c82fa9eadaa61722d5c2cd}} 
+\index{ChatODBCObject@{ChatODBCObject}!AddDatabase@{AddDatabase}}
+\index{AddDatabase@{AddDatabase}!ChatODBCObject@{ChatODBCObject}}
+\doxysubsubsection{\texorpdfstring{AddDatabase()}{AddDatabase()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool O\+D\+B\+C\+Object\+::\+Add\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 23 of file O\+D\+B\+C\+Object.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24     \{}
+\DoxyCodeLine{25         \textcolor{keywordflow}{if} (\textcolor{keyword}{nullptr} != \mbox{\hyperlink{class_o_d_b_c_object_a81e9ef39e2fad64cc2df16e07cb7b2e8}{m\_Database}})}
+\DoxyCodeLine{26         \{}
+\DoxyCodeLine{27             BOOST\_LOG\_TRIVIAL (error) << \textcolor{stringliteral}{"Func: "}<< \_\_FUNCTION\_\_ << \textcolor{stringliteral}{" Line: "} <<\_\_LINE\_\_;}
+\DoxyCodeLine{28             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{29         \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31         T* pDatabase = \textcolor{keyword}{new} T;}
+\DoxyCodeLine{32         \textcolor{keywordflow}{if} (!pDatabase-\/>Initialize ())}
+\DoxyCodeLine{33         \{}
+\DoxyCodeLine{34             BOOST\_LOG\_TRIVIAL (error) << \textcolor{stringliteral}{"Func: "}<< \_\_FUNCTION\_\_ << \textcolor{stringliteral}{" Line: "} <<\_\_LINE\_\_;}
+\DoxyCodeLine{35             \textcolor{keyword}{delete} pDatabase;}
+\DoxyCodeLine{36             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{37         \}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39         \mbox{\hyperlink{class_o_d_b_c_object_a81e9ef39e2fad64cc2df16e07cb7b2e8}{m\_Database}} = pDatabase;}
+\DoxyCodeLine{40         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{41     \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_object_aa3abccee88c82fa9eadaa61722d5c2cd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_o_d_b_c_object_a66b183e6b360b8205f22ccf08845baea}\label{class_o_d_b_c_object_a66b183e6b360b8205f22ccf08845baea}} 
+\index{ChatODBCObject@{ChatODBCObject}!CheckDatabase@{CheckDatabase}}
+\index{CheckDatabase@{CheckDatabase}!ChatODBCObject@{ChatODBCObject}}
+\doxysubsubsection{\texorpdfstring{CheckDatabase()}{CheckDatabase()}}
+{\footnotesize\ttfamily void O\+D\+B\+C\+Object\+::\+Check\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 37 of file O\+D\+B\+C\+Object.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38 \{}
+\DoxyCodeLine{39     \textcolor{comment}{// database null check}}
+\DoxyCodeLine{40     \textcolor{keywordflow}{if} (\textcolor{keyword}{nullptr} == \mbox{\hyperlink{class_o_d_b_c_object_a81e9ef39e2fad64cc2df16e07cb7b2e8}{m\_Database}})}
+\DoxyCodeLine{41     \{}
+\DoxyCodeLine{42         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{comment}{// health check connection }}
+\DoxyCodeLine{46     \mbox{\hyperlink{class_o_d_b_c_object_a81e9ef39e2fad64cc2df16e07cb7b2e8}{m\_Database}}-\/>\mbox{\hyperlink{class_o_d_b_c_database_a0f7c8b7a1e8c8cbe544e7acbfaa573e1}{CheckConnection}} ();}
+\DoxyCodeLine{47 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_object_a66b183e6b360b8205f22ccf08845baea_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}\label{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}} 
+\index{ChatODBCObject@{ChatODBCObject}!Enter@{Enter}}
+\index{Enter@{Enter}!ChatODBCObject@{ChatODBCObject}}
+\doxysubsubsection{\texorpdfstring{Enter()}{Enter()}}
+{\footnotesize\ttfamily void Monitor\+::\+Enter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 22 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     \textcolor{comment}{// Enter Lock.}}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\_SyncOject}}.lock ();}
+\DoxyCodeLine{26 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_o_d_b_c_object_a6d682855a10f069ef934a8f2082c94dc}\label{class_o_d_b_c_object_a6d682855a10f069ef934a8f2082c94dc}} 
+\index{ChatODBCObject@{ChatODBCObject}!GetODBC@{GetODBC}}
+\index{GetODBC@{GetODBC}!ChatODBCObject@{ChatODBCObject}}
+\doxysubsubsection{\texorpdfstring{GetODBC()}{GetODBC()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_o_d_b_c}{O\+D\+BC}} $\ast$ O\+D\+B\+C\+Object\+::\+Get\+O\+D\+BC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 18 of file O\+D\+B\+C\+Object.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20     \textcolor{keywordtype}{int} waitCnt = 0;}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_o_d_b_c}{ODBC}} *pCon = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{22     \textcolor{keywordflow}{do}}
+\DoxyCodeLine{23     \{}
+\DoxyCodeLine{24         \textcolor{comment}{// connection pool null check}}
+\DoxyCodeLine{25         \textcolor{keywordflow}{if} (\textcolor{keyword}{nullptr} == \mbox{\hyperlink{class_o_d_b_c_object_a81e9ef39e2fad64cc2df16e07cb7b2e8}{m\_Database}})}
+\DoxyCodeLine{26         \{}
+\DoxyCodeLine{27             BOOST\_LOG\_TRIVIAL (error) << \textcolor{stringliteral}{"Func: "}<< \_\_FUNCTION\_\_ << \textcolor{stringliteral}{" Line: "} <<\_\_LINE\_\_;}
+\DoxyCodeLine{28             \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{29         \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31         pCon = \mbox{\hyperlink{class_o_d_b_c_object_a81e9ef39e2fad64cc2df16e07cb7b2e8}{m\_Database}}-\/>\mbox{\hyperlink{class_o_d_b_c_database_a69db5068ab2fc85c1407531e518f8dae}{GetConnection}} ();}
+\DoxyCodeLine{32     \} \textcolor{keywordflow}{while} (!pCon);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordflow}{return} pCon;}
+\DoxyCodeLine{35 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_object_a6d682855a10f069ef934a8f2082c94dc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_object_a6d682855a10f069ef934a8f2082c94dc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_chat_o_d_b_c_object_acfc26d8d017cf68c19ad4bf2a30d6899}\label{class_chat_o_d_b_c_object_acfc26d8d017cf68c19ad4bf2a30d6899}} 
+\index{ChatODBCObject@{ChatODBCObject}!GetUserNameUsingToken@{GetUserNameUsingToken}}
+\index{GetUserNameUsingToken@{GetUserNameUsingToken}!ChatODBCObject@{ChatODBCObject}}
+\doxysubsubsection{\texorpdfstring{GetUserNameUsingToken()}{GetUserNameUsingToken()}}
+{\footnotesize\ttfamily bool Chat\+O\+D\+B\+C\+Object\+::\+Get\+User\+Name\+Using\+Token (\begin{DoxyParamCaption}\item[{std\+::string \&}]{nickname,  }\item[{std\+::string}]{token }\end{DoxyParamCaption})}
+
+
+
+Definition at line 16 of file Chat\+O\+D\+B\+C\+Object.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     std::string strQuery = \textcolor{stringliteral}{"SELECT nickname FROM userinfo WHERE auth\_token = \(\backslash\)""}+ token +\textcolor{stringliteral}{"\(\backslash\)""};}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_scoped_o_d_b_c}{ScopedODBC}} scopedODBC;}
+\DoxyCodeLine{20     \textcolor{keywordtype}{int} nRet = scopedODBC.\mbox{\hyperlink{class_scoped_o_d_b_c_a43d949147bf8d7a348b47633b50fc2ea}{Execute}} (strQuery.c\_str ());}
+\DoxyCodeLine{21     \textcolor{keywordflow}{if} (\textcolor{keyword}{false} == \mbox{\hyperlink{class_o_d_b_c_object_a582189731f53b3c6dc547e9d2197fe56}{IsSuccessQuery}} (nRet))}
+\DoxyCodeLine{22     \{}
+\DoxyCodeLine{23         BOOST\_LOG\_TRIVIAL (error) \(\backslash\)}
+\DoxyCodeLine{24             << \textcolor{stringliteral}{"Func: "} \(\backslash\)}
+\DoxyCodeLine{25             << \_\_FUNCTION\_\_ \(\backslash\)}
+\DoxyCodeLine{26             << \textcolor{stringliteral}{" Line: "} \(\backslash\)}
+\DoxyCodeLine{27             << \_\_LINE\_\_ \(\backslash\)}
+\DoxyCodeLine{28             << \textcolor{stringliteral}{" ErrorCode: "} \(\backslash\)}
+\DoxyCodeLine{29             << scopedODBC-\/>\mbox{\hyperlink{class_o_d_b_c_ab3a420afa215b3358696abb41ced16d9}{GetLastError}} ();}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{32     \}}
+\DoxyCodeLine{33     }
+\DoxyCodeLine{34     \textcolor{keywordflow}{while} (SQL\_SUCCESS == scopedODBC-\/>\mbox{\hyperlink{class_o_d_b_c_ae55d04a391aeef4b31928a6e30fd3bbb}{Fetch}} ())}
+\DoxyCodeLine{35     \{}
+\DoxyCodeLine{36         \textcolor{keywordtype}{int} idx = 0;}
+\DoxyCodeLine{37         \textcolor{keywordtype}{int} length = 0;}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39         \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{int} MAX\_NICKNAME\_LEN = 12;}
+\DoxyCodeLine{40         \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{int} TOKEN\_LEN = 17;}
+\DoxyCodeLine{41         \textcolor{keywordtype}{char} tmpNickname[MAX\_NICKNAME\_LEN + 1];}
+\DoxyCodeLine{42         \textcolor{keywordtype}{char} tmpToken[TOKEN\_LEN + 1];}
+\DoxyCodeLine{43         scopedODBC-\/>\mbox{\hyperlink{class_o_d_b_c_a6e77a59ffd6f0ec775750a73d1364b15}{GetData}} (++idx, tmpNickname, MAX\_NICKNAME\_LEN + 1, \&length);}
+\DoxyCodeLine{44         scopedODBC-\/>\mbox{\hyperlink{class_o_d_b_c_a6e77a59ffd6f0ec775750a73d1364b15}{GetData}} (++idx, tmpToken, TOKEN\_LEN + 1, \&length);}
+\DoxyCodeLine{45         nickname = tmpNickname;}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{49 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chat_o_d_b_c_object_acfc26d8d017cf68c19ad4bf2a30d6899_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_singleton_a32e9ccdbb5bdf4662cb8c1fd0c8d047a}\label{class_singleton_a32e9ccdbb5bdf4662cb8c1fd0c8d047a}} 
+\index{ChatODBCObject@{ChatODBCObject}!Instance@{Instance}}
+\index{Instance@{Instance}!ChatODBCObject@{ChatODBCObject}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_o_d_b_c_object}{O\+D\+B\+C\+Object}} $\ast$ \mbox{\hyperlink{class_singleton}{Singleton}}$<$ \mbox{\hyperlink{class_o_d_b_c_object}{O\+D\+B\+C\+Object}}  $>$\+::Instance (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 12 of file Singleton.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13     \{}
+\DoxyCodeLine{14         \textcolor{keywordflow}{if} (\textcolor{keyword}{nullptr} == \mbox{\hyperlink{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}{instance\_}})}
+\DoxyCodeLine{15         \{}
+\DoxyCodeLine{16             \mbox{\hyperlink{class_singleton_a98ea34301337737d80c17055f884cef0}{MakeInstance}} ();}
+\DoxyCodeLine{17         \}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}{instance\_}};}
+\DoxyCodeLine{20     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_o_d_b_c_object_a582189731f53b3c6dc547e9d2197fe56}\label{class_o_d_b_c_object_a582189731f53b3c6dc547e9d2197fe56}} 
+\index{ChatODBCObject@{ChatODBCObject}!IsSuccessQuery@{IsSuccessQuery}}
+\index{IsSuccessQuery@{IsSuccessQuery}!ChatODBCObject@{ChatODBCObject}}
+\doxysubsubsection{\texorpdfstring{IsSuccessQuery()}{IsSuccessQuery()}}
+{\footnotesize\ttfamily bool O\+D\+B\+C\+Object\+::\+Is\+Success\+Query (\begin{DoxyParamCaption}\item[{int}]{ret\+S\+QL }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 49 of file O\+D\+B\+C\+Object.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{50 \{}
+\DoxyCodeLine{51     \textcolor{keywordflow}{if} (SQL\_SUCCESS == retSQL || SQL\_SUCCESS\_WITH\_INFO == retSQL || SQL\_NO\_DATA == retSQL)}
+\DoxyCodeLine{52     \{}
+\DoxyCodeLine{53         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{54     \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{57 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_object_a582189731f53b3c6dc547e9d2197fe56_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}\label{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}} 
+\index{ChatODBCObject@{ChatODBCObject}!Leave@{Leave}}
+\index{Leave@{Leave}!ChatODBCObject@{ChatODBCObject}}
+\doxysubsubsection{\texorpdfstring{Leave()}{Leave()}}
+{\footnotesize\ttfamily void Monitor\+::\+Leave (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 28 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \textcolor{comment}{// Leave Lock.}}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\_SyncOject}}.unlock ();}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_singleton_a98ea34301337737d80c17055f884cef0}\label{class_singleton_a98ea34301337737d80c17055f884cef0}} 
+\index{ChatODBCObject@{ChatODBCObject}!MakeInstance@{MakeInstance}}
+\index{MakeInstance@{MakeInstance}!ChatODBCObject@{ChatODBCObject}}
+\doxysubsubsection{\texorpdfstring{MakeInstance()}{MakeInstance()}}
+{\footnotesize\ttfamily static void \mbox{\hyperlink{class_singleton}{Singleton}}$<$ \mbox{\hyperlink{class_o_d_b_c_object}{O\+D\+B\+C\+Object}}  $>$\+::Make\+Instance (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 22 of file Singleton.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23     \{}
+\DoxyCodeLine{24         \mbox{\hyperlink{class_monitor_1_1_owner}{Monitor::Owner}} lock (\mbox{\hyperlink{class_singleton_a6ce2c5830384b09bb760c4ed4eb0bf73}{m\_csSingleton}});}
+\DoxyCodeLine{25         \{}
+\DoxyCodeLine{26             \textcolor{keywordflow}{if} (\textcolor{keyword}{nullptr} == \mbox{\hyperlink{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}{instance\_}})}
+\DoxyCodeLine{27             \{}
+\DoxyCodeLine{28                 \mbox{\hyperlink{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}{instance\_}} = \textcolor{keyword}{new} T;}
+\DoxyCodeLine{29             \}}
+\DoxyCodeLine{30         \}}
+\DoxyCodeLine{31     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}\label{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}} 
+\index{ChatODBCObject@{ChatODBCObject}!TryEnter@{TryEnter}}
+\index{TryEnter@{TryEnter}!ChatODBCObject@{ChatODBCObject}}
+\doxysubsubsection{\texorpdfstring{TryEnter()}{TryEnter()}}
+{\footnotesize\ttfamily bool Monitor\+::\+Try\+Enter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 16 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     \textcolor{comment}{// Make Spin Lock.}}
+\DoxyCodeLine{19     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{20 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}\label{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}} 
+\index{ChatODBCObject@{ChatODBCObject}!instance\_@{instance\_}}
+\index{instance\_@{instance\_}!ChatODBCObject@{ChatODBCObject}}
+\doxysubsubsection{\texorpdfstring{instance\_}{instance\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_o_d_b_c_object}{O\+D\+B\+C\+Object}}  $\ast$ \mbox{\hyperlink{class_singleton}{Singleton}}$<$ \mbox{\hyperlink{class_o_d_b_c_object}{O\+D\+B\+C\+Object}}  $>$\+::instance\+\_\+\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 8 of file Singleton.\+h.
+
+\mbox{\Hypertarget{class_singleton_a6ce2c5830384b09bb760c4ed4eb0bf73}\label{class_singleton_a6ce2c5830384b09bb760c4ed4eb0bf73}} 
+\index{ChatODBCObject@{ChatODBCObject}!m\_csSingleton@{m\_csSingleton}}
+\index{m\_csSingleton@{m\_csSingleton}!ChatODBCObject@{ChatODBCObject}}
+\doxysubsubsection{\texorpdfstring{m\_csSingleton}{m\_csSingleton}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_monitor}{Monitor}} \mbox{\hyperlink{class_singleton}{Singleton}}$<$ \mbox{\hyperlink{class_o_d_b_c_object}{O\+D\+B\+C\+Object}}  $>$\+::m\+\_\+cs\+Singleton\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 9 of file Singleton.\+h.
+
+\mbox{\Hypertarget{class_o_d_b_c_object_a81e9ef39e2fad64cc2df16e07cb7b2e8}\label{class_o_d_b_c_object_a81e9ef39e2fad64cc2df16e07cb7b2e8}} 
+\index{ChatODBCObject@{ChatODBCObject}!m\_Database@{m\_Database}}
+\index{m\_Database@{m\_Database}!ChatODBCObject@{ChatODBCObject}}
+\doxysubsubsection{\texorpdfstring{m\_Database}{m\_Database}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_o_d_b_c_database}{O\+D\+B\+C\+Database}}$\ast$ O\+D\+B\+C\+Object\+::m\+\_\+\+Database\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 14 of file O\+D\+B\+C\+Object.\+h.
+
+\mbox{\Hypertarget{class_monitor_aa6ef00d7122694ab317011623adb5599}\label{class_monitor_aa6ef00d7122694ab317011623adb5599}} 
+\index{ChatODBCObject@{ChatODBCObject}!m\_SyncOject@{m\_SyncOject}}
+\index{m\_SyncOject@{m\_SyncOject}!ChatODBCObject@{ChatODBCObject}}
+\doxysubsubsection{\texorpdfstring{m\_SyncOject}{m\_SyncOject}}
+{\footnotesize\ttfamily std\+::recursive\+\_\+mutex Monitor\+::m\+\_\+\+Sync\+Oject\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 27 of file Monitor.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/\+Chat\+Server/\mbox{\hyperlink{_chat_o_d_b_c_object_8h}{Chat\+O\+D\+B\+C\+Object.\+h}}\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/\+Chat\+Server/\mbox{\hyperlink{_chat_o_d_b_c_object_8cpp}{Chat\+O\+D\+B\+C\+Object.\+cpp}}\end{DoxyCompactItemize}

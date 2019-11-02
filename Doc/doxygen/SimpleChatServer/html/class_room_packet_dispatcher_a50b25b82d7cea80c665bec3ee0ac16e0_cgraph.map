@@ -1,0 +1,9 @@
+<map id="RoomPacketDispatcher::RoomPacketDispatcher" name="RoomPacketDispatcher::RoomPacketDispatcher">
+<area shape="rect" id="node1" title=" " alt="" coords="5,99,172,141"/>
+<area shape="rect" id="node2" href="$class_packet_dispatcher.html#a0958e51fc20fd592ef72ef42adbace7e" title=" " alt="" coords="227,5,427,32"/>
+<area shape="rect" id="node3" href="$class_chat_handler.html#af365bd4d4813c9f919721e328e422c43" title=" " alt="" coords="220,56,433,83"/>
+<area shape="rect" id="node5" href="$class_chat_handler.html#a6a007be5ab181e9ab42e40afe40e87b5" title=" " alt="" coords="247,107,406,133"/>
+<area shape="rect" id="node6" href="$class_chat_handler.html#a190196cb64d17e03b64445db5fc42bb1" title=" " alt="" coords="235,157,419,184"/>
+<area shape="rect" id="node7" href="$class_chat_handler.html#a7e1d889430c5879255fc342350831d2b" title=" " alt="" coords="227,208,426,235"/>
+<area shape="rect" id="node4" href="$class_chat_server.html#ac66fc00c5a3a406422b870c1deee3473" title=" " alt="" coords="481,56,651,83"/>
+</map>

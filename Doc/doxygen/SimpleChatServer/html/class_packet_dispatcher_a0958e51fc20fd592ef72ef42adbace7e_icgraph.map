@@ -1,0 +1,6 @@
+<map id="PacketDispatcher::AddHandler" name="PacketDispatcher::AddHandler">
+<area shape="rect" id="node1" title=" " alt="" coords="221,78,421,105"/>
+<area shape="rect" id="node2" href="$class_lobby_packet_dispatcher.html#a7f8afcaa49b94d4149f6d878a2a27ce7" title=" " alt="" coords="5,5,173,47"/>
+<area shape="rect" id="node3" href="$class_logon_packet_dispatcher.html#a28d084ac0389af79e85f206447b24d80" title=" " alt="" coords="5,71,173,112"/>
+<area shape="rect" id="node4" href="$class_room_packet_dispatcher.html#a50b25b82d7cea80c665bec3ee0ac16e0" title=" " alt="" coords="6,136,173,177"/>
+</map>

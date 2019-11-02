@@ -1,0 +1,11 @@
+<map id="LobbyPacketDispatcher::LobbyPacketDispatcher" name="LobbyPacketDispatcher::LobbyPacketDispatcher">
+<area shape="rect" id="node1" title=" " alt="" coords="5,99,173,141"/>
+<area shape="rect" id="node2" href="$class_packet_dispatcher.html#a0958e51fc20fd592ef72ef42adbace7e" title=" " alt="" coords="221,5,421,32"/>
+<area shape="rect" id="node3" href="$class_chat_handler.html#af8f40d4726aea377a7f3847c4e348f5d" title=" " alt="" coords="240,56,403,83"/>
+<area shape="rect" id="node5" href="$class_chat_handler.html#a1e9ba75f62b923ab8bb27826dea93d1a" title=" " alt="" coords="233,107,410,133"/>
+<area shape="rect" id="node7" href="$class_chat_handler.html#aaa31a103372db7eb607377a8f1a028d4" title=" " alt="" coords="232,157,411,184"/>
+<area shape="rect" id="node9" href="$class_chat_handler.html#a7e1d889430c5879255fc342350831d2b" title=" " alt="" coords="222,208,421,235"/>
+<area shape="rect" id="node4" href="$class_singleton.html#a32e9ccdbb5bdf4662cb8c1fd0c8d047a" title=" " alt="" coords="473,41,635,82"/>
+<area shape="rect" id="node6" href="$class_chat_server.html#ac66fc00c5a3a406422b870c1deee3473" title=" " alt="" coords="469,107,639,133"/>
+<area shape="rect" id="node8" href="$class_chat_server.html#a3bdeaf5bd542b64cf69094a1a5a09be9" title=" " alt="" coords="479,157,629,184"/>
+</map>

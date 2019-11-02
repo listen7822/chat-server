@@ -1,0 +1,75 @@
+\hypertarget{_logon_server_main_8cpp}{}\doxysection{C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/\+Logon\+Server/\+Logon\+Server\+Main.cpp File Reference}
+\label{_logon_server_main_8cpp}\index{C:/Users/YunJun/Documents/chat-\/server/LogonServer/LogonServerMain.cpp@{C:/Users/YunJun/Documents/chat-\/server/LogonServer/LogonServerMain.cpp}}
+{\ttfamily \#include \char`\"{}pch.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$boost/asio.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}Logon\+Server.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Config.\+h\char`\"{}}\newline
+Include dependency graph for Logon\+Server\+Main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_logon_server_main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_logon_server_main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{_logon_server_main_8cpp_aebdf1bc2079a2a38d653ea93b4fd728b}{M\+A\+X\+\_\+\+S\+E\+S\+S\+I\+O\+N\+\_\+\+C\+O\+U\+NT}} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_logon_server_main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{_logon_server_main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{LogonServerMain.cpp@{LogonServerMain.cpp}!main@{main}}
+\index{main@{main}!LogonServerMain.cpp@{LogonServerMain.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 10 of file Logon\+Server\+Main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12     boost::asio::io\_service io\_service;}
+\DoxyCodeLine{13     boost::asio::io\_service::work woker (io\_service);}
+\DoxyCodeLine{14     \mbox{\hyperlink{class_logon_server}{LogonServer}} server (io\_service, \mbox{\hyperlink{namespace_l_o_g_o_n_aac781f747d17c9c24baadb78952c4b64}{LOGON::SERVER\_PORT}});}
+\DoxyCodeLine{15     server.Init (io\_service, \mbox{\hyperlink{namespace_l_o_g_o_n_aa484078d71be9cc0ebbc3204b88d54aa}{LOGON::MAX\_SESSION\_COUNT}}, \mbox{\hyperlink{namespace_l_o_g_o_n_a45b0d1435d6aa8da4f0628b2cf95623a}{LOGON::MAX\_THREAD\_POOL\_SIZE}}, 0);}
+\DoxyCodeLine{16     BOOST\_LOG\_TRIVIAL (info) << \textcolor{stringliteral}{"Logon server start ..."};}
+\DoxyCodeLine{17     server.Start ();}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     BOOST\_LOG\_TRIVIAL (info) << \textcolor{stringliteral}{"Closed server."};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     getchar ();}
+\DoxyCodeLine{22     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{23 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_logon_server_main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_logon_server_main_8cpp_aebdf1bc2079a2a38d653ea93b4fd728b}\label{_logon_server_main_8cpp_aebdf1bc2079a2a38d653ea93b4fd728b}} 
+\index{LogonServerMain.cpp@{LogonServerMain.cpp}!MAX\_SESSION\_COUNT@{MAX\_SESSION\_COUNT}}
+\index{MAX\_SESSION\_COUNT@{MAX\_SESSION\_COUNT}!LogonServerMain.cpp@{LogonServerMain.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_SESSION\_COUNT}{MAX\_SESSION\_COUNT}}
+{\footnotesize\ttfamily const int M\+A\+X\+\_\+\+S\+E\+S\+S\+I\+O\+N\+\_\+\+C\+O\+U\+NT = 1}
+
+
+
+Definition at line 8 of file Logon\+Server\+Main.\+cpp.
+

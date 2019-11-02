@@ -1,0 +1,115 @@
+\hypertarget{class_logon_handler}{}\doxysection{Logon\+Handler Class Reference}
+\label{class_logon_handler}\index{LogonHandler@{LogonHandler}}
+
+
+{\ttfamily \#include $<$Logon\+Handler.\+h$>$}
+
+
+
+Collaboration diagram for Logon\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{class_logon_handler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \+\_\+\+\_\+stdcall \mbox{\hyperlink{class_logon_handler_a204773537f08b347304c12a5bc75463c}{Wrong\+Command}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$ p\+Session, std\+::string param)
+\item 
+static bool \+\_\+\+\_\+stdcall \mbox{\hyperlink{class_logon_handler_a44b93b660a0b35d31cc933e230ffeec0}{Change\+Nick\+Name}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$ p\+Session, std\+::string param)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 5 of file Logon\+Handler.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_logon_handler_a44b93b660a0b35d31cc933e230ffeec0}\label{class_logon_handler_a44b93b660a0b35d31cc933e230ffeec0}} 
+\index{LogonHandler@{LogonHandler}!ChangeNickName@{ChangeNickName}}
+\index{ChangeNickName@{ChangeNickName}!LogonHandler@{LogonHandler}}
+\doxysubsubsection{\texorpdfstring{ChangeNickName()}{ChangeNickName()}}
+{\footnotesize\ttfamily bool \+\_\+\+\_\+stdcall Logon\+Handler\+::\+Change\+Nick\+Name (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$}]{p\+Session,  }\item[{std\+::string}]{param }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 14 of file Logon\+Handler.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16     std::string msg;}
+\DoxyCodeLine{17     \textcolor{keywordflow}{if} (\textcolor{keyword}{false} == ((\mbox{\hyperlink{class_logon_o_d_b_c_object}{LogonODBCObject}}*)\mbox{\hyperlink{class_singleton_a32e9ccdbb5bdf4662cb8c1fd0c8d047a}{LogonODBCObject::Instance}} ())-\/>ChangeUserNickname (pSession-\/>GetNickname (), param))}
+\DoxyCodeLine{18     \{}
+\DoxyCodeLine{19         msg.append (\textcolor{stringliteral}{">"});}
+\DoxyCodeLine{20         msg.append (param);}
+\DoxyCodeLine{21         msg.append (\textcolor{stringliteral}{" is already used by someone.\(\backslash\)r\(\backslash\)n"});}
+\DoxyCodeLine{22         pSession-\/>Send (\textcolor{keyword}{false}, msg.length (), msg.c\_str ());}
+\DoxyCodeLine{23         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{24     \}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     pSession-\/>SetNickname (param);}
+\DoxyCodeLine{27     msg.append (\textcolor{stringliteral}{">Hello "});}
+\DoxyCodeLine{28     msg.append (pSession-\/>GetNickname ());}
+\DoxyCodeLine{29     msg.append (\textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"});}
+\DoxyCodeLine{30     pSession-\/>Send (\textcolor{keyword}{false}, msg.length (), msg.c\_str ());}
+\DoxyCodeLine{31     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_logon_handler_a44b93b660a0b35d31cc933e230ffeec0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_logon_handler_a44b93b660a0b35d31cc933e230ffeec0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_logon_handler_a204773537f08b347304c12a5bc75463c}\label{class_logon_handler_a204773537f08b347304c12a5bc75463c}} 
+\index{LogonHandler@{LogonHandler}!WrongCommand@{WrongCommand}}
+\index{WrongCommand@{WrongCommand}!LogonHandler@{LogonHandler}}
+\doxysubsubsection{\texorpdfstring{WrongCommand()}{WrongCommand()}}
+{\footnotesize\ttfamily bool \+\_\+\+\_\+stdcall Logon\+Handler\+::\+Wrong\+Command (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$}]{p\+Session,  }\item[{std\+::string}]{param }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 6 of file Logon\+Handler.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8     std::string message = \textcolor{stringliteral}{">You sent wrong command.\(\backslash\)r\(\backslash\)n"};}
+\DoxyCodeLine{9     pSession-\/>Send (\textcolor{keyword}{false}, message.length(), message.c\_str());}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{12 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_logon_handler_a204773537f08b347304c12a5bc75463c_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/\+Logon\+Server/\mbox{\hyperlink{_logon_handler_8h}{Logon\+Handler.\+h}}\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/\+Logon\+Server/\mbox{\hyperlink{_logon_handler_8cpp}{Logon\+Handler.\+cpp}}\end{DoxyCompactItemize}

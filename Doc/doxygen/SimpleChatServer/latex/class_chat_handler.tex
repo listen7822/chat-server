@@ -1,0 +1,412 @@
+\hypertarget{class_chat_handler}{}\doxysection{Chat\+Handler Class Reference}
+\label{class_chat_handler}\index{ChatHandler@{ChatHandler}}
+
+
+{\ttfamily \#include $<$Chat\+Handler.\+h$>$}
+
+
+
+Collaboration diagram for Chat\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{class_chat_handler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \+\_\+\+\_\+stdcall \mbox{\hyperlink{class_chat_handler_a7e1d889430c5879255fc342350831d2b}{Wrong\+Command}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$ p\+Session, std\+::string param)
+\item 
+static bool \+\_\+\+\_\+stdcall \mbox{\hyperlink{class_chat_handler_af8f40d4726aea377a7f3847c4e348f5d}{Auth\+Token}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$ p\+Session, std\+::string param)
+\item 
+static bool \+\_\+\+\_\+stdcall \mbox{\hyperlink{class_chat_handler_a1e9ba75f62b923ab8bb27826dea93d1a}{Get\+Room\+List}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$ p\+Session, std\+::string param)
+\item 
+static bool \+\_\+\+\_\+stdcall \mbox{\hyperlink{class_chat_handler_aaa31a103372db7eb607377a8f1a028d4}{Join\+Room\+List}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$ p\+Session, std\+::string param)
+\item 
+static bool \+\_\+\+\_\+stdcall \mbox{\hyperlink{class_chat_handler_a6a007be5ab181e9ab42e40afe40e87b5}{Exit\+Room}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$ p\+Session, std\+::string param)
+\item 
+static bool \+\_\+\+\_\+stdcall \mbox{\hyperlink{class_chat_handler_af365bd4d4813c9f919721e328e422c43}{Broadcast\+Message}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$ p\+Session, std\+::string param)
+\item 
+static bool \+\_\+\+\_\+stdcall \mbox{\hyperlink{class_chat_handler_a190196cb64d17e03b64445db5fc42bb1}{Send\+Message}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$ p\+Session, std\+::string param)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 4 of file Chat\+Handler.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chat_handler_af8f40d4726aea377a7f3847c4e348f5d}\label{class_chat_handler_af8f40d4726aea377a7f3847c4e348f5d}} 
+\index{ChatHandler@{ChatHandler}!AuthToken@{AuthToken}}
+\index{AuthToken@{AuthToken}!ChatHandler@{ChatHandler}}
+\doxysubsubsection{\texorpdfstring{AuthToken()}{AuthToken()}}
+{\footnotesize\ttfamily bool \+\_\+\+\_\+stdcall Chat\+Handler\+::\+Auth\+Token (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$}]{p\+Session,  }\item[{std\+::string}]{param }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 18 of file Chat\+Handler.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20     boost::shared\_ptr<ChatSession> pChatSession(}
+\DoxyCodeLine{21         boost::dynamic\_pointer\_cast<ChatSession>(pSession));}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_chat_server}{ChatServer}}* pChatServer = ((\mbox{\hyperlink{class_chat_server}{ChatServer}}*)pChatSession-\/>GetServer ());}
+\DoxyCodeLine{23     \textcolor{keywordflow}{if} (ChatSession::LOCATION::NONE != pChatSession-\/>GetLocation ()) \{}
+\DoxyCodeLine{24         std::string message = \textcolor{stringliteral}{"You sent wrong command.\(\backslash\)r\(\backslash\)n"};}
+\DoxyCodeLine{25         pSession-\/>Send (\textcolor{keyword}{false}, message.length(), message.c\_str());}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{28     \}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     std::string nickname;}
+\DoxyCodeLine{31     ((\mbox{\hyperlink{class_chat_o_d_b_c_object}{ChatODBCObject}}*)\mbox{\hyperlink{class_singleton_a32e9ccdbb5bdf4662cb8c1fd0c8d047a}{ChatODBCObject::Instance}} ())-\/>GetUserNameUsingToken (nickname, param);}
+\DoxyCodeLine{32     \textcolor{keywordflow}{if} (nickname.empty()) \{}
+\DoxyCodeLine{33         pChatSession-\/>SetLocation (\mbox{\hyperlink{class_chat_session_af98d3e1489aca25d857b032e96cd1432a1dff9f7711214a13afe7fd6685717d83}{ChatSession::NONE}});}
+\DoxyCodeLine{34         std::string msg;}
+\DoxyCodeLine{35         msg.append (\textcolor{stringliteral}{"Fail to auth token. Please try again."});}
+\DoxyCodeLine{36         msg.append (\textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"});}
+\DoxyCodeLine{37         pSession-\/>Send (\textcolor{keyword}{false}, msg.length(), msg.c\_str());}
+\DoxyCodeLine{38         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{39     \}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     pChatSession-\/>SetLocation (\mbox{\hyperlink{class_chat_session_af98d3e1489aca25d857b032e96cd1432ac210a529783d54a1eb002729ca77841d}{ChatSession::LOBBY}});}
+\DoxyCodeLine{42     pChatSession-\/>SetNickname (nickname);}
+\DoxyCodeLine{43     std::string msg;}
+\DoxyCodeLine{44     msg.append (\textcolor{stringliteral}{"Hello "});}
+\DoxyCodeLine{45     msg.append (pSession-\/>GetNickname ());}
+\DoxyCodeLine{46     msg.append (\textcolor{stringliteral}{".\(\backslash\)r\(\backslash\)n"});}
+\DoxyCodeLine{47     pSession-\/>Send (\textcolor{keyword}{false}, msg.length(), msg.c\_str());}
+\DoxyCodeLine{48     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{49 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chat_handler_af8f40d4726aea377a7f3847c4e348f5d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chat_handler_af8f40d4726aea377a7f3847c4e348f5d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_chat_handler_af365bd4d4813c9f919721e328e422c43}\label{class_chat_handler_af365bd4d4813c9f919721e328e422c43}} 
+\index{ChatHandler@{ChatHandler}!BroadcastMessage@{BroadcastMessage}}
+\index{BroadcastMessage@{BroadcastMessage}!ChatHandler@{ChatHandler}}
+\doxysubsubsection{\texorpdfstring{BroadcastMessage()}{BroadcastMessage()}}
+{\footnotesize\ttfamily bool \+\_\+\+\_\+stdcall Chat\+Handler\+::\+Broadcast\+Message (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$}]{p\+Session,  }\item[{std\+::string}]{param }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 135 of file Chat\+Handler.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{136 \{}
+\DoxyCodeLine{137     boost::shared\_ptr<ChatSession> pChatSession (}
+\DoxyCodeLine{138         boost::dynamic\_pointer\_cast<ChatSession>(pSession));}
+\DoxyCodeLine{139     \mbox{\hyperlink{class_chat_server}{ChatServer}}* pChatServer = ((\mbox{\hyperlink{class_chat_server}{ChatServer}}*)pChatSession-\/>GetServer ());}
+\DoxyCodeLine{140     \textcolor{keywordflow}{if} (ChatSession::LOCATION::ROOM != pChatSession-\/>GetLocation ()) \{}
+\DoxyCodeLine{141         std::string message = \textcolor{stringliteral}{"You sent wrong command.\(\backslash\)r\(\backslash\)n"};}
+\DoxyCodeLine{142         pSession-\/>Send (\textcolor{keyword}{false}, message.length(), message.c\_str());}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{145     \}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147     \textcolor{keywordflow}{if} (ROOM::MAX\_CHAT\_COUNT\_PER\_MIN <= pChatSession-\/>GetChatCount ()) \{}
+\DoxyCodeLine{148         std::string message = \textcolor{stringliteral}{"You can't send message. Because you sent too much.\(\backslash\)r\(\backslash\)n"};}
+\DoxyCodeLine{149         pSession-\/>Send (\textcolor{keyword}{false}, message.length(), message.c\_str());}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{152     \}}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154     std::string msg;}
+\DoxyCodeLine{155     msg.append (\textcolor{stringliteral}{">"});}
+\DoxyCodeLine{156     msg.append (pChatSession-\/>GetNickname ());}
+\DoxyCodeLine{157     msg.append (\textcolor{stringliteral}{"'s global message: "});}
+\DoxyCodeLine{158     msg.append (param);}
+\DoxyCodeLine{159     msg.append (\textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"});}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161     std::list<boost::shared\_ptr<Room>> roomList = pChatServer-\/>\mbox{\hyperlink{class_chat_server_ac66fc00c5a3a406422b870c1deee3473}{GetRoomList}} ();}
+\DoxyCodeLine{162     \textcolor{keyword}{auto} roomIter = roomList.begin ();}
+\DoxyCodeLine{163     \textcolor{keywordflow}{for} (roomIter; roomIter != roomList.end (); ++roomIter) \{}
+\DoxyCodeLine{164         roomIter-\/>get ()-\/>SaveMessage(pChatSession-\/>GetNickname(), msg);}
+\DoxyCodeLine{165     \}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{168 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chat_handler_af365bd4d4813c9f919721e328e422c43_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chat_handler_af365bd4d4813c9f919721e328e422c43_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_chat_handler_a6a007be5ab181e9ab42e40afe40e87b5}\label{class_chat_handler_a6a007be5ab181e9ab42e40afe40e87b5}} 
+\index{ChatHandler@{ChatHandler}!ExitRoom@{ExitRoom}}
+\index{ExitRoom@{ExitRoom}!ChatHandler@{ChatHandler}}
+\doxysubsubsection{\texorpdfstring{ExitRoom()}{ExitRoom()}}
+{\footnotesize\ttfamily bool \+\_\+\+\_\+stdcall Chat\+Handler\+::\+Exit\+Room (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$}]{p\+Session,  }\item[{std\+::string}]{param }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 111 of file Chat\+Handler.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{112 \{}
+\DoxyCodeLine{113     boost::shared\_ptr<ChatSession> pChatSession(}
+\DoxyCodeLine{114         boost::dynamic\_pointer\_cast<ChatSession>(pSession));}
+\DoxyCodeLine{115     \mbox{\hyperlink{class_chat_server}{ChatServer}}* pChatServer = ((\mbox{\hyperlink{class_chat_server}{ChatServer}}*)pChatSession-\/>GetServer ());}
+\DoxyCodeLine{116     boost::shared\_ptr<Room> pRoom = pChatSession-\/>GetRoom ();}
+\DoxyCodeLine{117     \textcolor{keywordflow}{if} (ChatSession::LOCATION::ROOM != pChatSession-\/>GetLocation ()) \{}
+\DoxyCodeLine{118         std::string message = \textcolor{stringliteral}{"You sent wrong command.\(\backslash\)r\(\backslash\)n"};}
+\DoxyCodeLine{119         pSession-\/>Send (\textcolor{keyword}{false}, message.length(), message.c\_str());}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{122     \}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124     pChatSession-\/>SetLocation (ChatSession::LOCATION::LOBBY);}
+\DoxyCodeLine{125     \textcolor{keywordflow}{if} (1 == pRoom-\/>GetUserList ().size ()) \{}
+\DoxyCodeLine{126         pRoom-\/>Clear ();}
+\DoxyCodeLine{127     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{128         pRoom-\/>RemoveUser (pChatSession-\/>GetNickname());}
+\DoxyCodeLine{129     \}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131     pChatSession-\/>SetDispatcher (\textcolor{keyword}{new} \mbox{\hyperlink{class_lobby_packet_dispatcher}{LobbyPacketDispatcher}});}
+\DoxyCodeLine{132     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{133 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chat_handler_a6a007be5ab181e9ab42e40afe40e87b5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_chat_handler_a1e9ba75f62b923ab8bb27826dea93d1a}\label{class_chat_handler_a1e9ba75f62b923ab8bb27826dea93d1a}} 
+\index{ChatHandler@{ChatHandler}!GetRoomList@{GetRoomList}}
+\index{GetRoomList@{GetRoomList}!ChatHandler@{ChatHandler}}
+\doxysubsubsection{\texorpdfstring{GetRoomList()}{GetRoomList()}}
+{\footnotesize\ttfamily bool \+\_\+\+\_\+stdcall Chat\+Handler\+::\+Get\+Room\+List (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$}]{p\+Session,  }\item[{std\+::string}]{param }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 51 of file Chat\+Handler.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52 \{}
+\DoxyCodeLine{53     boost::shared\_ptr<ChatSession> pChatSession(}
+\DoxyCodeLine{54         boost::dynamic\_pointer\_cast<ChatSession>(pSession));}
+\DoxyCodeLine{55     \mbox{\hyperlink{class_chat_server}{ChatServer}}* pChatServer = ((\mbox{\hyperlink{class_chat_server}{ChatServer}}*)pChatSession-\/>GetServer ());}
+\DoxyCodeLine{56     \textcolor{keywordflow}{if} (ChatSession::LOCATION::LOBBY != pChatSession-\/>GetLocation ()) \{}
+\DoxyCodeLine{57         std::string message = \textcolor{stringliteral}{"You sent wrong command.\(\backslash\)r\(\backslash\)n"};}
+\DoxyCodeLine{58         pSession-\/>Send (\textcolor{keyword}{false}, message.length(), message.c\_str());}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{61     \}}
+\DoxyCodeLine{62     std::list<boost::shared\_ptr<Room>> roomList = pChatServer-\/>\mbox{\hyperlink{class_chat_server_ac66fc00c5a3a406422b870c1deee3473}{GetRoomList}} ();}
+\DoxyCodeLine{63     std::string msg;}
+\DoxyCodeLine{64     msg.append (\textcolor{stringliteral}{">"});}
+\DoxyCodeLine{65     msg.append (\textcolor{stringliteral}{"You can join these rooms."});}
+\DoxyCodeLine{66     msg.append (\textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"});}
+\DoxyCodeLine{67     \textcolor{keywordtype}{bool} isEmpty = \textcolor{keyword}{true};}
+\DoxyCodeLine{68     \textcolor{keyword}{auto} iter = roomList.begin ();}
+\DoxyCodeLine{69     \textcolor{keywordflow}{for} (iter; iter != roomList.end (); ++iter) \{}
+\DoxyCodeLine{70         \textcolor{keywordflow}{if} (\textcolor{keyword}{false} == iter-\/>get ()-\/>GetRoomName ().empty ()) \{}
+\DoxyCodeLine{71             isEmpty = \textcolor{keyword}{false};}
+\DoxyCodeLine{72             msg.append (\textcolor{stringliteral}{">"});}
+\DoxyCodeLine{73             msg.append (iter-\/>get ()-\/>GetRoomName ());}
+\DoxyCodeLine{74             msg.append (\textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"});}
+\DoxyCodeLine{75             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{76         \}}
+\DoxyCodeLine{77     \}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{keywordflow}{if} (\textcolor{keyword}{true} == isEmpty) \{}
+\DoxyCodeLine{80         msg.append (\textcolor{stringliteral}{">No rooms."});}
+\DoxyCodeLine{81         msg.append (\textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"});}
+\DoxyCodeLine{82     \}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     pChatSession-\/>Send (\textcolor{keyword}{false}, msg.length (), msg.c\_str ());}
+\DoxyCodeLine{85     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{86 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chat_handler_a1e9ba75f62b923ab8bb27826dea93d1a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chat_handler_a1e9ba75f62b923ab8bb27826dea93d1a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_chat_handler_aaa31a103372db7eb607377a8f1a028d4}\label{class_chat_handler_aaa31a103372db7eb607377a8f1a028d4}} 
+\index{ChatHandler@{ChatHandler}!JoinRoomList@{JoinRoomList}}
+\index{JoinRoomList@{JoinRoomList}!ChatHandler@{ChatHandler}}
+\doxysubsubsection{\texorpdfstring{JoinRoomList()}{JoinRoomList()}}
+{\footnotesize\ttfamily bool \+\_\+\+\_\+stdcall Chat\+Handler\+::\+Join\+Room\+List (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$}]{p\+Session,  }\item[{std\+::string}]{param }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 88 of file Chat\+Handler.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{89 \{}
+\DoxyCodeLine{90     boost::shared\_ptr<ChatSession> pChatSession(}
+\DoxyCodeLine{91         boost::dynamic\_pointer\_cast<ChatSession>(pSession));}
+\DoxyCodeLine{92     \mbox{\hyperlink{class_chat_server}{ChatServer}}* pChatServer = ((\mbox{\hyperlink{class_chat_server}{ChatServer}}*)pChatSession-\/>GetServer ());}
+\DoxyCodeLine{93     \textcolor{keywordflow}{if} (ChatSession::LOCATION::LOBBY != pChatSession-\/>GetLocation ()) \{}
+\DoxyCodeLine{94         std::string message = \textcolor{stringliteral}{"You sent wrong command.\(\backslash\)r\(\backslash\)n"};}
+\DoxyCodeLine{95         pSession-\/>Send (\textcolor{keyword}{false}, message.length(), message.c\_str());}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{98     \}}
+\DoxyCodeLine{99     std::string error;}
+\DoxyCodeLine{100     boost::shared\_ptr<Room> pRoom;}
+\DoxyCodeLine{101     \textcolor{keywordflow}{if} (\textcolor{keyword}{false} == pChatServer-\/>\mbox{\hyperlink{class_chat_server_a3bdeaf5bd542b64cf69094a1a5a09be9}{JoinRoom}} (pSession, pRoom, param, error)) \{}
+\DoxyCodeLine{102         pChatSession-\/>Send (\textcolor{keyword}{false}, error.length (), error.c\_str());}
+\DoxyCodeLine{103         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{104     \}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106     pChatSession-\/>SetLocation (ChatSession::LOCATION::ROOM);}
+\DoxyCodeLine{107     pChatSession-\/>SetDispatcher (\textcolor{keyword}{new} \mbox{\hyperlink{class_room_packet_dispatcher}{RoomPacketDispatcher}});}
+\DoxyCodeLine{108     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{109 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chat_handler_aaa31a103372db7eb607377a8f1a028d4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chat_handler_aaa31a103372db7eb607377a8f1a028d4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_chat_handler_a190196cb64d17e03b64445db5fc42bb1}\label{class_chat_handler_a190196cb64d17e03b64445db5fc42bb1}} 
+\index{ChatHandler@{ChatHandler}!SendMessage@{SendMessage}}
+\index{SendMessage@{SendMessage}!ChatHandler@{ChatHandler}}
+\doxysubsubsection{\texorpdfstring{SendMessage()}{SendMessage()}}
+{\footnotesize\ttfamily bool \+\_\+\+\_\+stdcall Chat\+Handler\+::\+Send\+Message (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$}]{p\+Session,  }\item[{std\+::string}]{param }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 170 of file Chat\+Handler.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{171 \{}
+\DoxyCodeLine{172     boost::shared\_ptr<ChatSession> pChatSession (}
+\DoxyCodeLine{173         boost::dynamic\_pointer\_cast<ChatSession>(pSession));}
+\DoxyCodeLine{174     \mbox{\hyperlink{class_chat_server}{ChatServer}}* pChatServer = ((\mbox{\hyperlink{class_chat_server}{ChatServer}}*)pChatSession-\/>GetServer ());}
+\DoxyCodeLine{175     \textcolor{keywordflow}{if} (ChatSession::LOCATION::ROOM != pChatSession-\/>GetLocation ()) \{}
+\DoxyCodeLine{176         std::string message = \textcolor{stringliteral}{"You sent wrong command.\(\backslash\)r\(\backslash\)n"};}
+\DoxyCodeLine{177         pSession-\/>Send (\textcolor{keyword}{false}, message.length(), message.c\_str());}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{180     \}}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182     \textcolor{keywordflow}{if} (ROOM::MAX\_CHAT\_COUNT\_PER\_MIN <= pChatSession-\/>GetChatCount ()) \{}
+\DoxyCodeLine{183         std::string message = \textcolor{stringliteral}{"You can't send message. Because you sent too much.\(\backslash\)r\(\backslash\)n"};}
+\DoxyCodeLine{184         pSession-\/>Send (\textcolor{keyword}{false}, message.length(), message.c\_str());}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{187     \}}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189     boost::shared\_ptr<Room> pRoom = pChatSession-\/>GetRoom ();}
+\DoxyCodeLine{190     std::string msg;}
+\DoxyCodeLine{191     msg.append (\textcolor{stringliteral}{">"});}
+\DoxyCodeLine{192     msg.append (pChatSession-\/>GetNickname());}
+\DoxyCodeLine{193     msg.append (\textcolor{stringliteral}{": "});}
+\DoxyCodeLine{194     msg.append (param);}
+\DoxyCodeLine{195     pRoom-\/>SaveMessage (pChatSession-\/>GetNickname(), msg);}
+\DoxyCodeLine{196     pChatSession-\/>AddChatCount ();}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{199 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chat_handler_a190196cb64d17e03b64445db5fc42bb1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_chat_handler_a7e1d889430c5879255fc342350831d2b}\label{class_chat_handler_a7e1d889430c5879255fc342350831d2b}} 
+\index{ChatHandler@{ChatHandler}!WrongCommand@{WrongCommand}}
+\index{WrongCommand@{WrongCommand}!ChatHandler@{ChatHandler}}
+\doxysubsubsection{\texorpdfstring{WrongCommand()}{WrongCommand()}}
+{\footnotesize\ttfamily bool \+\_\+\+\_\+stdcall Chat\+Handler\+::\+Wrong\+Command (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$}]{p\+Session,  }\item[{std\+::string}]{param }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 10 of file Chat\+Handler.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12     std::string message = \textcolor{stringliteral}{">You sent wrong command.\(\backslash\)r\(\backslash\)n"};}
+\DoxyCodeLine{13     pSession-\/>Send (\textcolor{keyword}{false}, message.length(), message.c\_str());}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{16 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chat_handler_a7e1d889430c5879255fc342350831d2b_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/\+Chat\+Server/\mbox{\hyperlink{_chat_handler_8h}{Chat\+Handler.\+h}}\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/\+Chat\+Server/\mbox{\hyperlink{_chat_handler_8cpp}{Chat\+Handler.\+cpp}}\end{DoxyCompactItemize}

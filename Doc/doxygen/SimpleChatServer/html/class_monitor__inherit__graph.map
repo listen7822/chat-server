@@ -1,0 +1,13 @@
+<map id="Monitor" name="Monitor">
+<area shape="rect" id="node1" title=" " alt="" coords="399,5,509,171"/>
+<area shape="rect" id="node2" href="$class_o_d_b_c_database.html" title=" " alt="" coords="5,277,172,545"/>
+<area shape="rect" id="node4" href="$class_queue.html" title=" " alt="" coords="197,270,349,553"/>
+<area shape="rect" id="node5" href="$class_session.html" title=" " alt="" coords="373,219,535,604"/>
+<area shape="rect" id="node7" href="$class_singleton.html" title=" " alt="" coords="559,358,682,465"/>
+<area shape="rect" id="node8" href="$class_singleton.html" title=" " alt="" coords="707,358,881,465"/>
+<area shape="rect" id="node3" href="$class_my_sql_database.html" title=" " alt="" coords="5,659,172,869"/>
+<area shape="rect" id="node6" href="$class_chat_session.html" title=" " alt="" coords="385,652,523,876"/>
+<area shape="rect" id="node9" href="$class_o_d_b_c_object.html" title=" " alt="" coords="725,689,863,839"/>
+<area shape="rect" id="node10" href="$class_chat_o_d_b_c_object.html" title=" " alt="" coords="595,931,787,1038"/>
+<area shape="rect" id="node11" href="$class_logon_o_d_b_c_object.html" title=" " alt="" coords="811,924,982,1045"/>
+</map>

@@ -1,0 +1,447 @@
+\hypertarget{class_logon_server}{}\doxysection{Logon\+Server Class Reference}
+\label{class_logon_server}\index{LogonServer@{LogonServer}}
+
+
+{\ttfamily \#include $<$Logon\+Server.\+h$>$}
+
+
+
+Inheritance diagram for Logon\+Server\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{class_logon_server__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Logon\+Server\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{class_logon_server__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_logon_server_a492340218dcd282454656c461cea6907}{Logon\+Server}} (boost\+::asio\+::io\+\_\+service \&io\+\_\+service, int port)
+\item 
+virtual \mbox{\hyperlink{class_logon_server_adec87257f387f1f1c71d73cb873d6aa1}{$\sim$\+Logon\+Server}} ()
+\item 
+void \mbox{\hyperlink{class_logon_server_ac61ff66fdde44a43ace9bf4ac4544ef8}{Init}} (boost\+::asio\+::io\+\_\+service \&io\+\_\+service, std\+::size\+\_\+t max\+Session\+Count, std\+::size\+\_\+t max\+Thread\+Count, std\+::size\+\_\+t max\+Room\+Count) override
+\item 
+void \mbox{\hyperlink{class_server_acaea883b722927c7d8299a74447c8d1b}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_server_a4ede6daea42d0873fb0c41e684167483}{Move\+Session\+To\+Queue}} (int session\+Id)
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$ \mbox{\hyperlink{class_server_aeceac5d4947f7b3a4717393a2ae3e8da}{Get\+Session}} (int session\+Id)
+\item 
+std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$ $>$ \mbox{\hyperlink{class_server_afe15cfc50e76b738916eb2acd0c57024}{Get\+Session\+List}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_logon_server_a17bd174acf45df432bc63ecef542b2bd}{On\+Accept}} (int session\+Id) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+boost\+::asio\+::ip\+::tcp\+::acceptor \mbox{\hyperlink{class_server_a39650737eda1744eaed8d21a6d60e779}{m\+\_\+\+Acceptor}}
+\item 
+std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ boost\+::thread $>$ $>$ \mbox{\hyperlink{class_server_adf0e3925b409fe74efc50ab38546c293}{m\+\_\+\+Thread\+Pool}}
+\item 
+int \mbox{\hyperlink{class_server_a98153c796256baeb97c002c879ed61cc}{m\+\_\+\+Thread\+Pool\+Size}}
+\item 
+bool \mbox{\hyperlink{class_server_a9c31ac54364a8b7d4f788c6d9e404760}{m\+\_\+\+Is\+Accepting}}
+\item 
+std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$ $>$ \mbox{\hyperlink{class_server_a6bbcbefaaf812e56441d0ec5301cc777}{m\+\_\+\+Session\+List}}
+\item 
+std\+::deque$<$ int $>$ \mbox{\hyperlink{class_server_a57e44eb8fd843767a05b565d3efe0b90}{m\+\_\+\+Session\+Queue}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_server_ad1e6dcbd2e7db62dd9ef87e33f8c4b69}{Accept}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 5 of file Logon\+Server.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_logon_server_a492340218dcd282454656c461cea6907}\label{class_logon_server_a492340218dcd282454656c461cea6907}} 
+\index{LogonServer@{LogonServer}!LogonServer@{LogonServer}}
+\index{LogonServer@{LogonServer}!LogonServer@{LogonServer}}
+\doxysubsubsection{\texorpdfstring{LogonServer()}{LogonServer()}}
+{\footnotesize\ttfamily Logon\+Server\+::\+Logon\+Server (\begin{DoxyParamCaption}\item[{boost\+::asio\+::io\+\_\+service \&}]{io\+\_\+service,  }\item[{int}]{port }\end{DoxyParamCaption})}
+
+
+
+Definition at line 9 of file Logon\+Server.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{10     : \mbox{\hyperlink{class_server_a7351104356303935152a859cfb0fb1b4}{Server}}(io\_service, port)}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_logon_server_adec87257f387f1f1c71d73cb873d6aa1}\label{class_logon_server_adec87257f387f1f1c71d73cb873d6aa1}} 
+\index{LogonServer@{LogonServer}!````~LogonServer@{$\sim$LogonServer}}
+\index{````~LogonServer@{$\sim$LogonServer}!LogonServer@{LogonServer}}
+\doxysubsubsection{\texorpdfstring{$\sim$LogonServer()}{~LogonServer()}}
+{\footnotesize\ttfamily Logon\+Server\+::$\sim$\+Logon\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line 14 of file Logon\+Server.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_server_ad1e6dcbd2e7db62dd9ef87e33f8c4b69}\label{class_server_ad1e6dcbd2e7db62dd9ef87e33f8c4b69}} 
+\index{LogonServer@{LogonServer}!Accept@{Accept}}
+\index{Accept@{Accept}!LogonServer@{LogonServer}}
+\doxysubsubsection{\texorpdfstring{Accept()}{Accept()}}
+{\footnotesize\ttfamily bool Server\+::\+Accept (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 40 of file Server.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41 \{}
+\DoxyCodeLine{42     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_server_a57e44eb8fd843767a05b565d3efe0b90}{m\_SessionQueue}}.empty ())}
+\DoxyCodeLine{43     \{}
+\DoxyCodeLine{44         \mbox{\hyperlink{class_server_a9c31ac54364a8b7d4f788c6d9e404760}{m\_IsAccepting}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{45         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \mbox{\hyperlink{class_server_a9c31ac54364a8b7d4f788c6d9e404760}{m\_IsAccepting}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{49     \textcolor{keywordtype}{int} sessionId = \mbox{\hyperlink{class_server_a57e44eb8fd843767a05b565d3efe0b90}{m\_SessionQueue}}.front ();}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \mbox{\hyperlink{class_server_a57e44eb8fd843767a05b565d3efe0b90}{m\_SessionQueue}}.pop\_front ();}
+\DoxyCodeLine{52     \mbox{\hyperlink{class_server_a39650737eda1744eaed8d21a6d60e779}{m\_Acceptor}}.async\_accept (\mbox{\hyperlink{class_server_a6bbcbefaaf812e56441d0ec5301cc777}{m\_SessionList}}[sessionId]-\/>Socket (),}
+\DoxyCodeLine{53             boost::bind (\&\mbox{\hyperlink{class_server_a41a563c7a98b0232212faf7c530ebec5}{Server::OnAccept}},}
+\DoxyCodeLine{54             \textcolor{keyword}{this},}
+\DoxyCodeLine{55             sessionId,}
+\DoxyCodeLine{56             boost::asio::placeholders::error)}
+\DoxyCodeLine{57     );}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{60 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{class_server_ad1e6dcbd2e7db62dd9ef87e33f8c4b69_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_server_ad1e6dcbd2e7db62dd9ef87e33f8c4b69_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_server_aeceac5d4947f7b3a4717393a2ae3e8da}\label{class_server_aeceac5d4947f7b3a4717393a2ae3e8da}} 
+\index{LogonServer@{LogonServer}!GetSession@{GetSession}}
+\index{GetSession@{GetSession}!LogonServer@{LogonServer}}
+\doxysubsubsection{\texorpdfstring{GetSession()}{GetSession()}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_session}{Session}}$>$ Server\+::\+Get\+Session (\begin{DoxyParamCaption}\item[{int}]{session\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 20 of file Server.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_server_a6bbcbefaaf812e56441d0ec5301cc777}{m\_SessionList}}[sessionId]; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_server_afe15cfc50e76b738916eb2acd0c57024}\label{class_server_afe15cfc50e76b738916eb2acd0c57024}} 
+\index{LogonServer@{LogonServer}!GetSessionList@{GetSessionList}}
+\index{GetSessionList@{GetSessionList}!LogonServer@{LogonServer}}
+\doxysubsubsection{\texorpdfstring{GetSessionList()}{GetSessionList()}}
+{\footnotesize\ttfamily std\+::vector$<$boost\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_session}{Session}}$>$ $>$ Server\+::\+Get\+Session\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 21 of file Server.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_server_a6bbcbefaaf812e56441d0ec5301cc777}{m\_SessionList}}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_logon_server_ac61ff66fdde44a43ace9bf4ac4544ef8}\label{class_logon_server_ac61ff66fdde44a43ace9bf4ac4544ef8}} 
+\index{LogonServer@{LogonServer}!Init@{Init}}
+\index{Init@{Init}!LogonServer@{LogonServer}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Logon\+Server\+::\+Init (\begin{DoxyParamCaption}\item[{boost\+::asio\+::io\+\_\+service \&}]{io\+\_\+service,  }\item[{std\+::size\+\_\+t}]{max\+Session\+Count,  }\item[{std\+::size\+\_\+t}]{max\+Thread\+Count,  }\item[{std\+::size\+\_\+t}]{max\+Room\+Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_server_a7db2d7aea554d9c3ab00449afd5af5bf}{Server}}.
+
+
+
+Definition at line 18 of file Logon\+Server.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_singleton_a32e9ccdbb5bdf4662cb8c1fd0c8d047a}{LogonODBCObject::Instance}} ()-\/>\mbox{\hyperlink{class_o_d_b_c_object_aa3abccee88c82fa9eadaa61722d5c2cd}{AddDatabase}}<\mbox{\hyperlink{class_my_sql_database}{MySqlDatabase}}>();}
+\DoxyCodeLine{21     \textcolor{keywordflow}{for} (std::size\_t i = 0; i < maxSessionCount; ++i)}
+\DoxyCodeLine{22     \{}
+\DoxyCodeLine{23         boost::shared\_ptr<Session> pSession(\textcolor{keyword}{new} \mbox{\hyperlink{class_session}{Session}} (\textcolor{keyword}{this}, i, io\_service));}
+\DoxyCodeLine{24         \mbox{\hyperlink{class_server_a6bbcbefaaf812e56441d0ec5301cc777}{m\_SessionList}}.push\_back (pSession);}
+\DoxyCodeLine{25         \mbox{\hyperlink{class_server_a57e44eb8fd843767a05b565d3efe0b90}{m\_SessionQueue}}.push\_back (i);}
+\DoxyCodeLine{26     \}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordflow}{for} (std::size\_t i = 0; i < maxThreadCount; ++i) \{}
+\DoxyCodeLine{29         boost::shared\_ptr<boost::thread> thread (}
+\DoxyCodeLine{30             \textcolor{keyword}{new} boost::thread (boost::bind (\&boost::asio::io\_service::run, \&io\_service))}
+\DoxyCodeLine{31         );}
+\DoxyCodeLine{32         \mbox{\hyperlink{class_server_adf0e3925b409fe74efc50ab38546c293}{m\_ThreadPool}}.push\_back (thread);}
+\DoxyCodeLine{33     \}}
+\DoxyCodeLine{34 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{class_logon_server_ac61ff66fdde44a43ace9bf4ac4544ef8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{class_logon_server_ac61ff66fdde44a43ace9bf4ac4544ef8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_server_a4ede6daea42d0873fb0c41e684167483}\label{class_server_a4ede6daea42d0873fb0c41e684167483}} 
+\index{LogonServer@{LogonServer}!MoveSessionToQueue@{MoveSessionToQueue}}
+\index{MoveSessionToQueue@{MoveSessionToQueue}!LogonServer@{LogonServer}}
+\doxysubsubsection{\texorpdfstring{MoveSessionToQueue()}{MoveSessionToQueue()}}
+{\footnotesize\ttfamily void Server\+::\+Move\+Session\+To\+Queue (\begin{DoxyParamCaption}\item[{int}]{session\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 25 of file Server.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27     BOOST\_LOG\_TRIVIAL (info) << \textcolor{stringliteral}{"Return to client connectin pool. SessionId: "} \(\backslash\)}
+\DoxyCodeLine{28         << sessionID \(\backslash\)}
+\DoxyCodeLine{29         << \textcolor{stringliteral}{" Nickname: "} \(\backslash\)}
+\DoxyCodeLine{30         << \mbox{\hyperlink{class_server_a6bbcbefaaf812e56441d0ec5301cc777}{m\_SessionList}}[sessionID]-\/>GetNickname ();}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_server_a6bbcbefaaf812e56441d0ec5301cc777}{m\_SessionList}}[sessionID]-\/>Socket ().close ();}
+\DoxyCodeLine{32     \mbox{\hyperlink{class_server_a57e44eb8fd843767a05b565d3efe0b90}{m\_SessionQueue}}.push\_back (sessionID);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordflow}{if} (\textcolor{keyword}{false} == \mbox{\hyperlink{class_server_a9c31ac54364a8b7d4f788c6d9e404760}{m\_IsAccepting}})}
+\DoxyCodeLine{35     \{}
+\DoxyCodeLine{36         \mbox{\hyperlink{class_server_ad1e6dcbd2e7db62dd9ef87e33f8c4b69}{Accept}} ();}
+\DoxyCodeLine{37     \}}
+\DoxyCodeLine{38 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_server_a4ede6daea42d0873fb0c41e684167483_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_server_a4ede6daea42d0873fb0c41e684167483_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_logon_server_a17bd174acf45df432bc63ecef542b2bd}\label{class_logon_server_a17bd174acf45df432bc63ecef542b2bd}} 
+\index{LogonServer@{LogonServer}!OnAccept@{OnAccept}}
+\index{OnAccept@{OnAccept}!LogonServer@{LogonServer}}
+\doxysubsubsection{\texorpdfstring{OnAccept()}{OnAccept()}}
+{\footnotesize\ttfamily void Logon\+Server\+::\+On\+Accept (\begin{DoxyParamCaption}\item[{int}]{session\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_server_ac8f5373a9fb77ca433812d20b03b8135}{Server}}.
+
+
+
+Definition at line 36 of file Logon\+Server.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37 \{}
+\DoxyCodeLine{38     std::string nickname;}
+\DoxyCodeLine{39     std::string token;}
+\DoxyCodeLine{40     \textcolor{keywordtype}{bool} ret = ((\mbox{\hyperlink{class_logon_o_d_b_c_object}{LogonODBCObject}}*)\mbox{\hyperlink{class_singleton_a32e9ccdbb5bdf4662cb8c1fd0c8d047a}{LogonODBCObject::Instance}} ())-\/>CreateUser (nickname, token);}
+\DoxyCodeLine{41     \textcolor{keywordflow}{if} (\textcolor{keyword}{false} == ret) \{}
+\DoxyCodeLine{42         std::string msg = \textcolor{stringliteral}{"Server interanl error is occured. Please retry to login.\(\backslash\)r\(\backslash\)n"};}
+\DoxyCodeLine{43         \mbox{\hyperlink{class_server_a6bbcbefaaf812e56441d0ec5301cc777}{m\_SessionList}}[sessionId]-\/>Send (\textcolor{keyword}{false}, msg.length(), msg.c\_str());}
+\DoxyCodeLine{44         \mbox{\hyperlink{class_server_a6bbcbefaaf812e56441d0ec5301cc777}{m\_SessionList}}[sessionId]-\/>Socket ().close ();}
+\DoxyCodeLine{45         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47     \mbox{\hyperlink{class_server_a6bbcbefaaf812e56441d0ec5301cc777}{m\_SessionList}}[sessionId]-\/>SetNickname (nickname);}
+\DoxyCodeLine{48     BOOST\_LOG\_TRIVIAL (info) << \textcolor{stringliteral}{"Success to login."} \(\backslash\)}
+\DoxyCodeLine{49         << \textcolor{stringliteral}{" SessionId: "} \(\backslash\)}
+\DoxyCodeLine{50         << std::to\_string(sessionId) \(\backslash\)}
+\DoxyCodeLine{51         << \textcolor{stringliteral}{" Nickname: "} \(\backslash\)}
+\DoxyCodeLine{52         << \mbox{\hyperlink{class_server_a6bbcbefaaf812e56441d0ec5301cc777}{m\_SessionList}}[sessionId]-\/>GetNickname() \(\backslash\)}
+\DoxyCodeLine{53         << std::endl;}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \mbox{\hyperlink{class_server_a6bbcbefaaf812e56441d0ec5301cc777}{m\_SessionList}}[sessionId]-\/>SetDispatcher (\textcolor{keyword}{new} \mbox{\hyperlink{class_logon_packet_dispatcher}{LogonPacketDispatcher}} ());}
+\DoxyCodeLine{56     std::string msg;}
+\DoxyCodeLine{57     msg.append (\textcolor{stringliteral}{">Hello "});}
+\DoxyCodeLine{58     msg.append (\mbox{\hyperlink{class_server_a6bbcbefaaf812e56441d0ec5301cc777}{m\_SessionList}}[sessionId]-\/>GetNickname ());}
+\DoxyCodeLine{59     msg.append (\textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"});}
+\DoxyCodeLine{60     msg.append (\textcolor{stringliteral}{"Token: "});}
+\DoxyCodeLine{61     msg.append (token);}
+\DoxyCodeLine{62     msg.append (\textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"});}
+\DoxyCodeLine{63     \mbox{\hyperlink{class_server_a6bbcbefaaf812e56441d0ec5301cc777}{m\_SessionList}}[sessionId]-\/>Send (\textcolor{keyword}{false}, msg.length(), msg.c\_str());}
+\DoxyCodeLine{64 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_logon_server_a17bd174acf45df432bc63ecef542b2bd_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_server_acaea883b722927c7d8299a74447c8d1b}\label{class_server_acaea883b722927c7d8299a74447c8d1b}} 
+\index{LogonServer@{LogonServer}!Start@{Start}}
+\index{Start@{Start}!LogonServer@{LogonServer}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Server\+::\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 16 of file Server.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_server_ad1e6dcbd2e7db62dd9ef87e33f8c4b69}{Accept}} ();}
+\DoxyCodeLine{19     BOOST\_LOG\_TRIVIAL (info) << \textcolor{stringliteral}{"Start thread pool."};}
+\DoxyCodeLine{20     \textcolor{keywordflow}{for} (std::size\_t i = 0; i < \mbox{\hyperlink{class_server_adf0e3925b409fe74efc50ab38546c293}{m\_ThreadPool}}.size(); ++i) \{}
+\DoxyCodeLine{21         \mbox{\hyperlink{class_server_adf0e3925b409fe74efc50ab38546c293}{m\_ThreadPool}}[i]-\/>join ();}
+\DoxyCodeLine{22     \}}
+\DoxyCodeLine{23 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_server_acaea883b722927c7d8299a74447c8d1b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{class_server_acaea883b722927c7d8299a74447c8d1b_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_server_a39650737eda1744eaed8d21a6d60e779}\label{class_server_a39650737eda1744eaed8d21a6d60e779}} 
+\index{LogonServer@{LogonServer}!m\_Acceptor@{m\_Acceptor}}
+\index{m\_Acceptor@{m\_Acceptor}!LogonServer@{LogonServer}}
+\doxysubsubsection{\texorpdfstring{m\_Acceptor}{m\_Acceptor}}
+{\footnotesize\ttfamily boost\+::asio\+::ip\+::tcp\+::acceptor Server\+::m\+\_\+\+Acceptor\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 31 of file Server.\+h.
+
+\mbox{\Hypertarget{class_server_a9c31ac54364a8b7d4f788c6d9e404760}\label{class_server_a9c31ac54364a8b7d4f788c6d9e404760}} 
+\index{LogonServer@{LogonServer}!m\_IsAccepting@{m\_IsAccepting}}
+\index{m\_IsAccepting@{m\_IsAccepting}!LogonServer@{LogonServer}}
+\doxysubsubsection{\texorpdfstring{m\_IsAccepting}{m\_IsAccepting}}
+{\footnotesize\ttfamily bool Server\+::m\+\_\+\+Is\+Accepting\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 34 of file Server.\+h.
+
+\mbox{\Hypertarget{class_server_a6bbcbefaaf812e56441d0ec5301cc777}\label{class_server_a6bbcbefaaf812e56441d0ec5301cc777}} 
+\index{LogonServer@{LogonServer}!m\_SessionList@{m\_SessionList}}
+\index{m\_SessionList@{m\_SessionList}!LogonServer@{LogonServer}}
+\doxysubsubsection{\texorpdfstring{m\_SessionList}{m\_SessionList}}
+{\footnotesize\ttfamily std\+::vector$<$boost\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_session}{Session}}$>$ $>$ Server\+::m\+\_\+\+Session\+List\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 35 of file Server.\+h.
+
+\mbox{\Hypertarget{class_server_a57e44eb8fd843767a05b565d3efe0b90}\label{class_server_a57e44eb8fd843767a05b565d3efe0b90}} 
+\index{LogonServer@{LogonServer}!m\_SessionQueue@{m\_SessionQueue}}
+\index{m\_SessionQueue@{m\_SessionQueue}!LogonServer@{LogonServer}}
+\doxysubsubsection{\texorpdfstring{m\_SessionQueue}{m\_SessionQueue}}
+{\footnotesize\ttfamily std\+::deque$<$int$>$ Server\+::m\+\_\+\+Session\+Queue\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 36 of file Server.\+h.
+
+\mbox{\Hypertarget{class_server_adf0e3925b409fe74efc50ab38546c293}\label{class_server_adf0e3925b409fe74efc50ab38546c293}} 
+\index{LogonServer@{LogonServer}!m\_ThreadPool@{m\_ThreadPool}}
+\index{m\_ThreadPool@{m\_ThreadPool}!LogonServer@{LogonServer}}
+\doxysubsubsection{\texorpdfstring{m\_ThreadPool}{m\_ThreadPool}}
+{\footnotesize\ttfamily std\+::vector$<$boost\+::shared\+\_\+ptr$<$boost\+::thread$>$ $>$ Server\+::m\+\_\+\+Thread\+Pool\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 32 of file Server.\+h.
+
+\mbox{\Hypertarget{class_server_a98153c796256baeb97c002c879ed61cc}\label{class_server_a98153c796256baeb97c002c879ed61cc}} 
+\index{LogonServer@{LogonServer}!m\_ThreadPoolSize@{m\_ThreadPoolSize}}
+\index{m\_ThreadPoolSize@{m\_ThreadPoolSize}!LogonServer@{LogonServer}}
+\doxysubsubsection{\texorpdfstring{m\_ThreadPoolSize}{m\_ThreadPoolSize}}
+{\footnotesize\ttfamily int Server\+::m\+\_\+\+Thread\+Pool\+Size\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 33 of file Server.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/\+Logon\+Server/\mbox{\hyperlink{_logon_server_8h}{Logon\+Server.\+h}}\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/\+Logon\+Server/\mbox{\hyperlink{_logon_server_8cpp}{Logon\+Server.\+cpp}}\end{DoxyCompactItemize}

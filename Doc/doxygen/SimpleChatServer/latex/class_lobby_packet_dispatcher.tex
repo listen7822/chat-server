@@ -1,0 +1,368 @@
+\hypertarget{class_lobby_packet_dispatcher}{}\doxysection{Lobby\+Packet\+Dispatcher Class Reference}
+\label{class_lobby_packet_dispatcher}\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}}
+
+
+{\ttfamily \#include $<$Lobby\+Packet\+Dispatcher.\+h$>$}
+
+
+
+Inheritance diagram for Lobby\+Packet\+Dispatcher\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{class_lobby_packet_dispatcher__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Lobby\+Packet\+Dispatcher\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{class_lobby_packet_dispatcher__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826ba}{C\+O\+M\+M\+A\+N\+D\+\_\+\+T\+Y\+PE}} \{ \newline
+\mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa04002bd8eccb2175305e647ec640b609}{N\+O\+NE}} = 0, 
+\mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baaee0152b005fb7bbe2108cafd76b733b4}{W\+R\+O\+N\+G\+\_\+\+C\+O\+M\+M\+A\+ND}}, 
+\mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa015e8b573b787582b65c9c59397699b0}{Q\+U\+IT}}, 
+\mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa7f18ff4009370f204ac2a083e984573a}{A\+U\+T\+H\+\_\+\+T\+O\+K\+EN}}, 
+\newline
+\mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa28da6bebcc9e7fbd1e5b5775ad357d2f}{C\+A\+H\+N\+G\+E\+\_\+\+N\+I\+C\+K\+N\+A\+ME}}, 
+\mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa3dc7a0e7e4c194200725fd802b1b1532}{R\+O\+O\+M\+\_\+\+L\+I\+ST}}, 
+\mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa0aeec452a1d5b1d6fb75c5d725e5676c}{J\+O\+I\+N\+\_\+\+R\+O\+OM}}, 
+\mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baab16c8a9cb857833413631d5223399849}{E\+X\+I\+T\+\_\+\+R\+O\+OM}}, 
+\newline
+\mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa3a9ebd5b7c5ea8dbad2cada8d5866663}{S\+E\+N\+D\+\_\+\+M\+E\+S\+S\+A\+GE}}, 
+\mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa83544ed34885e0a3409cca082240ba1a}{B\+R\+O\+A\+D\+C\+A\+SE}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_lobby_packet_dispatcher_a7f8afcaa49b94d4149f6d878a2a27ce7}{Lobby\+Packet\+Dispatcher}} ()
+\item 
+virtual \mbox{\hyperlink{class_lobby_packet_dispatcher_a15b185b4226dcd7dd463030863a33855}{$\sim$\+Lobby\+Packet\+Dispatcher}} ()
+\item 
+bool \mbox{\hyperlink{class_packet_dispatcher_af6a7dc5d646d714792db96ee1ab97314}{Do\+Dispatch}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$ p\+Session, const char $\ast$p\+Data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_lobby_packet_dispatcher_a5300e9bb09e1c875d9d49fb3a6ea9a4b}{Get\+Command\+Type\+And\+Param}} (\mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826ba}{C\+O\+M\+M\+A\+N\+D\+\_\+\+T\+Y\+PE}} \&command\+Type, std\+::string \&param, const char $\ast$p\+Data) override
+\item 
+void \mbox{\hyperlink{class_packet_dispatcher_a0958e51fc20fd592ef72ef42adbace7e}{Add\+Handler}} (\mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826ba}{C\+O\+M\+M\+A\+N\+D\+\_\+\+T\+Y\+PE}} command\+Type, void $\ast$handler)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef bool(\+\_\+\+\_\+stdcall $\ast$ \mbox{\hyperlink{class_packet_dispatcher_a90f514a9a37f52955de130c52ca6888e}{T\+Callback}}) (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$ p\+Session, std\+::string param)
+\item 
+typedef std\+::map$<$ \mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826ba}{C\+O\+M\+M\+A\+N\+D\+\_\+\+T\+Y\+PE}}, \mbox{\hyperlink{struct_packet_dispatcher_1_1_t_functor}{T\+Functor}} $>$ \mbox{\hyperlink{class_packet_dispatcher_abe294764be700ecb91b2c8c85e4fdf82}{T\+Message\+Map}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_packet_dispatcher_abe294764be700ecb91b2c8c85e4fdf82}{T\+Message\+Map}} \mbox{\hyperlink{class_packet_dispatcher_af73c5d3da25a3b05776663e7dd99f524}{m\+\_\+\+Handler\+Map}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 5 of file Lobby\+Packet\+Dispatcher.\+h.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_packet_dispatcher_a90f514a9a37f52955de130c52ca6888e}\label{class_packet_dispatcher_a90f514a9a37f52955de130c52ca6888e}} 
+\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}!TCallback@{TCallback}}
+\index{TCallback@{TCallback}!LobbyPacketDispatcher@{LobbyPacketDispatcher}}
+\doxysubsubsection{\texorpdfstring{TCallback}{TCallback}}
+{\footnotesize\ttfamily typedef bool(\+\_\+\+\_\+stdcall $\ast$ Packet\+Dispatcher\+::\+T\+Callback) (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$ p\+Session, std\+::string param)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 29 of file Packet\+Dispatcher.\+h.
+
+\mbox{\Hypertarget{class_packet_dispatcher_abe294764be700ecb91b2c8c85e4fdf82}\label{class_packet_dispatcher_abe294764be700ecb91b2c8c85e4fdf82}} 
+\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}!TMessageMap@{TMessageMap}}
+\index{TMessageMap@{TMessageMap}!LobbyPacketDispatcher@{LobbyPacketDispatcher}}
+\doxysubsubsection{\texorpdfstring{TMessageMap}{TMessageMap}}
+{\footnotesize\ttfamily typedef std\+::map$<$\mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826ba}{C\+O\+M\+M\+A\+N\+D\+\_\+\+T\+Y\+PE}}, \mbox{\hyperlink{struct_packet_dispatcher_1_1_t_functor}{T\+Functor}}$>$ \mbox{\hyperlink{class_packet_dispatcher_abe294764be700ecb91b2c8c85e4fdf82}{Packet\+Dispatcher\+::\+T\+Message\+Map}}\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 38 of file Packet\+Dispatcher.\+h.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826ba}\label{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826ba}} 
+\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}!COMMAND\_TYPE@{COMMAND\_TYPE}}
+\index{COMMAND\_TYPE@{COMMAND\_TYPE}!LobbyPacketDispatcher@{LobbyPacketDispatcher}}
+\doxysubsubsection{\texorpdfstring{COMMAND\_TYPE}{COMMAND\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826ba}{Packet\+Dispatcher\+::\+C\+O\+M\+M\+A\+N\+D\+\_\+\+T\+Y\+PE}}\hspace{0.3cm}{\ttfamily [inherited]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NONE@{NONE}!LobbyPacketDispatcher@{LobbyPacketDispatcher}}\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}!NONE@{NONE}}}\mbox{\Hypertarget{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa04002bd8eccb2175305e647ec640b609}\label{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa04002bd8eccb2175305e647ec640b609}} 
+N\+O\+NE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WRONG\_COMMAND@{WRONG\_COMMAND}!LobbyPacketDispatcher@{LobbyPacketDispatcher}}\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}!WRONG\_COMMAND@{WRONG\_COMMAND}}}\mbox{\Hypertarget{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baaee0152b005fb7bbe2108cafd76b733b4}\label{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baaee0152b005fb7bbe2108cafd76b733b4}} 
+W\+R\+O\+N\+G\+\_\+\+C\+O\+M\+M\+A\+ND&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{QUIT@{QUIT}!LobbyPacketDispatcher@{LobbyPacketDispatcher}}\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}!QUIT@{QUIT}}}\mbox{\Hypertarget{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa015e8b573b787582b65c9c59397699b0}\label{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa015e8b573b787582b65c9c59397699b0}} 
+Q\+U\+IT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AUTH\_TOKEN@{AUTH\_TOKEN}!LobbyPacketDispatcher@{LobbyPacketDispatcher}}\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}!AUTH\_TOKEN@{AUTH\_TOKEN}}}\mbox{\Hypertarget{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa7f18ff4009370f204ac2a083e984573a}\label{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa7f18ff4009370f204ac2a083e984573a}} 
+A\+U\+T\+H\+\_\+\+T\+O\+K\+EN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAHNGE\_NICKNAME@{CAHNGE\_NICKNAME}!LobbyPacketDispatcher@{LobbyPacketDispatcher}}\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}!CAHNGE\_NICKNAME@{CAHNGE\_NICKNAME}}}\mbox{\Hypertarget{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa28da6bebcc9e7fbd1e5b5775ad357d2f}\label{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa28da6bebcc9e7fbd1e5b5775ad357d2f}} 
+C\+A\+H\+N\+G\+E\+\_\+\+N\+I\+C\+K\+N\+A\+ME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROOM\_LIST@{ROOM\_LIST}!LobbyPacketDispatcher@{LobbyPacketDispatcher}}\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}!ROOM\_LIST@{ROOM\_LIST}}}\mbox{\Hypertarget{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa3dc7a0e7e4c194200725fd802b1b1532}\label{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa3dc7a0e7e4c194200725fd802b1b1532}} 
+R\+O\+O\+M\+\_\+\+L\+I\+ST&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{JOIN\_ROOM@{JOIN\_ROOM}!LobbyPacketDispatcher@{LobbyPacketDispatcher}}\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}!JOIN\_ROOM@{JOIN\_ROOM}}}\mbox{\Hypertarget{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa0aeec452a1d5b1d6fb75c5d725e5676c}\label{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa0aeec452a1d5b1d6fb75c5d725e5676c}} 
+J\+O\+I\+N\+\_\+\+R\+O\+OM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EXIT\_ROOM@{EXIT\_ROOM}!LobbyPacketDispatcher@{LobbyPacketDispatcher}}\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}!EXIT\_ROOM@{EXIT\_ROOM}}}\mbox{\Hypertarget{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baab16c8a9cb857833413631d5223399849}\label{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baab16c8a9cb857833413631d5223399849}} 
+E\+X\+I\+T\+\_\+\+R\+O\+OM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SEND\_MESSAGE@{SEND\_MESSAGE}!LobbyPacketDispatcher@{LobbyPacketDispatcher}}\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}!SEND\_MESSAGE@{SEND\_MESSAGE}}}\mbox{\Hypertarget{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa3a9ebd5b7c5ea8dbad2cada8d5866663}\label{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa3a9ebd5b7c5ea8dbad2cada8d5866663}} 
+S\+E\+N\+D\+\_\+\+M\+E\+S\+S\+A\+GE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BROADCASE@{BROADCASE}!LobbyPacketDispatcher@{LobbyPacketDispatcher}}\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}!BROADCASE@{BROADCASE}}}\mbox{\Hypertarget{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa83544ed34885e0a3409cca082240ba1a}\label{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa83544ed34885e0a3409cca082240ba1a}} 
+B\+R\+O\+A\+D\+C\+A\+SE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 14 of file Packet\+Dispatcher.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14                       \{}
+\DoxyCodeLine{15         \mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa04002bd8eccb2175305e647ec640b609}{NONE}} = 0,}
+\DoxyCodeLine{16         \mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baaee0152b005fb7bbe2108cafd76b733b4}{WRONG\_COMMAND}},}
+\DoxyCodeLine{17         \mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa015e8b573b787582b65c9c59397699b0}{QUIT}},}
+\DoxyCodeLine{18         \mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa7f18ff4009370f204ac2a083e984573a}{AUTH\_TOKEN}},}
+\DoxyCodeLine{19         \mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa28da6bebcc9e7fbd1e5b5775ad357d2f}{CAHNGE\_NICKNAME}},}
+\DoxyCodeLine{20         \mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa3dc7a0e7e4c194200725fd802b1b1532}{ROOM\_LIST}},}
+\DoxyCodeLine{21         \mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa0aeec452a1d5b1d6fb75c5d725e5676c}{JOIN\_ROOM}},}
+\DoxyCodeLine{22         \mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baab16c8a9cb857833413631d5223399849}{EXIT\_ROOM}},}
+\DoxyCodeLine{23         \mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa3a9ebd5b7c5ea8dbad2cada8d5866663}{SEND\_MESSAGE}},}
+\DoxyCodeLine{24         \mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa83544ed34885e0a3409cca082240ba1a}{BROADCASE}}}
+\DoxyCodeLine{25     \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_lobby_packet_dispatcher_a7f8afcaa49b94d4149f6d878a2a27ce7}\label{class_lobby_packet_dispatcher_a7f8afcaa49b94d4149f6d878a2a27ce7}} 
+\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}!LobbyPacketDispatcher@{LobbyPacketDispatcher}}
+\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}!LobbyPacketDispatcher@{LobbyPacketDispatcher}}
+\doxysubsubsection{\texorpdfstring{LobbyPacketDispatcher()}{LobbyPacketDispatcher()}}
+{\footnotesize\ttfamily Lobby\+Packet\+Dispatcher\+::\+Lobby\+Packet\+Dispatcher (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 7 of file Lobby\+Packet\+Dispatcher.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     \mbox{\hyperlink{class_packet_dispatcher_a0958e51fc20fd592ef72ef42adbace7e}{AddHandler}} (COMMAND\_TYPE::WRONG\_COMMAND, \&\mbox{\hyperlink{class_chat_handler_a7e1d889430c5879255fc342350831d2b}{ChatHandler::WrongCommand}});}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_packet_dispatcher_a0958e51fc20fd592ef72ef42adbace7e}{AddHandler}} (COMMAND\_TYPE::AUTH\_TOKEN, \&\mbox{\hyperlink{class_chat_handler_af8f40d4726aea377a7f3847c4e348f5d}{ChatHandler::AuthToken}});}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_packet_dispatcher_a0958e51fc20fd592ef72ef42adbace7e}{AddHandler}} (COMMAND\_TYPE::ROOM\_LIST, \&\mbox{\hyperlink{class_chat_handler_a1e9ba75f62b923ab8bb27826dea93d1a}{ChatHandler::GetRoomList}});}
+\DoxyCodeLine{12     \mbox{\hyperlink{class_packet_dispatcher_a0958e51fc20fd592ef72ef42adbace7e}{AddHandler}} (COMMAND\_TYPE::JOIN\_ROOM, \&\mbox{\hyperlink{class_chat_handler_aaa31a103372db7eb607377a8f1a028d4}{ChatHandler::JoinRoomList}});}
+\DoxyCodeLine{13 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_lobby_packet_dispatcher_a7f8afcaa49b94d4149f6d878a2a27ce7_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_lobby_packet_dispatcher_a15b185b4226dcd7dd463030863a33855}\label{class_lobby_packet_dispatcher_a15b185b4226dcd7dd463030863a33855}} 
+\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}!````~LobbyPacketDispatcher@{$\sim$LobbyPacketDispatcher}}
+\index{````~LobbyPacketDispatcher@{$\sim$LobbyPacketDispatcher}!LobbyPacketDispatcher@{LobbyPacketDispatcher}}
+\doxysubsubsection{\texorpdfstring{$\sim$LobbyPacketDispatcher()}{~LobbyPacketDispatcher()}}
+{\footnotesize\ttfamily Lobby\+Packet\+Dispatcher\+::$\sim$\+Lobby\+Packet\+Dispatcher (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line 15 of file Lobby\+Packet\+Dispatcher.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_packet_dispatcher_a0958e51fc20fd592ef72ef42adbace7e}\label{class_packet_dispatcher_a0958e51fc20fd592ef72ef42adbace7e}} 
+\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}!AddHandler@{AddHandler}}
+\index{AddHandler@{AddHandler}!LobbyPacketDispatcher@{LobbyPacketDispatcher}}
+\doxysubsubsection{\texorpdfstring{AddHandler()}{AddHandler()}}
+{\footnotesize\ttfamily void Packet\+Dispatcher\+::\+Add\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826ba}{C\+O\+M\+M\+A\+N\+D\+\_\+\+T\+Y\+PE}}}]{command\+Type,  }\item[{void $\ast$}]{handler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 28 of file Packet\+Dispatcher.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \textcolor{keyword}{auto} iter = \mbox{\hyperlink{class_packet_dispatcher_af73c5d3da25a3b05776663e7dd99f524}{m\_HandlerMap}}.find (commandType);}
+\DoxyCodeLine{31     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_packet_dispatcher_af73c5d3da25a3b05776663e7dd99f524}{m\_HandlerMap}}.end () != iter)}
+\DoxyCodeLine{32     \{}
+\DoxyCodeLine{33         BOOST\_LOG\_TRIVIAL (info) << \textcolor{stringliteral}{"Command is already exists."};}
+\DoxyCodeLine{34         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{35     \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \mbox{\hyperlink{class_packet_dispatcher_af73c5d3da25a3b05776663e7dd99f524}{m\_HandlerMap}}.insert (TMessageMap::value\_type (commandType, TFunctor ((\textcolor{keyword}{const} \mbox{\hyperlink{class_packet_dispatcher_a90f514a9a37f52955de130c52ca6888e}{TCallback}}\&)handler))).second;}
+\DoxyCodeLine{38 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_packet_dispatcher_a0958e51fc20fd592ef72ef42adbace7e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_packet_dispatcher_af6a7dc5d646d714792db96ee1ab97314}\label{class_packet_dispatcher_af6a7dc5d646d714792db96ee1ab97314}} 
+\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}!DoDispatch@{DoDispatch}}
+\index{DoDispatch@{DoDispatch}!LobbyPacketDispatcher@{LobbyPacketDispatcher}}
+\doxysubsubsection{\texorpdfstring{DoDispatch()}{DoDispatch()}}
+{\footnotesize\ttfamily bool Packet\+Dispatcher\+::\+Do\+Dispatch (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$}]{p\+Session,  }\item[{const char $\ast$}]{p\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 13 of file Packet\+Dispatcher.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826ba}{COMMAND\_TYPE}} commandType = COMMAND\_TYPE::NONE;}
+\DoxyCodeLine{16     std::string param;}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_packet_dispatcher_a917280ba326078ff75dd73b14dae3fe8}{GetCommandTypeAndParam}} (commandType, param, pData);}
+\DoxyCodeLine{18     \textcolor{keyword}{auto} iter = \mbox{\hyperlink{class_packet_dispatcher_af73c5d3da25a3b05776663e7dd99f524}{m\_HandlerMap}}.find (commandType);}
+\DoxyCodeLine{19     \textcolor{keywordflow}{if} (iter == \mbox{\hyperlink{class_packet_dispatcher_af73c5d3da25a3b05776663e7dd99f524}{m\_HandlerMap}}.end ()) \{}
+\DoxyCodeLine{20         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{21     \}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keyword}{const} TFunctor\& functor = iter-\/>second;}
+\DoxyCodeLine{24     }
+\DoxyCodeLine{25     \textcolor{keywordflow}{return} (*functor.callback)(pSession, param);}
+\DoxyCodeLine{26 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_packet_dispatcher_af6a7dc5d646d714792db96ee1ab97314_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_lobby_packet_dispatcher_a5300e9bb09e1c875d9d49fb3a6ea9a4b}\label{class_lobby_packet_dispatcher_a5300e9bb09e1c875d9d49fb3a6ea9a4b}} 
+\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}!GetCommandTypeAndParam@{GetCommandTypeAndParam}}
+\index{GetCommandTypeAndParam@{GetCommandTypeAndParam}!LobbyPacketDispatcher@{LobbyPacketDispatcher}}
+\doxysubsubsection{\texorpdfstring{GetCommandTypeAndParam()}{GetCommandTypeAndParam()}}
+{\footnotesize\ttfamily void Lobby\+Packet\+Dispatcher\+::\+Get\+Command\+Type\+And\+Param (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826ba}{C\+O\+M\+M\+A\+N\+D\+\_\+\+T\+Y\+PE}} \&}]{command\+Type,  }\item[{std\+::string \&}]{param,  }\item[{const char $\ast$}]{p\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_packet_dispatcher_a917280ba326078ff75dd73b14dae3fe8}{Packet\+Dispatcher}}.
+
+
+
+Definition at line 19 of file Lobby\+Packet\+Dispatcher.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21     \textcolor{keywordflow}{if} (\textcolor{charliteral}{'/'} != pData[0]) \{}
+\DoxyCodeLine{22         commandType = COMMAND\_TYPE::WRONG\_COMMAND;}
+\DoxyCodeLine{23         param = pData;}
+\DoxyCodeLine{24         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{25     \}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     std::vector<std::string> splits;}
+\DoxyCodeLine{28     std::string input = pData;}
+\DoxyCodeLine{29     input.erase (std::remove (input.begin (), input.end (), \textcolor{charliteral}{'/'}), input.end ());}
+\DoxyCodeLine{30     input.erase (std::remove (input.begin (), input.end (), \textcolor{charliteral}{'\(\backslash\)r'}), input.end ());}
+\DoxyCodeLine{31     input.erase (std::remove (input.begin (), input.end (), \textcolor{charliteral}{'\(\backslash\)n'}), input.end ());   \textcolor{keywordtype}{char} delimiter = \textcolor{charliteral}{' '};}
+\DoxyCodeLine{32     std::size\_t i = 0;}
+\DoxyCodeLine{33     std::size\_t pos = input.find (delimiter);}
+\DoxyCodeLine{34     \textcolor{keywordflow}{if} (std::string::npos == pos) \{}
+\DoxyCodeLine{35         splits.push\_back (input.substr (0, pos));}
+\DoxyCodeLine{36         splits.push\_back (\textcolor{stringliteral}{""});}
+\DoxyCodeLine{37     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{38         splits.push\_back (input.substr (0, pos));}
+\DoxyCodeLine{39         splits.push\_back (input.substr (pos + 1, input.length ()));}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa7f18ff4009370f204ac2a083e984573a}{AUTH\_TOKEN}} = \textcolor{stringliteral}{"auth"};}
+\DoxyCodeLine{43     \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa3dc7a0e7e4c194200725fd802b1b1532}{ROOM\_LIST}} = \textcolor{stringliteral}{"list"};}
+\DoxyCodeLine{44     \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa0aeec452a1d5b1d6fb75c5d725e5676c}{JOIN\_ROOM}} = \textcolor{stringliteral}{"join"};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa7f18ff4009370f204ac2a083e984573a}{AUTH\_TOKEN}} == splits[0]) \{}
+\DoxyCodeLine{47         commandType = COMMAND\_TYPE::AUTH\_TOKEN;}
+\DoxyCodeLine{48     \}}
+\DoxyCodeLine{49     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa3dc7a0e7e4c194200725fd802b1b1532}{ROOM\_LIST}} == splits[0]) \{}
+\DoxyCodeLine{50         commandType = COMMAND\_TYPE::ROOM\_LIST;}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_packet_dispatcher_afd8c77ba8d3340ccb8ab8d0e8f1826baa0aeec452a1d5b1d6fb75c5d725e5676c}{JOIN\_ROOM}} == splits[0]) \{}
+\DoxyCodeLine{53         commandType = COMMAND\_TYPE::JOIN\_ROOM;}
+\DoxyCodeLine{54     \}}
+\DoxyCodeLine{55     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{56         commandType = COMMAND\_TYPE::WRONG\_COMMAND;}
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     param = splits[1];}
+\DoxyCodeLine{60 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_packet_dispatcher_af73c5d3da25a3b05776663e7dd99f524}\label{class_packet_dispatcher_af73c5d3da25a3b05776663e7dd99f524}} 
+\index{LobbyPacketDispatcher@{LobbyPacketDispatcher}!m\_HandlerMap@{m\_HandlerMap}}
+\index{m\_HandlerMap@{m\_HandlerMap}!LobbyPacketDispatcher@{LobbyPacketDispatcher}}
+\doxysubsubsection{\texorpdfstring{m\_HandlerMap}{m\_HandlerMap}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_packet_dispatcher_abe294764be700ecb91b2c8c85e4fdf82}{T\+Message\+Map}} Packet\+Dispatcher\+::m\+\_\+\+Handler\+Map\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 39 of file Packet\+Dispatcher.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/\+Chat\+Server/\mbox{\hyperlink{_lobby_packet_dispatcher_8h}{Lobby\+Packet\+Dispatcher.\+h}}\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/\+Chat\+Server/\mbox{\hyperlink{_lobby_packet_dispatcher_8cpp}{Lobby\+Packet\+Dispatcher.\+cpp}}\end{DoxyCompactItemize}

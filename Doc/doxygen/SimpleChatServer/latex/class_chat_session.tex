@@ -1,0 +1,837 @@
+\hypertarget{class_chat_session}{}\doxysection{Chat\+Session Class Reference}
+\label{class_chat_session}\index{ChatSession@{ChatSession}}
+
+
+{\ttfamily \#include $<$Chat\+Session.\+h$>$}
+
+
+
+Inheritance diagram for Chat\+Session\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_chat_session__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Chat\+Session\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chat_session__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_chat_session_af98d3e1489aca25d857b032e96cd1432}{L\+O\+C\+A\+T\+I\+ON}} \{ \mbox{\hyperlink{class_chat_session_af98d3e1489aca25d857b032e96cd1432a1dff9f7711214a13afe7fd6685717d83}{N\+O\+NE}} = 0, 
+\mbox{\hyperlink{class_chat_session_af98d3e1489aca25d857b032e96cd1432ac210a529783d54a1eb002729ca77841d}{L\+O\+B\+BY}}, 
+\mbox{\hyperlink{class_chat_session_af98d3e1489aca25d857b032e96cd1432a7cf674403b64d7dc9e7d00dc6788200d}{R\+O\+OM}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chat_session_a044a8602cb5396209aa0d1623e55107b}{Chat\+Session}} (\mbox{\hyperlink{class_server}{Server}} $\ast$p\+Server, int session\+Id, boost\+::asio\+::io\+\_\+service \&io\+\_\+service)
+\item 
+virtual \mbox{\hyperlink{class_chat_session_a000cbbc2404b7215f8c6fca37bfe8b02}{$\sim$\+Chat\+Session}} ()
+\item 
+\mbox{\hyperlink{class_chat_session_af98d3e1489aca25d857b032e96cd1432}{L\+O\+C\+A\+T\+I\+ON}} \mbox{\hyperlink{class_chat_session_ae367575ec255ec86729025ea12327e83}{Get\+Location}} ()
+\item 
+void \mbox{\hyperlink{class_chat_session_a21b4eac224eac1d752c6086c192625cf}{Set\+Location}} (\mbox{\hyperlink{class_chat_session_af98d3e1489aca25d857b032e96cd1432}{L\+O\+C\+A\+T\+I\+ON}} location)
+\item 
+void \mbox{\hyperlink{class_chat_session_a68d502419e2a0aa456734348fe7d455f}{Add\+Chat\+Count}} ()
+\item 
+void \mbox{\hyperlink{class_chat_session_acbcff57174f1b66c1855d7cbe156e51f}{Reset\+Chat\+Count}} ()
+\item 
+int \mbox{\hyperlink{class_chat_session_a0baa1a4bc6281d604918aee1c79774d9}{Get\+Chat\+Count}} ()
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_room}{Room}} $>$ \mbox{\hyperlink{class_chat_session_ac9c8184d1b1de58e44ba76df4609be8c}{Get\+Room}} ()
+\item 
+void \mbox{\hyperlink{class_chat_session_a90ac3c2b762186597af0f803e6454566}{Set\+Room}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_room}{Room}} $>$ p\+Room)
+\item 
+boost\+::asio\+::ip\+::tcp\+::socket \& \mbox{\hyperlink{class_session_a2a1ee4621632bf7ef026ffb7328e12dc}{Socket}} ()
+\item 
+void \mbox{\hyperlink{class_session_a79c0b34d2711254ba5d2a3c2756441c8}{Init}} (std\+::string nickname)
+\item 
+void \mbox{\hyperlink{class_session_a718f851d299d3080fd0464571d56f5f3}{Receive}} ()
+\item 
+void \mbox{\hyperlink{class_session_acad99692083bad5ea7d0243ec507126c}{Send}} (const bool immediately, int size, const char $\ast$p\+Data)
+\item 
+const char $\ast$ \mbox{\hyperlink{class_session_aa7daa425bfbf9f3c44eb1069f0b92653}{Get\+Nickname}} ()
+\item 
+void \mbox{\hyperlink{class_session_a687d16dacffaae4352c0179a6b06bc4f}{Set\+Nickname}} (std\+::string nickname)
+\item 
+int \mbox{\hyperlink{class_session_acc474275c7a299b6392fa17e376e7644}{Session\+ID}} ()
+\item 
+void \mbox{\hyperlink{class_session_ac654f25a898330c1abefabaf0025c697}{Set\+Dispatcher}} (\mbox{\hyperlink{class_packet_dispatcher}{Packet\+Dispatcher}} $\ast$p\+Dispatcher)
+\item 
+\mbox{\hyperlink{class_server}{Server}} $\ast$ \mbox{\hyperlink{class_session_aeca9e334f77f13324dc2066d37137156}{Get\+Server}} ()
+\item 
+bool \mbox{\hyperlink{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}{Try\+Enter}} ()
+\item 
+void \mbox{\hyperlink{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}{Enter}} ()
+\item 
+void \mbox{\hyperlink{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}{Leave}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_server}{Server}} $\ast$ \mbox{\hyperlink{class_session_aea2131e0dc68d4ab7b754d20afe7af00}{m\+\_\+p\+Server}}
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_packet_dispatcher}{Packet\+Dispatcher}} $>$ \mbox{\hyperlink{class_session_adb20c9aa4a3d5375b7e00139fa37207a}{m\+\_\+p\+Packet\+Dispatcher}}
+\item 
+\mbox{\hyperlink{class_monitor}{Monitor}} \mbox{\hyperlink{class_session_a3954c43642907ac3d82c36ac5742f782}{m\+\_\+cs\+Session}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_session_a32ab8cc454ebe573add598ce13746686}{On\+Receive}} (const boost\+::system\+::error\+\_\+code \&error, std\+::size\+\_\+t bytes\+\_\+transferred)
+\item 
+void \mbox{\hyperlink{class_session_acd5309a0d3acb5bdc35bb86626c7fe14}{On\+Write}} (const boost\+::system\+::error\+\_\+code \&error, std\+::size\+\_\+t bytes\+\_\+transferred)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chat_session_af98d3e1489aca25d857b032e96cd1432}{L\+O\+C\+A\+T\+I\+ON}} \mbox{\hyperlink{class_chat_session_a47bd39da6299283cf7748f41d47a93f0}{m\+\_\+location}}
+\item 
+int \mbox{\hyperlink{class_chat_session_ae715dd86f64fd33f9b8dda135349a343}{m\+\_\+\+Chat\+Count}}
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_room}{Room}} $>$ \mbox{\hyperlink{class_chat_session_a3a24a6e1b52789d4a368fdaaeafe1fdc}{m\+\_\+p\+Room}}
+\item 
+int \mbox{\hyperlink{class_session_a82f97b74234a54a75733d93e1c158c2e}{m\+\_\+\+Session\+Id}}
+\item 
+boost\+::asio\+::ip\+::tcp\+::socket \mbox{\hyperlink{class_session_a8cab531883482c3d2fef4209e83f866f}{m\+\_\+\+Socket}}
+\item 
+std\+::deque$<$ char $\ast$ $>$ \mbox{\hyperlink{class_session_aa907e5a4d0dbba361420d4b993c377d3}{m\+\_\+\+Send\+Data\+Queue}}
+\item 
+std\+::string \mbox{\hyperlink{class_session_a5c524860acdb422ec97402171a508421}{m\+\_\+\+Nickname}}
+\item 
+boost\+::asio\+::streambuf \mbox{\hyperlink{class_session_a795958663fdd6b85ffcfc2488107529f}{m\+\_\+\+Buffer}}
+\item 
+boost\+::asio\+::io\+\_\+service\+::strand \mbox{\hyperlink{class_session_af1a489140ce7de380ec06e5b485b97ed}{m\+\_\+\+Strand}}
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_packet_dispatcher}{Packet\+Dispatcher}} $>$ \mbox{\hyperlink{class_session_afec4afd9f199ee4e20e3ed7c19daef74}{m\+\_\+p\+Dispatcher}}
+\item 
+std\+::recursive\+\_\+mutex \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\+\_\+\+Sync\+Oject}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 5 of file Chat\+Session.\+h.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_chat_session_af98d3e1489aca25d857b032e96cd1432}\label{class_chat_session_af98d3e1489aca25d857b032e96cd1432}} 
+\index{ChatSession@{ChatSession}!LOCATION@{LOCATION}}
+\index{LOCATION@{LOCATION}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{LOCATION}{LOCATION}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_chat_session_af98d3e1489aca25d857b032e96cd1432}{Chat\+Session\+::\+L\+O\+C\+A\+T\+I\+ON}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NONE@{NONE}!ChatSession@{ChatSession}}\index{ChatSession@{ChatSession}!NONE@{NONE}}}\mbox{\Hypertarget{class_chat_session_af98d3e1489aca25d857b032e96cd1432a1dff9f7711214a13afe7fd6685717d83}\label{class_chat_session_af98d3e1489aca25d857b032e96cd1432a1dff9f7711214a13afe7fd6685717d83}} 
+N\+O\+NE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOBBY@{LOBBY}!ChatSession@{ChatSession}}\index{ChatSession@{ChatSession}!LOBBY@{LOBBY}}}\mbox{\Hypertarget{class_chat_session_af98d3e1489aca25d857b032e96cd1432ac210a529783d54a1eb002729ca77841d}\label{class_chat_session_af98d3e1489aca25d857b032e96cd1432ac210a529783d54a1eb002729ca77841d}} 
+L\+O\+B\+BY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROOM@{ROOM}!ChatSession@{ChatSession}}\index{ChatSession@{ChatSession}!ROOM@{ROOM}}}\mbox{\Hypertarget{class_chat_session_af98d3e1489aca25d857b032e96cd1432a7cf674403b64d7dc9e7d00dc6788200d}\label{class_chat_session_af98d3e1489aca25d857b032e96cd1432a7cf674403b64d7dc9e7d00dc6788200d}} 
+R\+O\+OM&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 8 of file Chat\+Session.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{8                   \{}
+\DoxyCodeLine{9         \mbox{\hyperlink{class_chat_session_af98d3e1489aca25d857b032e96cd1432a1dff9f7711214a13afe7fd6685717d83}{NONE}} = 0,}
+\DoxyCodeLine{10         \mbox{\hyperlink{class_chat_session_af98d3e1489aca25d857b032e96cd1432ac210a529783d54a1eb002729ca77841d}{LOBBY}},}
+\DoxyCodeLine{11         \mbox{\hyperlink{namespace_r_o_o_m}{ROOM}}}
+\DoxyCodeLine{12     \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_chat_session_a044a8602cb5396209aa0d1623e55107b}\label{class_chat_session_a044a8602cb5396209aa0d1623e55107b}} 
+\index{ChatSession@{ChatSession}!ChatSession@{ChatSession}}
+\index{ChatSession@{ChatSession}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{ChatSession()}{ChatSession()}}
+{\footnotesize\ttfamily Chat\+Session\+::\+Chat\+Session (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_server}{Server}} $\ast$}]{p\+Server,  }\item[{int}]{session\+Id,  }\item[{boost\+::asio\+::io\+\_\+service \&}]{io\+\_\+service }\end{DoxyParamCaption})}
+
+
+
+Definition at line 5 of file Chat\+Session.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{6     : \mbox{\hyperlink{class_chat_session_a47bd39da6299283cf7748f41d47a93f0}{m\_location}}(LOCATION::NONE),}
+\DoxyCodeLine{7     \mbox{\hyperlink{class_session_a9970a3b36edfd6fb218c96836ea31080}{Session}}(pServer, sessionId, io\_service)}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_chat_session_a000cbbc2404b7215f8c6fca37bfe8b02}\label{class_chat_session_a000cbbc2404b7215f8c6fca37bfe8b02}} 
+\index{ChatSession@{ChatSession}!````~ChatSession@{$\sim$ChatSession}}
+\index{````~ChatSession@{$\sim$ChatSession}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{$\sim$ChatSession()}{~ChatSession()}}
+{\footnotesize\ttfamily Chat\+Session\+::$\sim$\+Chat\+Session (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line 11 of file Chat\+Session.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chat_session_a68d502419e2a0aa456734348fe7d455f}\label{class_chat_session_a68d502419e2a0aa456734348fe7d455f}} 
+\index{ChatSession@{ChatSession}!AddChatCount@{AddChatCount}}
+\index{AddChatCount@{AddChatCount}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{AddChatCount()}{AddChatCount()}}
+{\footnotesize\ttfamily void Chat\+Session\+::\+Add\+Chat\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 15 of file Chat\+Session.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_monitor_1_1_owner}{Monitor::Owner}} lock (\mbox{\hyperlink{class_session_a3954c43642907ac3d82c36ac5742f782}{m\_csSession}});}
+\DoxyCodeLine{18     \{}
+\DoxyCodeLine{19         ++\mbox{\hyperlink{class_chat_session_ae715dd86f64fd33f9b8dda135349a343}{m\_ChatCount}};}
+\DoxyCodeLine{20     \}}
+\DoxyCodeLine{21 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}\label{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}} 
+\index{ChatSession@{ChatSession}!Enter@{Enter}}
+\index{Enter@{Enter}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{Enter()}{Enter()}}
+{\footnotesize\ttfamily void Monitor\+::\+Enter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 22 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     \textcolor{comment}{// Enter Lock.}}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\_SyncOject}}.lock ();}
+\DoxyCodeLine{26 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_chat_session_a0baa1a4bc6281d604918aee1c79774d9}\label{class_chat_session_a0baa1a4bc6281d604918aee1c79774d9}} 
+\index{ChatSession@{ChatSession}!GetChatCount@{GetChatCount}}
+\index{GetChatCount@{GetChatCount}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{GetChatCount()}{GetChatCount()}}
+{\footnotesize\ttfamily int Chat\+Session\+::\+Get\+Chat\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 31 of file Chat\+Session.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32 \{}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_monitor_1_1_owner}{Monitor::Owner}} lock (\mbox{\hyperlink{class_session_a3954c43642907ac3d82c36ac5742f782}{m\_csSession}});}
+\DoxyCodeLine{34     \{}
+\DoxyCodeLine{35         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_chat_session_ae715dd86f64fd33f9b8dda135349a343}{m\_ChatCount}};}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_chat_session_ae367575ec255ec86729025ea12327e83}\label{class_chat_session_ae367575ec255ec86729025ea12327e83}} 
+\index{ChatSession@{ChatSession}!GetLocation@{GetLocation}}
+\index{GetLocation@{GetLocation}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{GetLocation()}{GetLocation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chat_session_af98d3e1489aca25d857b032e96cd1432}{L\+O\+C\+A\+T\+I\+ON}} Chat\+Session\+::\+Get\+Location (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 17 of file Chat\+Session.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_chat_session_a47bd39da6299283cf7748f41d47a93f0}{m\_location}}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_session_aa7daa425bfbf9f3c44eb1069f0b92653}\label{class_session_aa7daa425bfbf9f3c44eb1069f0b92653}} 
+\index{ChatSession@{ChatSession}!GetNickname@{GetNickname}}
+\index{GetNickname@{GetNickname}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{GetNickname()}{GetNickname()}}
+{\footnotesize\ttfamily const char$\ast$ Session\+::\+Get\+Nickname (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 27 of file Session.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_session_a5c524860acdb422ec97402171a508421}{m\_Nickname}}.c\_str (); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_chat_session_ac9c8184d1b1de58e44ba76df4609be8c}\label{class_chat_session_ac9c8184d1b1de58e44ba76df4609be8c}} 
+\index{ChatSession@{ChatSession}!GetRoom@{GetRoom}}
+\index{GetRoom@{GetRoom}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{GetRoom()}{GetRoom()}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_room}{Room}}$>$ Chat\+Session\+::\+Get\+Room (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 22 of file Chat\+Session.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_chat_session_a3a24a6e1b52789d4a368fdaaeafe1fdc}{m\_pRoom}}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_session_aeca9e334f77f13324dc2066d37137156}\label{class_session_aeca9e334f77f13324dc2066d37137156}} 
+\index{ChatSession@{ChatSession}!GetServer@{GetServer}}
+\index{GetServer@{GetServer}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{GetServer()}{GetServer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_server}{Server}}$\ast$ Session\+::\+Get\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 31 of file Session.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_session_aea2131e0dc68d4ab7b754d20afe7af00}{m\_pServer}}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_session_a79c0b34d2711254ba5d2a3c2756441c8}\label{class_session_a79c0b34d2711254ba5d2a3c2756441c8}} 
+\index{ChatSession@{ChatSession}!Init@{Init}}
+\index{Init@{Init}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Session\+::\+Init (\begin{DoxyParamCaption}\item[{std\+::string}]{nickname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 19 of file Session.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}\label{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}} 
+\index{ChatSession@{ChatSession}!Leave@{Leave}}
+\index{Leave@{Leave}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{Leave()}{Leave()}}
+{\footnotesize\ttfamily void Monitor\+::\+Leave (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 28 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \textcolor{comment}{// Leave Lock.}}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\_SyncOject}}.unlock ();}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_session_a32ab8cc454ebe573add598ce13746686}\label{class_session_a32ab8cc454ebe573add598ce13746686}} 
+\index{ChatSession@{ChatSession}!OnReceive@{OnReceive}}
+\index{OnReceive@{OnReceive}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{OnReceive()}{OnReceive()}}
+{\footnotesize\ttfamily void Session\+::\+On\+Receive (\begin{DoxyParamCaption}\item[{const boost\+::system\+::error\+\_\+code \&}]{error,  }\item[{std\+::size\+\_\+t}]{bytes\+\_\+transferred }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 66 of file Session.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{67 \{}
+\DoxyCodeLine{68     \textcolor{keywordflow}{if} (error)}
+\DoxyCodeLine{69     \{}
+\DoxyCodeLine{70         \textcolor{keywordflow}{if}( error == boost::asio::error::eof )}
+\DoxyCodeLine{71         \{}
+\DoxyCodeLine{72             BOOST\_LOG\_TRIVIAL (info) \(\backslash\)}
+\DoxyCodeLine{73                 << \textcolor{stringliteral}{"Client is disconnected without error."};}
+\DoxyCodeLine{74         \}}
+\DoxyCodeLine{75         \textcolor{keywordflow}{else} }
+\DoxyCodeLine{76         \{}
+\DoxyCodeLine{77             BOOST\_LOG\_TRIVIAL (error) \(\backslash\)}
+\DoxyCodeLine{78                 << \textcolor{stringliteral}{"Client is disconnected with error."} \(\backslash\)}
+\DoxyCodeLine{79                 << \textcolor{stringliteral}{" ErrorNo: "} \(\backslash\)}
+\DoxyCodeLine{80                 << error.value () \(\backslash\)}
+\DoxyCodeLine{81                 << \textcolor{stringliteral}{" ErrorMsg: "} \(\backslash\)}
+\DoxyCodeLine{82                 << error.message ();}
+\DoxyCodeLine{83         \}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85         \mbox{\hyperlink{class_session_aea2131e0dc68d4ab7b754d20afe7af00}{m\_pServer}}-\/>\mbox{\hyperlink{class_server_a4ede6daea42d0873fb0c41e684167483}{MoveSessionToQueue}}(\mbox{\hyperlink{class_session_a82f97b74234a54a75733d93e1c158c2e}{m\_SessionId}});}
+\DoxyCodeLine{86         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{87     \}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     std::string tmp (boost::asio::buffers\_begin (\mbox{\hyperlink{class_session_a795958663fdd6b85ffcfc2488107529f}{m\_Buffer}}.data()),}
+\DoxyCodeLine{90         boost::asio::buffers\_begin (\mbox{\hyperlink{class_session_a795958663fdd6b85ffcfc2488107529f}{m\_Buffer}}.data()) + bytes\_transferred);}
+\DoxyCodeLine{91     \mbox{\hyperlink{class_session_afec4afd9f199ee4e20e3ed7c19daef74}{m\_pDispatcher}}-\/>DoDispatch(shared\_from\_this(), tmp.c\_str());    }
+\DoxyCodeLine{92     \mbox{\hyperlink{class_session_a795958663fdd6b85ffcfc2488107529f}{m\_Buffer}}.consume (bytes\_transferred);}
+\DoxyCodeLine{93     \mbox{\hyperlink{class_session_a718f851d299d3080fd0464571d56f5f3}{Receive}} ();}
+\DoxyCodeLine{94 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_session_a32ab8cc454ebe573add598ce13746686_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{class_session_a32ab8cc454ebe573add598ce13746686_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_session_acd5309a0d3acb5bdc35bb86626c7fe14}\label{class_session_acd5309a0d3acb5bdc35bb86626c7fe14}} 
+\index{ChatSession@{ChatSession}!OnWrite@{OnWrite}}
+\index{OnWrite@{OnWrite}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{OnWrite()}{OnWrite()}}
+{\footnotesize\ttfamily void Session\+::\+On\+Write (\begin{DoxyParamCaption}\item[{const boost\+::system\+::error\+\_\+code \&}]{error,  }\item[{std\+::size\+\_\+t}]{bytes\+\_\+transferred }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 96 of file Session.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{97 \{}
+\DoxyCodeLine{98     \textcolor{keyword}{delete}[] \mbox{\hyperlink{class_session_aa907e5a4d0dbba361420d4b993c377d3}{m\_SendDataQueue}}.front();}
+\DoxyCodeLine{99     \mbox{\hyperlink{class_session_aa907e5a4d0dbba361420d4b993c377d3}{m\_SendDataQueue}}.pop\_front();}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     \textcolor{keywordflow}{if}( \mbox{\hyperlink{class_session_aa907e5a4d0dbba361420d4b993c377d3}{m\_SendDataQueue}}.empty() == false )}
+\DoxyCodeLine{102     \{}
+\DoxyCodeLine{103         \textcolor{keywordtype}{char}* pData = \mbox{\hyperlink{class_session_aa907e5a4d0dbba361420d4b993c377d3}{m\_SendDataQueue}}.front();}
+\DoxyCodeLine{104         }
+\DoxyCodeLine{105         \mbox{\hyperlink{class_session_acad99692083bad5ea7d0243ec507126c}{Send}}( \textcolor{keyword}{true}, std::strlen(pData), pData );}
+\DoxyCodeLine{106     \}}
+\DoxyCodeLine{107 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{class_session_acd5309a0d3acb5bdc35bb86626c7fe14_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{class_session_acd5309a0d3acb5bdc35bb86626c7fe14_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_session_a718f851d299d3080fd0464571d56f5f3}\label{class_session_a718f851d299d3080fd0464571d56f5f3}} 
+\index{ChatSession@{ChatSession}!Receive@{Receive}}
+\index{Receive@{Receive}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{Receive()}{Receive()}}
+{\footnotesize\ttfamily void Session\+::\+Receive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 23 of file Session.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     boost::asio::async\_read\_until (\mbox{\hyperlink{class_session_a8cab531883482c3d2fef4209e83f866f}{m\_Socket}}, \mbox{\hyperlink{class_session_a795958663fdd6b85ffcfc2488107529f}{m\_Buffer}}, \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"},}
+\DoxyCodeLine{26         \mbox{\hyperlink{class_session_af1a489140ce7de380ec06e5b485b97ed}{m\_Strand}}.wrap(}
+\DoxyCodeLine{27             boost::bind (\&\mbox{\hyperlink{class_session_a32ab8cc454ebe573add598ce13746686}{Session::OnReceive}}, shared\_from\_this(),}
+\DoxyCodeLine{28                 boost::asio::placeholders::error,}
+\DoxyCodeLine{29                 boost::asio::placeholders::bytes\_transferred)}
+\DoxyCodeLine{30         )}
+\DoxyCodeLine{31     );}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_session_a718f851d299d3080fd0464571d56f5f3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{class_session_a718f851d299d3080fd0464571d56f5f3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_chat_session_acbcff57174f1b66c1855d7cbe156e51f}\label{class_chat_session_acbcff57174f1b66c1855d7cbe156e51f}} 
+\index{ChatSession@{ChatSession}!ResetChatCount@{ResetChatCount}}
+\index{ResetChatCount@{ResetChatCount}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{ResetChatCount()}{ResetChatCount()}}
+{\footnotesize\ttfamily void Chat\+Session\+::\+Reset\+Chat\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 23 of file Chat\+Session.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_monitor_1_1_owner}{Monitor::Owner}} lock (\mbox{\hyperlink{class_session_a3954c43642907ac3d82c36ac5742f782}{m\_csSession}});}
+\DoxyCodeLine{26     \{}
+\DoxyCodeLine{27         \mbox{\hyperlink{class_chat_session_ae715dd86f64fd33f9b8dda135349a343}{m\_ChatCount}} = 0;}
+\DoxyCodeLine{28     \}}
+\DoxyCodeLine{29 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_session_acad99692083bad5ea7d0243ec507126c}\label{class_session_acad99692083bad5ea7d0243ec507126c}} 
+\index{ChatSession@{ChatSession}!Send@{Send}}
+\index{Send@{Send}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{Send()}{Send()}}
+{\footnotesize\ttfamily void Session\+::\+Send (\begin{DoxyParamCaption}\item[{const bool}]{immediately,  }\item[{int}]{size,  }\item[{const char $\ast$}]{p\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 34 of file Session.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36     \textcolor{keywordtype}{char}* pSendData = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{int} MAX\_MESSAGE\_SIZE = 1024;}
+\DoxyCodeLine{39     \textcolor{keywordflow}{if}(\textcolor{keyword}{false} == immediately)}
+\DoxyCodeLine{40     \{}
+\DoxyCodeLine{41         pSendData = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[MAX\_MESSAGE\_SIZE];}
+\DoxyCodeLine{42         memcpy( pSendData, pData, MAX\_MESSAGE\_SIZE);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44         \mbox{\hyperlink{class_session_aa907e5a4d0dbba361420d4b993c377d3}{m\_SendDataQueue}}.push\_back( pSendData );}
+\DoxyCodeLine{45     \}}
+\DoxyCodeLine{46     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{47     \{}
+\DoxyCodeLine{48         memcpy( pSendData, pData, MAX\_MESSAGE\_SIZE);}
+\DoxyCodeLine{49     \}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keywordflow}{if} (\textcolor{keyword}{false} == immediately \&\& \mbox{\hyperlink{class_session_aa907e5a4d0dbba361420d4b993c377d3}{m\_SendDataQueue}}.size() > 1)}
+\DoxyCodeLine{52     \{}
+\DoxyCodeLine{53         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{54     \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     boost::asio::async\_write( \mbox{\hyperlink{class_session_a8cab531883482c3d2fef4209e83f866f}{m\_Socket}}, boost::asio::buffer( pSendData, size),}
+\DoxyCodeLine{57         \mbox{\hyperlink{class_session_af1a489140ce7de380ec06e5b485b97ed}{m\_Strand}}.wrap (}
+\DoxyCodeLine{58             boost::bind( \&\mbox{\hyperlink{class_session_acd5309a0d3acb5bdc35bb86626c7fe14}{Session::OnWrite}}, shared\_from\_this(),}
+\DoxyCodeLine{59                 boost::asio::placeholders::error,}
+\DoxyCodeLine{60                 boost::asio::placeholders::bytes\_transferred )}
+\DoxyCodeLine{61         )}
+\DoxyCodeLine{62     );}
+\DoxyCodeLine{63 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{class_session_acad99692083bad5ea7d0243ec507126c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{class_session_acad99692083bad5ea7d0243ec507126c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_session_acc474275c7a299b6392fa17e376e7644}\label{class_session_acc474275c7a299b6392fa17e376e7644}} 
+\index{ChatSession@{ChatSession}!SessionID@{SessionID}}
+\index{SessionID@{SessionID}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{SessionID()}{SessionID()}}
+{\footnotesize\ttfamily int Session\+::\+Session\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 29 of file Session.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_session_a82f97b74234a54a75733d93e1c158c2e}{m\_SessionId}}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_session_ac654f25a898330c1abefabaf0025c697}\label{class_session_ac654f25a898330c1abefabaf0025c697}} 
+\index{ChatSession@{ChatSession}!SetDispatcher@{SetDispatcher}}
+\index{SetDispatcher@{SetDispatcher}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{SetDispatcher()}{SetDispatcher()}}
+{\footnotesize\ttfamily void Session\+::\+Set\+Dispatcher (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_packet_dispatcher}{Packet\+Dispatcher}} $\ast$}]{p\+Dispatcher }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 30 of file Session.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30 \{ \mbox{\hyperlink{class_session_afec4afd9f199ee4e20e3ed7c19daef74}{m\_pDispatcher}}.reset(pDispatcher); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_chat_session_a21b4eac224eac1d752c6086c192625cf}\label{class_chat_session_a21b4eac224eac1d752c6086c192625cf}} 
+\index{ChatSession@{ChatSession}!SetLocation@{SetLocation}}
+\index{SetLocation@{SetLocation}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{SetLocation()}{SetLocation()}}
+{\footnotesize\ttfamily void Chat\+Session\+::\+Set\+Location (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_chat_session_af98d3e1489aca25d857b032e96cd1432}{L\+O\+C\+A\+T\+I\+ON}}}]{location }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 18 of file Chat\+Session.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{18 \{ \mbox{\hyperlink{class_chat_session_a47bd39da6299283cf7748f41d47a93f0}{m\_location}} = location; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_session_a687d16dacffaae4352c0179a6b06bc4f}\label{class_session_a687d16dacffaae4352c0179a6b06bc4f}} 
+\index{ChatSession@{ChatSession}!SetNickname@{SetNickname}}
+\index{SetNickname@{SetNickname}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{SetNickname()}{SetNickname()}}
+{\footnotesize\ttfamily void Session\+::\+Set\+Nickname (\begin{DoxyParamCaption}\item[{std\+::string}]{nickname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 28 of file Session.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28 \{ \mbox{\hyperlink{class_session_a5c524860acdb422ec97402171a508421}{m\_Nickname}} = nickname; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_chat_session_a90ac3c2b762186597af0f803e6454566}\label{class_chat_session_a90ac3c2b762186597af0f803e6454566}} 
+\index{ChatSession@{ChatSession}!SetRoom@{SetRoom}}
+\index{SetRoom@{SetRoom}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{SetRoom()}{SetRoom()}}
+{\footnotesize\ttfamily void Chat\+Session\+::\+Set\+Room (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_room}{Room}} $>$}]{p\+Room }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 23 of file Chat\+Session.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \{ \mbox{\hyperlink{class_chat_session_a3a24a6e1b52789d4a368fdaaeafe1fdc}{m\_pRoom}} = pRoom; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_session_a2a1ee4621632bf7ef026ffb7328e12dc}\label{class_session_a2a1ee4621632bf7ef026ffb7328e12dc}} 
+\index{ChatSession@{ChatSession}!Socket@{Socket}}
+\index{Socket@{Socket}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{Socket()}{Socket()}}
+{\footnotesize\ttfamily boost\+::asio\+::ip\+::tcp\+::socket\& Session\+::\+Socket (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 23 of file Session.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_session_a8cab531883482c3d2fef4209e83f866f}{m\_Socket}}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}\label{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}} 
+\index{ChatSession@{ChatSession}!TryEnter@{TryEnter}}
+\index{TryEnter@{TryEnter}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{TryEnter()}{TryEnter()}}
+{\footnotesize\ttfamily bool Monitor\+::\+Try\+Enter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 16 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     \textcolor{comment}{// Make Spin Lock.}}
+\DoxyCodeLine{19     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{20 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_session_a795958663fdd6b85ffcfc2488107529f}\label{class_session_a795958663fdd6b85ffcfc2488107529f}} 
+\index{ChatSession@{ChatSession}!m\_Buffer@{m\_Buffer}}
+\index{m\_Buffer@{m\_Buffer}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{m\_Buffer}{m\_Buffer}}
+{\footnotesize\ttfamily boost\+::asio\+::streambuf Session\+::m\+\_\+\+Buffer\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 41 of file Session.\+h.
+
+\mbox{\Hypertarget{class_chat_session_ae715dd86f64fd33f9b8dda135349a343}\label{class_chat_session_ae715dd86f64fd33f9b8dda135349a343}} 
+\index{ChatSession@{ChatSession}!m\_ChatCount@{m\_ChatCount}}
+\index{m\_ChatCount@{m\_ChatCount}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{m\_ChatCount}{m\_ChatCount}}
+{\footnotesize\ttfamily int Chat\+Session\+::m\+\_\+\+Chat\+Count\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 27 of file Chat\+Session.\+h.
+
+\mbox{\Hypertarget{class_session_a3954c43642907ac3d82c36ac5742f782}\label{class_session_a3954c43642907ac3d82c36ac5742f782}} 
+\index{ChatSession@{ChatSession}!m\_csSession@{m\_csSession}}
+\index{m\_csSession@{m\_csSession}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{m\_csSession}{m\_csSession}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_monitor}{Monitor}} Session\+::m\+\_\+cs\+Session\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 48 of file Session.\+h.
+
+\mbox{\Hypertarget{class_chat_session_a47bd39da6299283cf7748f41d47a93f0}\label{class_chat_session_a47bd39da6299283cf7748f41d47a93f0}} 
+\index{ChatSession@{ChatSession}!m\_location@{m\_location}}
+\index{m\_location@{m\_location}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{m\_location}{m\_location}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chat_session_af98d3e1489aca25d857b032e96cd1432}{L\+O\+C\+A\+T\+I\+ON}} Chat\+Session\+::m\+\_\+location\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 26 of file Chat\+Session.\+h.
+
+\mbox{\Hypertarget{class_session_a5c524860acdb422ec97402171a508421}\label{class_session_a5c524860acdb422ec97402171a508421}} 
+\index{ChatSession@{ChatSession}!m\_Nickname@{m\_Nickname}}
+\index{m\_Nickname@{m\_Nickname}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{m\_Nickname}{m\_Nickname}}
+{\footnotesize\ttfamily std\+::string Session\+::m\+\_\+\+Nickname\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 40 of file Session.\+h.
+
+\mbox{\Hypertarget{class_session_afec4afd9f199ee4e20e3ed7c19daef74}\label{class_session_afec4afd9f199ee4e20e3ed7c19daef74}} 
+\index{ChatSession@{ChatSession}!m\_pDispatcher@{m\_pDispatcher}}
+\index{m\_pDispatcher@{m\_pDispatcher}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{m\_pDispatcher}{m\_pDispatcher}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_packet_dispatcher}{Packet\+Dispatcher}}$>$ Session\+::m\+\_\+p\+Dispatcher\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 43 of file Session.\+h.
+
+\mbox{\Hypertarget{class_session_adb20c9aa4a3d5375b7e00139fa37207a}\label{class_session_adb20c9aa4a3d5375b7e00139fa37207a}} 
+\index{ChatSession@{ChatSession}!m\_pPacketDispatcher@{m\_pPacketDispatcher}}
+\index{m\_pPacketDispatcher@{m\_pPacketDispatcher}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{m\_pPacketDispatcher}{m\_pPacketDispatcher}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_packet_dispatcher}{Packet\+Dispatcher}}$>$ Session\+::m\+\_\+p\+Packet\+Dispatcher\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 47 of file Session.\+h.
+
+\mbox{\Hypertarget{class_chat_session_a3a24a6e1b52789d4a368fdaaeafe1fdc}\label{class_chat_session_a3a24a6e1b52789d4a368fdaaeafe1fdc}} 
+\index{ChatSession@{ChatSession}!m\_pRoom@{m\_pRoom}}
+\index{m\_pRoom@{m\_pRoom}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{m\_pRoom}{m\_pRoom}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_room}{Room}}$>$ Chat\+Session\+::m\+\_\+p\+Room\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 28 of file Chat\+Session.\+h.
+
+\mbox{\Hypertarget{class_session_aea2131e0dc68d4ab7b754d20afe7af00}\label{class_session_aea2131e0dc68d4ab7b754d20afe7af00}} 
+\index{ChatSession@{ChatSession}!m\_pServer@{m\_pServer}}
+\index{m\_pServer@{m\_pServer}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{m\_pServer}{m\_pServer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_server}{Server}}$\ast$ Session\+::m\+\_\+p\+Server\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 46 of file Session.\+h.
+
+\mbox{\Hypertarget{class_session_aa907e5a4d0dbba361420d4b993c377d3}\label{class_session_aa907e5a4d0dbba361420d4b993c377d3}} 
+\index{ChatSession@{ChatSession}!m\_SendDataQueue@{m\_SendDataQueue}}
+\index{m\_SendDataQueue@{m\_SendDataQueue}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{m\_SendDataQueue}{m\_SendDataQueue}}
+{\footnotesize\ttfamily std\+::deque$<$char$\ast$$>$ Session\+::m\+\_\+\+Send\+Data\+Queue\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 39 of file Session.\+h.
+
+\mbox{\Hypertarget{class_session_a82f97b74234a54a75733d93e1c158c2e}\label{class_session_a82f97b74234a54a75733d93e1c158c2e}} 
+\index{ChatSession@{ChatSession}!m\_SessionId@{m\_SessionId}}
+\index{m\_SessionId@{m\_SessionId}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{m\_SessionId}{m\_SessionId}}
+{\footnotesize\ttfamily int Session\+::m\+\_\+\+Session\+Id\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 37 of file Session.\+h.
+
+\mbox{\Hypertarget{class_session_a8cab531883482c3d2fef4209e83f866f}\label{class_session_a8cab531883482c3d2fef4209e83f866f}} 
+\index{ChatSession@{ChatSession}!m\_Socket@{m\_Socket}}
+\index{m\_Socket@{m\_Socket}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{m\_Socket}{m\_Socket}}
+{\footnotesize\ttfamily boost\+::asio\+::ip\+::tcp\+::socket Session\+::m\+\_\+\+Socket\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 38 of file Session.\+h.
+
+\mbox{\Hypertarget{class_session_af1a489140ce7de380ec06e5b485b97ed}\label{class_session_af1a489140ce7de380ec06e5b485b97ed}} 
+\index{ChatSession@{ChatSession}!m\_Strand@{m\_Strand}}
+\index{m\_Strand@{m\_Strand}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{m\_Strand}{m\_Strand}}
+{\footnotesize\ttfamily boost\+::asio\+::io\+\_\+service\+::strand Session\+::m\+\_\+\+Strand\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 42 of file Session.\+h.
+
+\mbox{\Hypertarget{class_monitor_aa6ef00d7122694ab317011623adb5599}\label{class_monitor_aa6ef00d7122694ab317011623adb5599}} 
+\index{ChatSession@{ChatSession}!m\_SyncOject@{m\_SyncOject}}
+\index{m\_SyncOject@{m\_SyncOject}!ChatSession@{ChatSession}}
+\doxysubsubsection{\texorpdfstring{m\_SyncOject}{m\_SyncOject}}
+{\footnotesize\ttfamily std\+::recursive\+\_\+mutex Monitor\+::m\+\_\+\+Sync\+Oject\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 27 of file Monitor.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/\+Chat\+Server/\mbox{\hyperlink{_chat_session_8h}{Chat\+Session.\+h}}\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/\+Chat\+Server/\mbox{\hyperlink{_chat_session_8cpp}{Chat\+Session.\+cpp}}\end{DoxyCompactItemize}

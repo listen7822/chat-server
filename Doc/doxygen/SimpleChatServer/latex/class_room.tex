@@ -1,0 +1,369 @@
+\hypertarget{class_room}{}\doxysection{Room Class Reference}
+\label{class_room}\index{Room@{Room}}
+
+
+{\ttfamily \#include $<$Room.\+h$>$}
+
+
+
+Collaboration diagram for Room\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{class_room__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_room_a265697a12f4c598a69cf0f0c50357f9a}{Room}} (boost\+::asio\+::io\+\_\+service \&io\+\_\+service)
+\item 
+virtual \mbox{\hyperlink{class_room_a67d5da09983cc53097807fd43ba5481a}{$\sim$\+Room}} ()
+\item 
+void \mbox{\hyperlink{class_room_a51c33bff472166cac9ac65f95ba70a93}{Add\+User}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$ p\+Session)
+\item 
+void \mbox{\hyperlink{class_room_a94aafc324203b8e875551f82caa32174}{Remove\+User}} (std\+::string nickname)
+\item 
+void \mbox{\hyperlink{class_room_a4d47b62ecd6dfed1e3bdfd10f89646b7}{Save\+Message}} (std\+::string nickname, std\+::string message)
+\item 
+void \mbox{\hyperlink{class_room_a35976c3fdbcf70ad1c332f9e50286373}{Set\+Room\+Name}} (std\+::string room\+Name)
+\item 
+bool \mbox{\hyperlink{class_room_a99b22d83587fb6291a1ab48dec386234}{Is\+Empty}} ()
+\item 
+void \mbox{\hyperlink{class_room_a444812a087ce78383134c393b3bf8c80}{Clear}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_room_a37f430ec5b4076ddc0045b7481e5688a}{Get\+Room\+Name}} ()
+\item 
+std\+::list$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$ $>$ \mbox{\hyperlink{class_room_ae200b417007ecb3c77fb71cdabb4a557}{Get\+User\+List}} ()
+\item 
+std\+::queue$<$ std\+::string $>$ \mbox{\hyperlink{class_room_aef43646a7c92bf5cb0cc6c73addadd79}{Get\+Message\+Queue}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_room_a3ad1250712fec034b6d423633f45b551}{On\+Timer}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+boost\+::asio\+::deadline\+\_\+timer \mbox{\hyperlink{class_room_a9b660270b3557b2f6aa57aec88db9d8c}{m\+\_\+\+Timer}}
+\item 
+std\+::list$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$ $>$ \mbox{\hyperlink{class_room_ae50c1e107371f34afca76e478492f9b7}{m\+\_\+\+User\+List}}
+\item 
+std\+::queue$<$ std\+::string $>$ \mbox{\hyperlink{class_room_a4601fb0ff175b874c5738307d7549b07}{m\+\_\+\+Message\+Queue}}
+\item 
+std\+::string \mbox{\hyperlink{class_room_a204a28a904a2981693cba2bb9178c6e9}{m\+\_\+\+Room\+Name}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 12 of file Room.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_room_a265697a12f4c598a69cf0f0c50357f9a}\label{class_room_a265697a12f4c598a69cf0f0c50357f9a}} 
+\index{Room@{Room}!Room@{Room}}
+\index{Room@{Room}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{Room()}{Room()}}
+{\footnotesize\ttfamily Room\+::\+Room (\begin{DoxyParamCaption}\item[{boost\+::asio\+::io\+\_\+service \&}]{io\+\_\+service }\end{DoxyParamCaption})}
+
+
+
+Definition at line 7 of file Room.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{8     : \mbox{\hyperlink{class_room_a9b660270b3557b2f6aa57aec88db9d8c}{m\_Timer}}(io\_service, boost::posix\_time::seconds (\mbox{\hyperlink{namespace_r_o_o_m_a138d8c68700a4345b8cc63b8f59278b7}{ROOM::CHAT\_RESET\_TIME}}))}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_room_a9b660270b3557b2f6aa57aec88db9d8c}{m\_Timer}}.async\_wait (boost::bind (\&\mbox{\hyperlink{class_room_a3ad1250712fec034b6d423633f45b551}{Room::OnTimer}}, \textcolor{keyword}{this}));}
+\DoxyCodeLine{11 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{class_room_a265697a12f4c598a69cf0f0c50357f9a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_room_a67d5da09983cc53097807fd43ba5481a}\label{class_room_a67d5da09983cc53097807fd43ba5481a}} 
+\index{Room@{Room}!````~Room@{$\sim$Room}}
+\index{````~Room@{$\sim$Room}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{$\sim$Room()}{~Room()}}
+{\footnotesize\ttfamily Room\+::$\sim$\+Room (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line 13 of file Room.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_room_a51c33bff472166cac9ac65f95ba70a93}\label{class_room_a51c33bff472166cac9ac65f95ba70a93}} 
+\index{Room@{Room}!AddUser@{AddUser}}
+\index{AddUser@{AddUser}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{AddUser()}{AddUser()}}
+{\footnotesize\ttfamily void Room\+::\+Add\+User (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_session}{Session}} $>$}]{p\+Session }\end{DoxyParamCaption})}
+
+
+
+Definition at line 17 of file Room.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_room_ae50c1e107371f34afca76e478492f9b7}{m\_UserList}}.push\_back (pSession);}
+\DoxyCodeLine{20 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_room_a444812a087ce78383134c393b3bf8c80}\label{class_room_a444812a087ce78383134c393b3bf8c80}} 
+\index{Room@{Room}!Clear@{Clear}}
+\index{Clear@{Clear}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void Room\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 61 of file Room.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62 \{}
+\DoxyCodeLine{63     \mbox{\hyperlink{class_room_ae50c1e107371f34afca76e478492f9b7}{m\_UserList}}.clear ();}
+\DoxyCodeLine{64     \mbox{\hyperlink{class_room_a204a28a904a2981693cba2bb9178c6e9}{m\_RoomName}} = \textcolor{stringliteral}{""};}
+\DoxyCodeLine{65     \textcolor{keywordflow}{while} (!\mbox{\hyperlink{class_room_a4601fb0ff175b874c5738307d7549b07}{m\_MessageQueue}}.empty ()) \{}
+\DoxyCodeLine{66         \mbox{\hyperlink{class_room_a4601fb0ff175b874c5738307d7549b07}{m\_MessageQueue}}.pop ();}
+\DoxyCodeLine{67     \}}
+\DoxyCodeLine{68 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_room_aef43646a7c92bf5cb0cc6c73addadd79}\label{class_room_aef43646a7c92bf5cb0cc6c73addadd79}} 
+\index{Room@{Room}!GetMessageQueue@{GetMessageQueue}}
+\index{GetMessageQueue@{GetMessageQueue}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{GetMessageQueue()}{GetMessageQueue()}}
+{\footnotesize\ttfamily std\+::queue$<$std\+::string$>$ Room\+::\+Get\+Message\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 26 of file Room.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{26 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_room_a4601fb0ff175b874c5738307d7549b07}{m\_MessageQueue}}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_room_a37f430ec5b4076ddc0045b7481e5688a}\label{class_room_a37f430ec5b4076ddc0045b7481e5688a}} 
+\index{Room@{Room}!GetRoomName@{GetRoomName}}
+\index{GetRoomName@{GetRoomName}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{GetRoomName()}{GetRoomName()}}
+{\footnotesize\ttfamily std\+::string Room\+::\+Get\+Room\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 24 of file Room.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_room_a204a28a904a2981693cba2bb9178c6e9}{m\_RoomName}}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_room_ae200b417007ecb3c77fb71cdabb4a557}\label{class_room_ae200b417007ecb3c77fb71cdabb4a557}} 
+\index{Room@{Room}!GetUserList@{GetUserList}}
+\index{GetUserList@{GetUserList}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{GetUserList()}{GetUserList()}}
+{\footnotesize\ttfamily std\+::list$<$boost\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_session}{Session}}$>$ $>$ Room\+::\+Get\+User\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 25 of file Room.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_room_ae50c1e107371f34afca76e478492f9b7}{m\_UserList}}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_room_a99b22d83587fb6291a1ab48dec386234}\label{class_room_a99b22d83587fb6291a1ab48dec386234}} 
+\index{Room@{Room}!IsEmpty@{IsEmpty}}
+\index{IsEmpty@{IsEmpty}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{IsEmpty()}{IsEmpty()}}
+{\footnotesize\ttfamily bool Room\+::\+Is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 22 of file Room.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_room_ae50c1e107371f34afca76e478492f9b7}{m\_UserList}}.size () > 0 ? false : \textcolor{keyword}{true}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_room_a3ad1250712fec034b6d423633f45b551}\label{class_room_a3ad1250712fec034b6d423633f45b551}} 
+\index{Room@{Room}!OnTimer@{OnTimer}}
+\index{OnTimer@{OnTimer}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{OnTimer()}{OnTimer()}}
+{\footnotesize\ttfamily void Room\+::\+On\+Timer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 70 of file Room.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{71 \{}
+\DoxyCodeLine{72     std::cout << \textcolor{stringliteral}{"User's message count initialized."} << std::endl;}
+\DoxyCodeLine{73     \textcolor{keyword}{auto} iter = \mbox{\hyperlink{class_room_ae50c1e107371f34afca76e478492f9b7}{m\_UserList}}.begin ();}
+\DoxyCodeLine{74     \textcolor{keywordflow}{for} (iter; iter != \mbox{\hyperlink{class_room_ae50c1e107371f34afca76e478492f9b7}{m\_UserList}}.end (); ++iter) \{}
+\DoxyCodeLine{75         std::cout << ((\mbox{\hyperlink{class_chat_session}{ChatSession}}*)iter-\/>get ())-\/>GetChatCount () << std::endl;}
+\DoxyCodeLine{76         ((\mbox{\hyperlink{class_chat_session}{ChatSession}}*)iter-\/>get ())-\/>ResetChatCount ();}
+\DoxyCodeLine{77     \}}
+\DoxyCodeLine{78     \mbox{\hyperlink{class_room_a9b660270b3557b2f6aa57aec88db9d8c}{m\_Timer}}.expires\_at (\mbox{\hyperlink{class_room_a9b660270b3557b2f6aa57aec88db9d8c}{m\_Timer}}.expires\_at () + boost::posix\_time::seconds (\mbox{\hyperlink{namespace_r_o_o_m_a138d8c68700a4345b8cc63b8f59278b7}{ROOM::CHAT\_RESET\_TIME}}));}
+\DoxyCodeLine{79     \mbox{\hyperlink{class_room_a9b660270b3557b2f6aa57aec88db9d8c}{m\_Timer}}.async\_wait (boost::bind (\&\mbox{\hyperlink{class_room_a3ad1250712fec034b6d423633f45b551}{Room::OnTimer}}, \textcolor{keyword}{this}));}
+\DoxyCodeLine{80 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{class_room_a3ad1250712fec034b6d423633f45b551_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_room_a94aafc324203b8e875551f82caa32174}\label{class_room_a94aafc324203b8e875551f82caa32174}} 
+\index{Room@{Room}!RemoveUser@{RemoveUser}}
+\index{RemoveUser@{RemoveUser}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{RemoveUser()}{RemoveUser()}}
+{\footnotesize\ttfamily void Room\+::\+Remove\+User (\begin{DoxyParamCaption}\item[{std\+::string}]{nickname }\end{DoxyParamCaption})}
+
+
+
+Definition at line 22 of file Room.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     std::string msg;}
+\DoxyCodeLine{25     \textcolor{keyword}{auto} iter = \mbox{\hyperlink{class_room_ae50c1e107371f34afca76e478492f9b7}{m\_UserList}}.begin ();}
+\DoxyCodeLine{26     \textcolor{keywordflow}{for} (iter; iter != \mbox{\hyperlink{class_room_ae50c1e107371f34afca76e478492f9b7}{m\_UserList}}.end ();) \{}
+\DoxyCodeLine{27         \textcolor{keywordflow}{if} (nickname == iter-\/>get ()-\/>GetNickname ()) \{}
+\DoxyCodeLine{28             msg.append (\textcolor{stringliteral}{"Leaving this room."});}
+\DoxyCodeLine{29             msg.append (\textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"});}
+\DoxyCodeLine{30             iter-\/>get ()-\/>Send (\textcolor{keyword}{false}, msg.length (), msg.c\_str ());}
+\DoxyCodeLine{31             \mbox{\hyperlink{class_room_ae50c1e107371f34afca76e478492f9b7}{m\_UserList}}.erase (iter++);}
+\DoxyCodeLine{32             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{33         \}}
+\DoxyCodeLine{34         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{35             msg.append (iter-\/>get()-\/>GetNickname ());}
+\DoxyCodeLine{36             msg.append (\textcolor{stringliteral}{" leave this room."});}
+\DoxyCodeLine{37             msg.append (\textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"});}
+\DoxyCodeLine{38             iter-\/>get ()-\/>Send (\textcolor{keyword}{false}, msg.length (), msg.c\_str ());}
+\DoxyCodeLine{39             iter++;}
+\DoxyCodeLine{40         \}}
+\DoxyCodeLine{41     \}}
+\DoxyCodeLine{42 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_room_a4d47b62ecd6dfed1e3bdfd10f89646b7}\label{class_room_a4d47b62ecd6dfed1e3bdfd10f89646b7}} 
+\index{Room@{Room}!SaveMessage@{SaveMessage}}
+\index{SaveMessage@{SaveMessage}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{SaveMessage()}{SaveMessage()}}
+{\footnotesize\ttfamily void Room\+::\+Save\+Message (\begin{DoxyParamCaption}\item[{std\+::string}]{nickname,  }\item[{std\+::string}]{message }\end{DoxyParamCaption})}
+
+
+
+Definition at line 44 of file Room.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45 \{}
+\DoxyCodeLine{46     \textcolor{keywordflow}{if} (5 <= \mbox{\hyperlink{class_room_a4601fb0ff175b874c5738307d7549b07}{m\_MessageQueue}}.size ())}
+\DoxyCodeLine{47     \{}
+\DoxyCodeLine{48         \mbox{\hyperlink{class_room_a4601fb0ff175b874c5738307d7549b07}{m\_MessageQueue}}.pop ();}
+\DoxyCodeLine{49     \}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \mbox{\hyperlink{class_room_a4601fb0ff175b874c5738307d7549b07}{m\_MessageQueue}}.push (message);}
+\DoxyCodeLine{52     \textcolor{keyword}{auto} iter = \mbox{\hyperlink{class_room_ae50c1e107371f34afca76e478492f9b7}{m\_UserList}}.begin ();}
+\DoxyCodeLine{53     \textcolor{keywordflow}{for} (iter; iter != \mbox{\hyperlink{class_room_ae50c1e107371f34afca76e478492f9b7}{m\_UserList}}.end (); ++iter) \{}
+\DoxyCodeLine{54         \textcolor{keywordflow}{if} (nickname == iter-\/>get ()-\/>GetNickname ()) \{}
+\DoxyCodeLine{55             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{56         \}}
+\DoxyCodeLine{57         iter-\/>get ()-\/>Send (\textcolor{keyword}{false}, message.length (), message.c\_str ());}
+\DoxyCodeLine{58     \}}
+\DoxyCodeLine{59 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_room_a35976c3fdbcf70ad1c332f9e50286373}\label{class_room_a35976c3fdbcf70ad1c332f9e50286373}} 
+\index{Room@{Room}!SetRoomName@{SetRoomName}}
+\index{SetRoomName@{SetRoomName}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{SetRoomName()}{SetRoomName()}}
+{\footnotesize\ttfamily void Room\+::\+Set\+Room\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{room\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 21 of file Room.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{ \mbox{\hyperlink{class_room_a204a28a904a2981693cba2bb9178c6e9}{m\_RoomName}} = roomName; \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_room_a4601fb0ff175b874c5738307d7549b07}\label{class_room_a4601fb0ff175b874c5738307d7549b07}} 
+\index{Room@{Room}!m\_MessageQueue@{m\_MessageQueue}}
+\index{m\_MessageQueue@{m\_MessageQueue}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{m\_MessageQueue}{m\_MessageQueue}}
+{\footnotesize\ttfamily std\+::queue$<$std\+::string$>$ Room\+::m\+\_\+\+Message\+Queue\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 33 of file Room.\+h.
+
+\mbox{\Hypertarget{class_room_a204a28a904a2981693cba2bb9178c6e9}\label{class_room_a204a28a904a2981693cba2bb9178c6e9}} 
+\index{Room@{Room}!m\_RoomName@{m\_RoomName}}
+\index{m\_RoomName@{m\_RoomName}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{m\_RoomName}{m\_RoomName}}
+{\footnotesize\ttfamily std\+::string Room\+::m\+\_\+\+Room\+Name\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 34 of file Room.\+h.
+
+\mbox{\Hypertarget{class_room_a9b660270b3557b2f6aa57aec88db9d8c}\label{class_room_a9b660270b3557b2f6aa57aec88db9d8c}} 
+\index{Room@{Room}!m\_Timer@{m\_Timer}}
+\index{m\_Timer@{m\_Timer}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{m\_Timer}{m\_Timer}}
+{\footnotesize\ttfamily boost\+::asio\+::deadline\+\_\+timer Room\+::m\+\_\+\+Timer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 31 of file Room.\+h.
+
+\mbox{\Hypertarget{class_room_ae50c1e107371f34afca76e478492f9b7}\label{class_room_ae50c1e107371f34afca76e478492f9b7}} 
+\index{Room@{Room}!m\_UserList@{m\_UserList}}
+\index{m\_UserList@{m\_UserList}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{m\_UserList}{m\_UserList}}
+{\footnotesize\ttfamily std\+::list$<$boost\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_session}{Session}}$>$ $>$ Room\+::m\+\_\+\+User\+List\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 32 of file Room.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/\+Chat\+Server/\mbox{\hyperlink{_room_8h}{Room.\+h}}\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/\+Chat\+Server/\mbox{\hyperlink{_room_8cpp}{Room.\+cpp}}\end{DoxyCompactItemize}

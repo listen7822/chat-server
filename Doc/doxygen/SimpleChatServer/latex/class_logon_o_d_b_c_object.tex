@@ -1,0 +1,536 @@
+\hypertarget{class_logon_o_d_b_c_object}{}\doxysection{Logon\+O\+D\+B\+C\+Object Class Reference}
+\label{class_logon_o_d_b_c_object}\index{LogonODBCObject@{LogonODBCObject}}
+
+
+{\ttfamily \#include $<$Logon\+O\+D\+B\+C\+Object.\+h$>$}
+
+
+
+Inheritance diagram for Logon\+O\+D\+B\+C\+Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_logon_o_d_b_c_object__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Logon\+O\+D\+B\+C\+Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_logon_o_d_b_c_object__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_logon_o_d_b_c_object_a6bf0960d200f6d42d11566d9bfbb7a79}{Logon\+O\+D\+B\+C\+Object}} ()
+\item 
+\mbox{\hyperlink{class_logon_o_d_b_c_object_ae58e1b49022570c92d22cdf0727f2cdf}{$\sim$\+Logon\+O\+D\+B\+C\+Object}} ()
+\item 
+bool \mbox{\hyperlink{class_logon_o_d_b_c_object_a75e477d3a4c18d09ae9a2399fba362cd}{Change\+User\+Nickname}} (std\+::string pre\+Nickname, std\+::string post\+Nikcname)
+\item 
+bool \mbox{\hyperlink{class_logon_o_d_b_c_object_a86923fa88784de16e2e9cecaba147d7f}{Create\+User}} (std\+::string \&nickname, std\+::string \&token)
+\item 
+\mbox{\hyperlink{class_o_d_b_c}{O\+D\+BC}} $\ast$ \mbox{\hyperlink{class_o_d_b_c_object_a6d682855a10f069ef934a8f2082c94dc}{Get\+O\+D\+BC}} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{class_o_d_b_c_object_aa3abccee88c82fa9eadaa61722d5c2cd}{Add\+Database}} ()
+\item 
+void \mbox{\hyperlink{class_o_d_b_c_object_a66b183e6b360b8205f22ccf08845baea}{Check\+Database}} ()
+\item 
+bool \mbox{\hyperlink{class_o_d_b_c_object_a582189731f53b3c6dc547e9d2197fe56}{Is\+Success\+Query}} (int ret\+S\+QL)
+\item 
+bool \mbox{\hyperlink{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}{Try\+Enter}} ()
+\item 
+void \mbox{\hyperlink{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}{Enter}} ()
+\item 
+void \mbox{\hyperlink{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}{Leave}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_o_d_b_c_object}{O\+D\+B\+C\+Object}} $\ast$ \mbox{\hyperlink{class_singleton_a32e9ccdbb5bdf4662cb8c1fd0c8d047a}{Instance}} (void)
+\item 
+static void \mbox{\hyperlink{class_singleton_a98ea34301337737d80c17055f884cef0}{Make\+Instance}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_o_d_b_c_database}{O\+D\+B\+C\+Database}} $\ast$ \mbox{\hyperlink{class_o_d_b_c_object_a81e9ef39e2fad64cc2df16e07cb7b2e8}{m\+\_\+\+Database}}
+\item 
+std\+::recursive\+\_\+mutex \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\+\_\+\+Sync\+Oject}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_o_d_b_c_object}{O\+D\+B\+C\+Object}} $\ast$ \mbox{\hyperlink{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}{instance\+\_\+}}
+\item 
+static \mbox{\hyperlink{class_monitor}{Monitor}} \mbox{\hyperlink{class_singleton_a6ce2c5830384b09bb760c4ed4eb0bf73}{m\+\_\+cs\+Singleton}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 4 of file Logon\+O\+D\+B\+C\+Object.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_logon_o_d_b_c_object_a6bf0960d200f6d42d11566d9bfbb7a79}\label{class_logon_o_d_b_c_object_a6bf0960d200f6d42d11566d9bfbb7a79}} 
+\index{LogonODBCObject@{LogonODBCObject}!LogonODBCObject@{LogonODBCObject}}
+\index{LogonODBCObject@{LogonODBCObject}!LogonODBCObject@{LogonODBCObject}}
+\doxysubsubsection{\texorpdfstring{LogonODBCObject()}{LogonODBCObject()}}
+{\footnotesize\ttfamily Logon\+O\+D\+B\+C\+Object\+::\+Logon\+O\+D\+B\+C\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 10 of file Logon\+O\+D\+B\+C\+Object.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_logon_o_d_b_c_object_ae58e1b49022570c92d22cdf0727f2cdf}\label{class_logon_o_d_b_c_object_ae58e1b49022570c92d22cdf0727f2cdf}} 
+\index{LogonODBCObject@{LogonODBCObject}!````~LogonODBCObject@{$\sim$LogonODBCObject}}
+\index{````~LogonODBCObject@{$\sim$LogonODBCObject}!LogonODBCObject@{LogonODBCObject}}
+\doxysubsubsection{\texorpdfstring{$\sim$LogonODBCObject()}{~LogonODBCObject()}}
+{\footnotesize\ttfamily Logon\+O\+D\+B\+C\+Object\+::$\sim$\+Logon\+O\+D\+B\+C\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 15 of file Logon\+O\+D\+B\+C\+Object.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_o_d_b_c_object_aa3abccee88c82fa9eadaa61722d5c2cd}\label{class_o_d_b_c_object_aa3abccee88c82fa9eadaa61722d5c2cd}} 
+\index{LogonODBCObject@{LogonODBCObject}!AddDatabase@{AddDatabase}}
+\index{AddDatabase@{AddDatabase}!LogonODBCObject@{LogonODBCObject}}
+\doxysubsubsection{\texorpdfstring{AddDatabase()}{AddDatabase()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool O\+D\+B\+C\+Object\+::\+Add\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 23 of file O\+D\+B\+C\+Object.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24     \{}
+\DoxyCodeLine{25         \textcolor{keywordflow}{if} (\textcolor{keyword}{nullptr} != \mbox{\hyperlink{class_o_d_b_c_object_a81e9ef39e2fad64cc2df16e07cb7b2e8}{m\_Database}})}
+\DoxyCodeLine{26         \{}
+\DoxyCodeLine{27             BOOST\_LOG\_TRIVIAL (error) << \textcolor{stringliteral}{"Func: "}<< \_\_FUNCTION\_\_ << \textcolor{stringliteral}{" Line: "} <<\_\_LINE\_\_;}
+\DoxyCodeLine{28             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{29         \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31         T* pDatabase = \textcolor{keyword}{new} T;}
+\DoxyCodeLine{32         \textcolor{keywordflow}{if} (!pDatabase-\/>Initialize ())}
+\DoxyCodeLine{33         \{}
+\DoxyCodeLine{34             BOOST\_LOG\_TRIVIAL (error) << \textcolor{stringliteral}{"Func: "}<< \_\_FUNCTION\_\_ << \textcolor{stringliteral}{" Line: "} <<\_\_LINE\_\_;}
+\DoxyCodeLine{35             \textcolor{keyword}{delete} pDatabase;}
+\DoxyCodeLine{36             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{37         \}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39         \mbox{\hyperlink{class_o_d_b_c_object_a81e9ef39e2fad64cc2df16e07cb7b2e8}{m\_Database}} = pDatabase;}
+\DoxyCodeLine{40         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{41     \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_object_aa3abccee88c82fa9eadaa61722d5c2cd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_logon_o_d_b_c_object_a75e477d3a4c18d09ae9a2399fba362cd}\label{class_logon_o_d_b_c_object_a75e477d3a4c18d09ae9a2399fba362cd}} 
+\index{LogonODBCObject@{LogonODBCObject}!ChangeUserNickname@{ChangeUserNickname}}
+\index{ChangeUserNickname@{ChangeUserNickname}!LogonODBCObject@{LogonODBCObject}}
+\doxysubsubsection{\texorpdfstring{ChangeUserNickname()}{ChangeUserNickname()}}
+{\footnotesize\ttfamily bool Logon\+O\+D\+B\+C\+Object\+::\+Change\+User\+Nickname (\begin{DoxyParamCaption}\item[{std\+::string}]{pre\+Nickname,  }\item[{std\+::string}]{post\+Nikcname }\end{DoxyParamCaption})}
+
+
+
+Definition at line 19 of file Logon\+O\+D\+B\+C\+Object.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21     std::string strQuery = }
+\DoxyCodeLine{22         \textcolor{stringliteral}{"UPDATE userinfo SET nickname = \(\backslash\)""} + postNikcname + \textcolor{stringliteral}{"\(\backslash\)" WHERE nickname = \(\backslash\)""} + preNickname + \textcolor{stringliteral}{"\(\backslash\)""};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \mbox{\hyperlink{class_scoped_o_d_b_c}{ScopedODBC}} scopedODBC;}
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} nRet = scopedODBC.\mbox{\hyperlink{class_scoped_o_d_b_c_a43d949147bf8d7a348b47633b50fc2ea}{Execute}} (strQuery.c\_str ());}
+\DoxyCodeLine{26     \textcolor{keywordflow}{if} (\textcolor{keyword}{false} == \mbox{\hyperlink{class_o_d_b_c_object_a582189731f53b3c6dc547e9d2197fe56}{IsSuccessQuery}} (nRet))}
+\DoxyCodeLine{27     \{}
+\DoxyCodeLine{28         BOOST\_LOG\_TRIVIAL (error) \(\backslash\)}
+\DoxyCodeLine{29             << \textcolor{stringliteral}{" FUNC: "} \(\backslash\)}
+\DoxyCodeLine{30             << \_\_FUNCTION\_\_ \(\backslash\)}
+\DoxyCodeLine{31             << \textcolor{stringliteral}{" Line: "} \(\backslash\)}
+\DoxyCodeLine{32             << \_\_LINE\_\_;}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{35     \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{38 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_logon_o_d_b_c_object_a75e477d3a4c18d09ae9a2399fba362cd_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_o_d_b_c_object_a66b183e6b360b8205f22ccf08845baea}\label{class_o_d_b_c_object_a66b183e6b360b8205f22ccf08845baea}} 
+\index{LogonODBCObject@{LogonODBCObject}!CheckDatabase@{CheckDatabase}}
+\index{CheckDatabase@{CheckDatabase}!LogonODBCObject@{LogonODBCObject}}
+\doxysubsubsection{\texorpdfstring{CheckDatabase()}{CheckDatabase()}}
+{\footnotesize\ttfamily void O\+D\+B\+C\+Object\+::\+Check\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 37 of file O\+D\+B\+C\+Object.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38 \{}
+\DoxyCodeLine{39     \textcolor{comment}{// database null check}}
+\DoxyCodeLine{40     \textcolor{keywordflow}{if} (\textcolor{keyword}{nullptr} == \mbox{\hyperlink{class_o_d_b_c_object_a81e9ef39e2fad64cc2df16e07cb7b2e8}{m\_Database}})}
+\DoxyCodeLine{41     \{}
+\DoxyCodeLine{42         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{comment}{// health check connection }}
+\DoxyCodeLine{46     \mbox{\hyperlink{class_o_d_b_c_object_a81e9ef39e2fad64cc2df16e07cb7b2e8}{m\_Database}}-\/>\mbox{\hyperlink{class_o_d_b_c_database_a0f7c8b7a1e8c8cbe544e7acbfaa573e1}{CheckConnection}} ();}
+\DoxyCodeLine{47 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_object_a66b183e6b360b8205f22ccf08845baea_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_logon_o_d_b_c_object_a86923fa88784de16e2e9cecaba147d7f}\label{class_logon_o_d_b_c_object_a86923fa88784de16e2e9cecaba147d7f}} 
+\index{LogonODBCObject@{LogonODBCObject}!CreateUser@{CreateUser}}
+\index{CreateUser@{CreateUser}!LogonODBCObject@{LogonODBCObject}}
+\doxysubsubsection{\texorpdfstring{CreateUser()}{CreateUser()}}
+{\footnotesize\ttfamily bool Logon\+O\+D\+B\+C\+Object\+::\+Create\+User (\begin{DoxyParamCaption}\item[{std\+::string \&}]{nickname,  }\item[{std\+::string \&}]{token }\end{DoxyParamCaption})}
+
+
+
+Definition at line 40 of file Logon\+O\+D\+B\+C\+Object.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41 \{}
+\DoxyCodeLine{42     std::string strQuery =}
+\DoxyCodeLine{43         \textcolor{stringliteral}{"INSERT INTO userinfo(nickname, auth\_token) \(\backslash\)}}
+\DoxyCodeLine{44 \textcolor{stringliteral}{            VALUES(concat(\(\backslash\)"player\(\backslash\)", cast(rand()*1000 as unsigned)), \(\backslash\)}}
+\DoxyCodeLine{45 \textcolor{stringliteral}{            concat(date\_format(now(), '\%Y\%m\%d\%H\%i\%s'),\(\backslash\)}}
+\DoxyCodeLine{46 \textcolor{stringliteral}{            cast( cast( rand()*1000 as unsigned) as char) ))"};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \mbox{\hyperlink{class_scoped_o_d_b_c}{ScopedODBC}} scopedODBC;}
+\DoxyCodeLine{49     \textcolor{keywordtype}{int} nRet = scopedODBC.\mbox{\hyperlink{class_scoped_o_d_b_c_a43d949147bf8d7a348b47633b50fc2ea}{Execute}} (strQuery.c\_str ());}
+\DoxyCodeLine{50     \textcolor{keywordflow}{if} (\textcolor{keyword}{false} == \mbox{\hyperlink{class_o_d_b_c_object_a582189731f53b3c6dc547e9d2197fe56}{IsSuccessQuery}} (nRet))}
+\DoxyCodeLine{51     \{}
+\DoxyCodeLine{52         BOOST\_LOG\_TRIVIAL (error) \(\backslash\)}
+\DoxyCodeLine{53             << \textcolor{stringliteral}{" FUNC: "} \(\backslash\)}
+\DoxyCodeLine{54             << \_\_FUNCTION\_\_ \(\backslash\)}
+\DoxyCodeLine{55             << \textcolor{stringliteral}{" Line: "} \(\backslash\)}
+\DoxyCodeLine{56             << \_\_LINE\_\_;}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     strQuery = \textcolor{stringliteral}{"SELECT nickname, auth\_token FROM userinfo WHERE seq = last\_insert\_id()"};}
+\DoxyCodeLine{62     nRet = scopedODBC.\mbox{\hyperlink{class_scoped_o_d_b_c_a43d949147bf8d7a348b47633b50fc2ea}{Execute}} (strQuery.c\_str ());}
+\DoxyCodeLine{63     \textcolor{keywordflow}{if} (\textcolor{keyword}{false} == \mbox{\hyperlink{class_o_d_b_c_object_a582189731f53b3c6dc547e9d2197fe56}{IsSuccessQuery}} (nRet))}
+\DoxyCodeLine{64     \{}
+\DoxyCodeLine{65         BOOST\_LOG\_TRIVIAL (error) \(\backslash\)}
+\DoxyCodeLine{66             << \textcolor{stringliteral}{" FUNC: "} \(\backslash\)}
+\DoxyCodeLine{67             << \_\_FUNCTION\_\_ \(\backslash\)}
+\DoxyCodeLine{68             << \textcolor{stringliteral}{" Line: "} \(\backslash\)}
+\DoxyCodeLine{69             << \_\_LINE\_\_;}
+\DoxyCodeLine{70         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{71     \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keywordflow}{while} (SQL\_SUCCESS == scopedODBC-\/>\mbox{\hyperlink{class_o_d_b_c_ae55d04a391aeef4b31928a6e30fd3bbb}{Fetch}} ())}
+\DoxyCodeLine{74     \{}
+\DoxyCodeLine{75         \textcolor{keywordtype}{int} idx = 0;}
+\DoxyCodeLine{76         \textcolor{keywordtype}{int} length = 0;}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78         \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{int} MAX\_NICKNAME\_LEN = 12;}
+\DoxyCodeLine{79         \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{int} TOKEN\_LEN = 17;}
+\DoxyCodeLine{80         \textcolor{keywordtype}{char} tmpNickname[MAX\_NICKNAME\_LEN + 1];}
+\DoxyCodeLine{81         \textcolor{keywordtype}{char} tmpToken[TOKEN\_LEN + 1];}
+\DoxyCodeLine{82         scopedODBC-\/>\mbox{\hyperlink{class_o_d_b_c_a6e77a59ffd6f0ec775750a73d1364b15}{GetData}} (++idx, tmpNickname, MAX\_NICKNAME\_LEN + 1, \&length);}
+\DoxyCodeLine{83         scopedODBC-\/>\mbox{\hyperlink{class_o_d_b_c_a6e77a59ffd6f0ec775750a73d1364b15}{GetData}} (++idx, tmpToken, TOKEN\_LEN + 1, \&length);}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85         nickname = tmpNickname;}
+\DoxyCodeLine{86         token = tmpToken;}
+\DoxyCodeLine{87     \}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{90 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_logon_o_d_b_c_object_a86923fa88784de16e2e9cecaba147d7f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}\label{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}} 
+\index{LogonODBCObject@{LogonODBCObject}!Enter@{Enter}}
+\index{Enter@{Enter}!LogonODBCObject@{LogonODBCObject}}
+\doxysubsubsection{\texorpdfstring{Enter()}{Enter()}}
+{\footnotesize\ttfamily void Monitor\+::\+Enter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 22 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     \textcolor{comment}{// Enter Lock.}}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\_SyncOject}}.lock ();}
+\DoxyCodeLine{26 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_o_d_b_c_object_a6d682855a10f069ef934a8f2082c94dc}\label{class_o_d_b_c_object_a6d682855a10f069ef934a8f2082c94dc}} 
+\index{LogonODBCObject@{LogonODBCObject}!GetODBC@{GetODBC}}
+\index{GetODBC@{GetODBC}!LogonODBCObject@{LogonODBCObject}}
+\doxysubsubsection{\texorpdfstring{GetODBC()}{GetODBC()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_o_d_b_c}{O\+D\+BC}} $\ast$ O\+D\+B\+C\+Object\+::\+Get\+O\+D\+BC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 18 of file O\+D\+B\+C\+Object.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20     \textcolor{keywordtype}{int} waitCnt = 0;}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_o_d_b_c}{ODBC}} *pCon = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{22     \textcolor{keywordflow}{do}}
+\DoxyCodeLine{23     \{}
+\DoxyCodeLine{24         \textcolor{comment}{// connection pool null check}}
+\DoxyCodeLine{25         \textcolor{keywordflow}{if} (\textcolor{keyword}{nullptr} == \mbox{\hyperlink{class_o_d_b_c_object_a81e9ef39e2fad64cc2df16e07cb7b2e8}{m\_Database}})}
+\DoxyCodeLine{26         \{}
+\DoxyCodeLine{27             BOOST\_LOG\_TRIVIAL (error) << \textcolor{stringliteral}{"Func: "}<< \_\_FUNCTION\_\_ << \textcolor{stringliteral}{" Line: "} <<\_\_LINE\_\_;}
+\DoxyCodeLine{28             \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{29         \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31         pCon = \mbox{\hyperlink{class_o_d_b_c_object_a81e9ef39e2fad64cc2df16e07cb7b2e8}{m\_Database}}-\/>\mbox{\hyperlink{class_o_d_b_c_database_a69db5068ab2fc85c1407531e518f8dae}{GetConnection}} ();}
+\DoxyCodeLine{32     \} \textcolor{keywordflow}{while} (!pCon);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordflow}{return} pCon;}
+\DoxyCodeLine{35 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_object_a6d682855a10f069ef934a8f2082c94dc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_object_a6d682855a10f069ef934a8f2082c94dc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_singleton_a32e9ccdbb5bdf4662cb8c1fd0c8d047a}\label{class_singleton_a32e9ccdbb5bdf4662cb8c1fd0c8d047a}} 
+\index{LogonODBCObject@{LogonODBCObject}!Instance@{Instance}}
+\index{Instance@{Instance}!LogonODBCObject@{LogonODBCObject}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_o_d_b_c_object}{O\+D\+B\+C\+Object}} $\ast$ \mbox{\hyperlink{class_singleton}{Singleton}}$<$ \mbox{\hyperlink{class_o_d_b_c_object}{O\+D\+B\+C\+Object}}  $>$\+::Instance (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 12 of file Singleton.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13     \{}
+\DoxyCodeLine{14         \textcolor{keywordflow}{if} (\textcolor{keyword}{nullptr} == \mbox{\hyperlink{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}{instance\_}})}
+\DoxyCodeLine{15         \{}
+\DoxyCodeLine{16             \mbox{\hyperlink{class_singleton_a98ea34301337737d80c17055f884cef0}{MakeInstance}} ();}
+\DoxyCodeLine{17         \}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}{instance\_}};}
+\DoxyCodeLine{20     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_o_d_b_c_object_a582189731f53b3c6dc547e9d2197fe56}\label{class_o_d_b_c_object_a582189731f53b3c6dc547e9d2197fe56}} 
+\index{LogonODBCObject@{LogonODBCObject}!IsSuccessQuery@{IsSuccessQuery}}
+\index{IsSuccessQuery@{IsSuccessQuery}!LogonODBCObject@{LogonODBCObject}}
+\doxysubsubsection{\texorpdfstring{IsSuccessQuery()}{IsSuccessQuery()}}
+{\footnotesize\ttfamily bool O\+D\+B\+C\+Object\+::\+Is\+Success\+Query (\begin{DoxyParamCaption}\item[{int}]{ret\+S\+QL }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 49 of file O\+D\+B\+C\+Object.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{50 \{}
+\DoxyCodeLine{51     \textcolor{keywordflow}{if} (SQL\_SUCCESS == retSQL || SQL\_SUCCESS\_WITH\_INFO == retSQL || SQL\_NO\_DATA == retSQL)}
+\DoxyCodeLine{52     \{}
+\DoxyCodeLine{53         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{54     \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{57 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_o_d_b_c_object_a582189731f53b3c6dc547e9d2197fe56_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}\label{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}} 
+\index{LogonODBCObject@{LogonODBCObject}!Leave@{Leave}}
+\index{Leave@{Leave}!LogonODBCObject@{LogonODBCObject}}
+\doxysubsubsection{\texorpdfstring{Leave()}{Leave()}}
+{\footnotesize\ttfamily void Monitor\+::\+Leave (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 28 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \textcolor{comment}{// Leave Lock.}}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\_SyncOject}}.unlock ();}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_singleton_a98ea34301337737d80c17055f884cef0}\label{class_singleton_a98ea34301337737d80c17055f884cef0}} 
+\index{LogonODBCObject@{LogonODBCObject}!MakeInstance@{MakeInstance}}
+\index{MakeInstance@{MakeInstance}!LogonODBCObject@{LogonODBCObject}}
+\doxysubsubsection{\texorpdfstring{MakeInstance()}{MakeInstance()}}
+{\footnotesize\ttfamily static void \mbox{\hyperlink{class_singleton}{Singleton}}$<$ \mbox{\hyperlink{class_o_d_b_c_object}{O\+D\+B\+C\+Object}}  $>$\+::Make\+Instance (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 22 of file Singleton.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23     \{}
+\DoxyCodeLine{24         \mbox{\hyperlink{class_monitor_1_1_owner}{Monitor::Owner}} lock (\mbox{\hyperlink{class_singleton_a6ce2c5830384b09bb760c4ed4eb0bf73}{m\_csSingleton}});}
+\DoxyCodeLine{25         \{}
+\DoxyCodeLine{26             \textcolor{keywordflow}{if} (\textcolor{keyword}{nullptr} == \mbox{\hyperlink{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}{instance\_}})}
+\DoxyCodeLine{27             \{}
+\DoxyCodeLine{28                 \mbox{\hyperlink{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}{instance\_}} = \textcolor{keyword}{new} T;}
+\DoxyCodeLine{29             \}}
+\DoxyCodeLine{30         \}}
+\DoxyCodeLine{31     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}\label{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}} 
+\index{LogonODBCObject@{LogonODBCObject}!TryEnter@{TryEnter}}
+\index{TryEnter@{TryEnter}!LogonODBCObject@{LogonODBCObject}}
+\doxysubsubsection{\texorpdfstring{TryEnter()}{TryEnter()}}
+{\footnotesize\ttfamily bool Monitor\+::\+Try\+Enter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 16 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     \textcolor{comment}{// Make Spin Lock.}}
+\DoxyCodeLine{19     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{20 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}\label{class_singleton_a82af11f7de98155c98b5ab5a6053b9d9}} 
+\index{LogonODBCObject@{LogonODBCObject}!instance\_@{instance\_}}
+\index{instance\_@{instance\_}!LogonODBCObject@{LogonODBCObject}}
+\doxysubsubsection{\texorpdfstring{instance\_}{instance\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_o_d_b_c_object}{O\+D\+B\+C\+Object}}  $\ast$ \mbox{\hyperlink{class_singleton}{Singleton}}$<$ \mbox{\hyperlink{class_o_d_b_c_object}{O\+D\+B\+C\+Object}}  $>$\+::instance\+\_\+\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 8 of file Singleton.\+h.
+
+\mbox{\Hypertarget{class_singleton_a6ce2c5830384b09bb760c4ed4eb0bf73}\label{class_singleton_a6ce2c5830384b09bb760c4ed4eb0bf73}} 
+\index{LogonODBCObject@{LogonODBCObject}!m\_csSingleton@{m\_csSingleton}}
+\index{m\_csSingleton@{m\_csSingleton}!LogonODBCObject@{LogonODBCObject}}
+\doxysubsubsection{\texorpdfstring{m\_csSingleton}{m\_csSingleton}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_monitor}{Monitor}} \mbox{\hyperlink{class_singleton}{Singleton}}$<$ \mbox{\hyperlink{class_o_d_b_c_object}{O\+D\+B\+C\+Object}}  $>$\+::m\+\_\+cs\+Singleton\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 9 of file Singleton.\+h.
+
+\mbox{\Hypertarget{class_o_d_b_c_object_a81e9ef39e2fad64cc2df16e07cb7b2e8}\label{class_o_d_b_c_object_a81e9ef39e2fad64cc2df16e07cb7b2e8}} 
+\index{LogonODBCObject@{LogonODBCObject}!m\_Database@{m\_Database}}
+\index{m\_Database@{m\_Database}!LogonODBCObject@{LogonODBCObject}}
+\doxysubsubsection{\texorpdfstring{m\_Database}{m\_Database}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_o_d_b_c_database}{O\+D\+B\+C\+Database}}$\ast$ O\+D\+B\+C\+Object\+::m\+\_\+\+Database\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 14 of file O\+D\+B\+C\+Object.\+h.
+
+\mbox{\Hypertarget{class_monitor_aa6ef00d7122694ab317011623adb5599}\label{class_monitor_aa6ef00d7122694ab317011623adb5599}} 
+\index{LogonODBCObject@{LogonODBCObject}!m\_SyncOject@{m\_SyncOject}}
+\index{m\_SyncOject@{m\_SyncOject}!LogonODBCObject@{LogonODBCObject}}
+\doxysubsubsection{\texorpdfstring{m\_SyncOject}{m\_SyncOject}}
+{\footnotesize\ttfamily std\+::recursive\+\_\+mutex Monitor\+::m\+\_\+\+Sync\+Oject\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 27 of file Monitor.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/\+Logon\+Server/\mbox{\hyperlink{_logon_o_d_b_c_object_8h}{Logon\+O\+D\+B\+C\+Object.\+h}}\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/\+Logon\+Server/\mbox{\hyperlink{_logon_o_d_b_c_object_8cpp}{Logon\+O\+D\+B\+C\+Object.\+cpp}}\end{DoxyCompactItemize}

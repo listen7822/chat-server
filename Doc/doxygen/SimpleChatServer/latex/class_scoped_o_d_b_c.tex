@@ -1,0 +1,251 @@
+\hypertarget{class_scoped_o_d_b_c}{}\doxysection{Scoped\+O\+D\+BC Class Reference}
+\label{class_scoped_o_d_b_c}\index{ScopedODBC@{ScopedODBC}}
+
+
+{\ttfamily \#include $<$Scoped\+O\+D\+B\+C.\+h$>$}
+
+
+
+Collaboration diagram for Scoped\+O\+D\+BC\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_scoped_o_d_b_c__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_scoped_o_d_b_c_a9e7ad20050b40a4db29a2abcdf37358c}{Scoped\+O\+D\+BC}} ()
+\item 
+\mbox{\hyperlink{class_scoped_o_d_b_c_a54640d8358bf04779a47449a31fd7c62}{$\sim$\+Scoped\+O\+D\+BC}} ()
+\item 
+\mbox{\hyperlink{class_o_d_b_c}{O\+D\+BC}} $\ast$ \mbox{\hyperlink{class_scoped_o_d_b_c_ab61ee96a0967d16734bdf086ec06d506}{operator-\/$>$}} ()
+\item 
+int \mbox{\hyperlink{class_scoped_o_d_b_c_a43d949147bf8d7a348b47633b50fc2ea}{Execute}} (const char $\ast$sz\+Query)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_scoped_o_d_b_c_a49247bef69ab0b3bccc8a71e994a9036}{Init}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_o_d_b_c}{O\+D\+BC}} $\ast$ \mbox{\hyperlink{class_scoped_o_d_b_c_acb7c91e6c9c5bb55bca584d54269b045}{m\+\_\+p\+O\+D\+BC}}
+\item 
+bool \mbox{\hyperlink{class_scoped_o_d_b_c_afd8cfe01cb57d7d92523f386a669b496}{m\+\_\+b\+Is\+Query\+Succeed}}
+\item 
+unsigned long \mbox{\hyperlink{class_scoped_o_d_b_c_aee2e7f410aace4eef4d45651f816d8c7}{ml\+Start\+Sec}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 7 of file Scoped\+O\+D\+B\+C.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_scoped_o_d_b_c_a9e7ad20050b40a4db29a2abcdf37358c}\label{class_scoped_o_d_b_c_a9e7ad20050b40a4db29a2abcdf37358c}} 
+\index{ScopedODBC@{ScopedODBC}!ScopedODBC@{ScopedODBC}}
+\index{ScopedODBC@{ScopedODBC}!ScopedODBC@{ScopedODBC}}
+\doxysubsubsection{\texorpdfstring{ScopedODBC()}{ScopedODBC()}}
+{\footnotesize\ttfamily Scoped\+O\+D\+B\+C\+::\+Scoped\+O\+D\+BC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 6 of file Scoped\+O\+D\+B\+C.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{6                         : \mbox{\hyperlink{class_scoped_o_d_b_c_afd8cfe01cb57d7d92523f386a669b496}{m\_bIsQuerySucceed}} (\textcolor{keyword}{false})}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8     \mbox{\hyperlink{class_scoped_o_d_b_c_a49247bef69ab0b3bccc8a71e994a9036}{Init}} ();}
+\DoxyCodeLine{9 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_scoped_o_d_b_c_a9e7ad20050b40a4db29a2abcdf37358c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_scoped_o_d_b_c_a54640d8358bf04779a47449a31fd7c62}\label{class_scoped_o_d_b_c_a54640d8358bf04779a47449a31fd7c62}} 
+\index{ScopedODBC@{ScopedODBC}!````~ScopedODBC@{$\sim$ScopedODBC}}
+\index{````~ScopedODBC@{$\sim$ScopedODBC}!ScopedODBC@{ScopedODBC}}
+\doxysubsubsection{\texorpdfstring{$\sim$ScopedODBC()}{~ScopedODBC()}}
+{\footnotesize\ttfamily Scoped\+O\+D\+B\+C\+::$\sim$\+Scoped\+O\+D\+BC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 16 of file Scoped\+O\+D\+B\+C.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     \textcolor{comment}{// rollback query.}}
+\DoxyCodeLine{19     \textcolor{keywordflow}{if} (\textcolor{keyword}{false} == \mbox{\hyperlink{class_scoped_o_d_b_c_afd8cfe01cb57d7d92523f386a669b496}{m\_bIsQuerySucceed}})}
+\DoxyCodeLine{20     \{}
+\DoxyCodeLine{21         \mbox{\hyperlink{class_scoped_o_d_b_c_acb7c91e6c9c5bb55bca584d54269b045}{m\_pODBC}}-\/>\mbox{\hyperlink{class_o_d_b_c_a46445b9cd1ee80e6399e4b19af6d41cb}{Rollback}} ();}
+\DoxyCodeLine{22     \}}
+\DoxyCodeLine{23     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{24     \{}
+\DoxyCodeLine{25         \mbox{\hyperlink{class_scoped_o_d_b_c_acb7c91e6c9c5bb55bca584d54269b045}{m\_pODBC}}-\/>\mbox{\hyperlink{class_o_d_b_c_ace1eef1331afb3fc2a610af24f4e868b}{Commit}} ();}
+\DoxyCodeLine{26     \}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{comment}{// Returning connection to pool.}}
+\DoxyCodeLine{29     \mbox{\hyperlink{class_scoped_o_d_b_c_acb7c91e6c9c5bb55bca584d54269b045}{m\_pODBC}}-\/>\mbox{\hyperlink{class_o_d_b_c_a337350a016c21dd2887de1c74b6bb684}{SetOnUsing}} (\textcolor{keyword}{false});}
+\DoxyCodeLine{30 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_scoped_o_d_b_c_a54640d8358bf04779a47449a31fd7c62_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_scoped_o_d_b_c_a43d949147bf8d7a348b47633b50fc2ea}\label{class_scoped_o_d_b_c_a43d949147bf8d7a348b47633b50fc2ea}} 
+\index{ScopedODBC@{ScopedODBC}!Execute@{Execute}}
+\index{Execute@{Execute}!ScopedODBC@{ScopedODBC}}
+\doxysubsubsection{\texorpdfstring{Execute()}{Execute()}}
+{\footnotesize\ttfamily int Scoped\+O\+D\+B\+C\+::\+Execute (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sz\+Query }\end{DoxyParamCaption})}
+
+
+
+Definition at line 32 of file Scoped\+O\+D\+B\+C.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33 \{}
+\DoxyCodeLine{34     \textcolor{keywordflow}{if} (NULL == \mbox{\hyperlink{class_scoped_o_d_b_c_acb7c91e6c9c5bb55bca584d54269b045}{m\_pODBC}})}
+\DoxyCodeLine{35     \{}
+\DoxyCodeLine{36         BOOST\_LOG\_TRIVIAL (error) << \textcolor{stringliteral}{"Func: "}<< \_\_FUNCTION\_\_ << \textcolor{stringliteral}{" Line: "} <<\_\_LINE\_\_;}
+\DoxyCodeLine{37         \textcolor{keywordflow}{return} SQL\_ERROR;}
+\DoxyCodeLine{38     \}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{int} retSQL = \mbox{\hyperlink{class_scoped_o_d_b_c_acb7c91e6c9c5bb55bca584d54269b045}{m\_pODBC}}-\/>\mbox{\hyperlink{class_o_d_b_c_ac5cb49aa366811dbf728fddbbaaf2cd8}{Query}} (szQuery);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \mbox{\hyperlink{class_scoped_o_d_b_c_afd8cfe01cb57d7d92523f386a669b496}{m\_bIsQuerySucceed}} = \mbox{\hyperlink{class_singleton_a32e9ccdbb5bdf4662cb8c1fd0c8d047a}{ODBCObject::Instance}} ()-\/>\mbox{\hyperlink{class_o_d_b_c_object_a582189731f53b3c6dc547e9d2197fe56}{IsSuccessQuery}} (retSQL);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordflow}{if} (\textcolor{keyword}{false} == \mbox{\hyperlink{class_scoped_o_d_b_c_afd8cfe01cb57d7d92523f386a669b496}{m\_bIsQuerySucceed}})}
+\DoxyCodeLine{45     \{}
+\DoxyCodeLine{46         BOOST\_LOG\_TRIVIAL (error) << \textcolor{stringliteral}{"Func: "}<< \_\_FUNCTION\_\_ << \textcolor{stringliteral}{" Line: "} <<\_\_LINE\_\_;}
+\DoxyCodeLine{47     \}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keywordflow}{return} retSQL;}
+\DoxyCodeLine{50 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_scoped_o_d_b_c_a43d949147bf8d7a348b47633b50fc2ea_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_scoped_o_d_b_c_a43d949147bf8d7a348b47633b50fc2ea_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_scoped_o_d_b_c_a49247bef69ab0b3bccc8a71e994a9036}\label{class_scoped_o_d_b_c_a49247bef69ab0b3bccc8a71e994a9036}} 
+\index{ScopedODBC@{ScopedODBC}!Init@{Init}}
+\index{Init@{Init}!ScopedODBC@{ScopedODBC}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Scoped\+O\+D\+B\+C\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 11 of file Scoped\+O\+D\+B\+C.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     \mbox{\hyperlink{class_scoped_o_d_b_c_acb7c91e6c9c5bb55bca584d54269b045}{m\_pODBC}} = \mbox{\hyperlink{class_singleton_a32e9ccdbb5bdf4662cb8c1fd0c8d047a}{ODBCObject::Instance}} ()-\/>\mbox{\hyperlink{class_o_d_b_c_object_a6d682855a10f069ef934a8f2082c94dc}{GetODBC}} ();}
+\DoxyCodeLine{14 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_scoped_o_d_b_c_a49247bef69ab0b3bccc8a71e994a9036_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_scoped_o_d_b_c_a49247bef69ab0b3bccc8a71e994a9036_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_scoped_o_d_b_c_ab61ee96a0967d16734bdf086ec06d506}\label{class_scoped_o_d_b_c_ab61ee96a0967d16734bdf086ec06d506}} 
+\index{ScopedODBC@{ScopedODBC}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!ScopedODBC@{ScopedODBC}}
+\doxysubsubsection{\texorpdfstring{operator-\/$>$()}{operator->()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_o_d_b_c}{O\+D\+BC}}$\ast$ Scoped\+O\+D\+B\+C\+::operator-\/$>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 19 of file Scoped\+O\+D\+B\+C.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_scoped_o_d_b_c_acb7c91e6c9c5bb55bca584d54269b045}{m\_pODBC}}; \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_scoped_o_d_b_c_afd8cfe01cb57d7d92523f386a669b496}\label{class_scoped_o_d_b_c_afd8cfe01cb57d7d92523f386a669b496}} 
+\index{ScopedODBC@{ScopedODBC}!m\_bIsQuerySucceed@{m\_bIsQuerySucceed}}
+\index{m\_bIsQuerySucceed@{m\_bIsQuerySucceed}!ScopedODBC@{ScopedODBC}}
+\doxysubsubsection{\texorpdfstring{m\_bIsQuerySucceed}{m\_bIsQuerySucceed}}
+{\footnotesize\ttfamily bool Scoped\+O\+D\+B\+C\+::m\+\_\+b\+Is\+Query\+Succeed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 11 of file Scoped\+O\+D\+B\+C.\+h.
+
+\mbox{\Hypertarget{class_scoped_o_d_b_c_acb7c91e6c9c5bb55bca584d54269b045}\label{class_scoped_o_d_b_c_acb7c91e6c9c5bb55bca584d54269b045}} 
+\index{ScopedODBC@{ScopedODBC}!m\_pODBC@{m\_pODBC}}
+\index{m\_pODBC@{m\_pODBC}!ScopedODBC@{ScopedODBC}}
+\doxysubsubsection{\texorpdfstring{m\_pODBC}{m\_pODBC}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_o_d_b_c}{O\+D\+BC}}$\ast$ Scoped\+O\+D\+B\+C\+::m\+\_\+p\+O\+D\+BC\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 10 of file Scoped\+O\+D\+B\+C.\+h.
+
+\mbox{\Hypertarget{class_scoped_o_d_b_c_aee2e7f410aace4eef4d45651f816d8c7}\label{class_scoped_o_d_b_c_aee2e7f410aace4eef4d45651f816d8c7}} 
+\index{ScopedODBC@{ScopedODBC}!mlStartSec@{mlStartSec}}
+\index{mlStartSec@{mlStartSec}!ScopedODBC@{ScopedODBC}}
+\doxysubsubsection{\texorpdfstring{mlStartSec}{mlStartSec}}
+{\footnotesize\ttfamily unsigned long Scoped\+O\+D\+B\+C\+::ml\+Start\+Sec\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 12 of file Scoped\+O\+D\+B\+C.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/externals/\+Lib\+O\+D\+B\+C/\mbox{\hyperlink{_scoped_o_d_b_c_8h}{Scoped\+O\+D\+B\+C.\+h}}\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/externals/\+Lib\+O\+D\+B\+C/\mbox{\hyperlink{_scoped_o_d_b_c_8cpp}{Scoped\+O\+D\+B\+C.\+cpp}}\end{DoxyCompactItemize}

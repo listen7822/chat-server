@@ -1,0 +1,196 @@
+\hypertarget{class_monitor}{}\doxysection{Monitor Class Reference}
+\label{class_monitor}\index{Monitor@{Monitor}}
+
+
+{\ttfamily \#include $<$Monitor.\+h$>$}
+
+
+
+Inheritance diagram for Monitor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_monitor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Monitor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=162pt]{class_monitor__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_monitor_1_1_owner}{Owner}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_monitor_a639d27b16055d8681c2015d00ea083d8}{Monitor}} ()
+\item 
+\mbox{\hyperlink{class_monitor_a64aba8195effc068092ddea5a71e8176}{$\sim$\+Monitor}} ()
+\item 
+bool \mbox{\hyperlink{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}{Try\+Enter}} ()
+\item 
+void \mbox{\hyperlink{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}{Enter}} ()
+\item 
+void \mbox{\hyperlink{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}{Leave}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_monitor_a0fe25cc76de6f138d2fb9b7817515c12}{Monitor}} (const \mbox{\hyperlink{class_monitor}{Monitor}} \&rhs)
+\item 
+\mbox{\hyperlink{class_monitor}{Monitor}} \& \mbox{\hyperlink{class_monitor_aaa81f7fe211b36fe0d41db29f037ee4d}{operator=}} (const \mbox{\hyperlink{class_monitor}{Monitor}} \&rhs)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::recursive\+\_\+mutex \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\+\_\+\+Sync\+Oject}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 5 of file Monitor.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_monitor_a639d27b16055d8681c2015d00ea083d8}\label{class_monitor_a639d27b16055d8681c2015d00ea083d8}} 
+\index{Monitor@{Monitor}!Monitor@{Monitor}}
+\index{Monitor@{Monitor}!Monitor@{Monitor}}
+\doxysubsubsection{\texorpdfstring{Monitor()}{Monitor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Monitor\+::\+Monitor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 5 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7     \textcolor{comment}{// Create CriticalSection.}}
+\DoxyCodeLine{8 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_monitor_a64aba8195effc068092ddea5a71e8176}\label{class_monitor_a64aba8195effc068092ddea5a71e8176}} 
+\index{Monitor@{Monitor}!````~Monitor@{$\sim$Monitor}}
+\index{````~Monitor@{$\sim$Monitor}!Monitor@{Monitor}}
+\doxysubsubsection{\texorpdfstring{$\sim$Monitor()}{~Monitor()}}
+{\footnotesize\ttfamily Monitor\+::$\sim$\+Monitor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     \textcolor{comment}{// Delete CriticalSection.}}
+\DoxyCodeLine{14 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_monitor_a0fe25cc76de6f138d2fb9b7817515c12}\label{class_monitor_a0fe25cc76de6f138d2fb9b7817515c12}} 
+\index{Monitor@{Monitor}!Monitor@{Monitor}}
+\index{Monitor@{Monitor}!Monitor@{Monitor}}
+\doxysubsubsection{\texorpdfstring{Monitor()}{Monitor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Monitor\+::\+Monitor (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_monitor}{Monitor}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}\label{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9}} 
+\index{Monitor@{Monitor}!Enter@{Enter}}
+\index{Enter@{Enter}!Monitor@{Monitor}}
+\doxysubsubsection{\texorpdfstring{Enter()}{Enter()}}
+{\footnotesize\ttfamily void Monitor\+::\+Enter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 22 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     \textcolor{comment}{// Enter Lock.}}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\_SyncOject}}.lock ();}
+\DoxyCodeLine{26 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{class_monitor_ad51e7039d1afbeb2a386810a6543f7c9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}\label{class_monitor_ae9056a74f0859f1aa89d5bdbcd4a3819}} 
+\index{Monitor@{Monitor}!Leave@{Leave}}
+\index{Leave@{Leave}!Monitor@{Monitor}}
+\doxysubsubsection{\texorpdfstring{Leave()}{Leave()}}
+{\footnotesize\ttfamily void Monitor\+::\+Leave (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 28 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \textcolor{comment}{// Leave Lock.}}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_monitor_aa6ef00d7122694ab317011623adb5599}{m\_SyncOject}}.unlock ();}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_monitor_aaa81f7fe211b36fe0d41db29f037ee4d}\label{class_monitor_aaa81f7fe211b36fe0d41db29f037ee4d}} 
+\index{Monitor@{Monitor}!operator=@{operator=}}
+\index{operator=@{operator=}!Monitor@{Monitor}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_monitor}{Monitor}}\& Monitor\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_monitor}{Monitor}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}\label{class_monitor_ab5f2a1bba4e75a0bd504d279e27bffc4}} 
+\index{Monitor@{Monitor}!TryEnter@{TryEnter}}
+\index{TryEnter@{TryEnter}!Monitor@{Monitor}}
+\doxysubsubsection{\texorpdfstring{TryEnter()}{TryEnter()}}
+{\footnotesize\ttfamily bool Monitor\+::\+Try\+Enter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 16 of file Monitor.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     \textcolor{comment}{// Make Spin Lock.}}
+\DoxyCodeLine{19     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{20 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_monitor_aa6ef00d7122694ab317011623adb5599}\label{class_monitor_aa6ef00d7122694ab317011623adb5599}} 
+\index{Monitor@{Monitor}!m\_SyncOject@{m\_SyncOject}}
+\index{m\_SyncOject@{m\_SyncOject}!Monitor@{Monitor}}
+\doxysubsubsection{\texorpdfstring{m\_SyncOject}{m\_SyncOject}}
+{\footnotesize\ttfamily std\+::recursive\+\_\+mutex Monitor\+::m\+\_\+\+Sync\+Oject\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 27 of file Monitor.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/externals/\+Lib\+Util/\mbox{\hyperlink{_monitor_8h}{Monitor.\+h}}\item 
+C\+:/\+Users/\+Yun\+Jun/\+Documents/chat-\/server/externals/\+Lib\+Util/\mbox{\hyperlink{_monitor_8cpp}{Monitor.\+cpp}}\end{DoxyCompactItemize}

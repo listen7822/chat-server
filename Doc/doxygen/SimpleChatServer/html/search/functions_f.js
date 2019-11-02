@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['savemessage_477',['SaveMessage',['../class_room.html#a4d47b62ecd6dfed1e3bdfd10f89646b7',1,'Room']]],
+  ['scopedodbc_478',['ScopedODBC',['../class_scoped_o_d_b_c.html#a9e7ad20050b40a4db29a2abcdf37358c',1,'ScopedODBC']]],
+  ['send_479',['Send',['../class_session.html#acad99692083bad5ea7d0243ec507126c',1,'Session']]],
+  ['sendmessage_480',['SendMessage',['../class_chat_handler.html#a190196cb64d17e03b64445db5fc42bb1',1,'ChatHandler']]],
+  ['server_481',['Server',['../class_server.html#a7351104356303935152a859cfb0fb1b4',1,'Server']]],
+  ['session_482',['Session',['../class_session.html#a9970a3b36edfd6fb218c96836ea31080',1,'Session']]],
+  ['sessionid_483',['SessionID',['../class_session.html#acc474275c7a299b6392fa17e376e7644',1,'Session']]],
+  ['setcaller_484',['SetCaller',['../class_o_d_b_c.html#a773b0e77001f56bc41abe1b6662e25b0',1,'ODBC']]],
+  ['setdispatcher_485',['SetDispatcher',['../class_session.html#ac654f25a898330c1abefabaf0025c697',1,'Session']]],
+  ['setlocation_486',['SetLocation',['../class_chat_session.html#a21b4eac224eac1d752c6086c192625cf',1,'ChatSession']]],
+  ['setnickname_487',['SetNickname',['../class_session.html#a687d16dacffaae4352c0179a6b06bc4f',1,'Session']]],
+  ['setoffautocommit_488',['SetOffAutoCommit',['../class_o_d_b_c.html#ad068226b8d6b0254dacc24b3fd6fb009',1,'ODBC']]],
+  ['setonautocommit_489',['SetOnAutoCommit',['../class_o_d_b_c.html#ab1ce0faa0d9fe139ca66396d088e060b',1,'ODBC']]],
+  ['setonusing_490',['SetOnUsing',['../class_o_d_b_c.html#a337350a016c21dd2887de1c74b6bb684',1,'ODBC']]],
+  ['setqueuemaxsize_491',['SetQueueMaxSize',['../class_queue.html#af1e01917f6e0e244995363b4cb035e5d',1,'Queue']]],
+  ['setroom_492',['SetRoom',['../class_chat_session.html#a90ac3c2b762186597af0f803e6454566',1,'ChatSession']]],
+  ['setroomname_493',['SetRoomName',['../class_room.html#a35976c3fdbcf70ad1c332f9e50286373',1,'Room']]],
+  ['socket_494',['Socket',['../class_session.html#a2a1ee4621632bf7ef026ffb7328e12dc',1,'Session']]],
+  ['start_495',['Start',['../class_server.html#acaea883b722927c7d8299a74447c8d1b',1,'Server']]]
+];
