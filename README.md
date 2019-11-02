@@ -18,3 +18,5 @@
 ## 4.Server port
 > * LogonServer: 31400
 > * ChatServer: 31500
+## 5.Config
+> * You can check the Config.h file. It is setted in each project.
