@@ -5,9 +5,11 @@
 > * Microsoft Visual C++ 2013 Redistributable
 > * Microsoft Visual C++ 2015-2017 Redistributable
 ## 2.Build
-> * Release | x86
+> * Open SimpleChatServer.sln with visual studio 2017
+> * Choose configuration and platform
 > * Debug | x86
-## 3.Reference
+> * Release | x86
+## 3.Reference(in Doc directory)
 > * Doxygen(ClassDiagram, UML)
 > * Flow chart
-> * 
+> * Requirement analysis
