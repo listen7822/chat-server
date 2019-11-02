@@ -1,5 +1,5 @@
 # Simple Chat Server
-## 1.Install Programs
+## 1.Install Programs(in installer directory)
 > * Visual Studio 2017(VC141)
 > * MySql Connector/ODBC 5.3
 > * Microsoft Visual C++ 2013 Redistributable
