@@ -20,3 +20,7 @@
 > * ChatServer: 31500
 ## 5.Config
 > * You can check the Config.h file. It is set in each project.
+> * MAX_SESSION_COUNT
+> * MAX_THREAD_POOL_SIZE
+> * MAX_ROOM_COUNT
+> * ETC ...
