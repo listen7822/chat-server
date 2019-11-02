@@ -7,8 +7,10 @@
 
 int main ()
 {
-	ChatServer server (LOBBY::SERVER_PORT);
-	server.Init (LOBBY::MAX_SESSION_COUNT, LOBBY::MAX_THREAD_POOL_SIZE, LOBBY::MAX_ROOM_COUNT);
+	boost::asio::io_service io_service;
+	boost::asio::io_service::work woker (io_service);
+	ChatServer server (io_service, LOBBY::SERVER_PORT);
+	server.Init (io_service, LOBBY::MAX_SESSION_COUNT, LOBBY::MAX_THREAD_POOL_SIZE, LOBBY::MAX_ROOM_COUNT);
 	BOOST_LOG_TRIVIAL (info) << "Chat server start ...";
 	server.Start ();
 

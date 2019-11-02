@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Server.h"
 
-Server::Server (int port)
+Server::Server (boost::asio::io_service& io_service, int port)
 	: m_IsAccepting (false),
 	m_Acceptor (io_service,
 		boost::asio::ip::tcp::endpoint (boost::asio::ip::tcp::v4 (), port),

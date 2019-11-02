@@ -6,8 +6,8 @@
 #include <MySqlDatabase.h>
 
 
-LogonServer::LogonServer (int port)
-	: Server(port)
+LogonServer::LogonServer (boost::asio::io_service& io_service, int port)
+	: Server(io_service, port)
 {
 }
 
@@ -15,10 +15,9 @@ LogonServer::~LogonServer ()
 {
 }
 
-void LogonServer::Init (std::size_t maxSessionCount, std::size_t maxThreadCount, std::size_t maxRoomCount)
+void LogonServer::Init (boost::asio::io_service& io_service, std::size_t maxSessionCount, std::size_t maxThreadCount, std::size_t maxRoomCount)
 {
 	LogonODBCObject::Instance ()->AddDatabase<MySqlDatabase>();
-	::Sleep (1000);
 	for (std::size_t i = 0; i < maxSessionCount; ++i)
 	{
 		boost::shared_ptr<Session> pSession(new Session (this, i, io_service));
@@ -55,7 +54,7 @@ void LogonServer::OnAccept (int sessionId)
 
 	m_SessionList[sessionId]->SetDispatcher (new LogonPacketDispatcher ());
 	std::string msg;
-	msg.append ("Hello ");
+	msg.append (">Hello ");
 	msg.append (m_SessionList[sessionId]->GetNickname ());
 	msg.append ("\r\n");
 	msg.append ("Token: ");

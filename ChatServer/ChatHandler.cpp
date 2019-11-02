@@ -9,7 +9,7 @@
 
 bool __stdcall ChatHandler::WrongCommand (boost::shared_ptr <Session> pSession, std::string param)
 {
-	std::string message = "You sent wrong command.\r\n";
+	std::string message = ">You sent wrong command.\r\n";
 	pSession->Send (false, message.length(), message.c_str());
 
 	return true;
@@ -156,6 +156,7 @@ bool __stdcall ChatHandler::BroadcastMessage (boost::shared_ptr <Session> pSessi
 	msg.append (pChatSession->GetNickname ());
 	msg.append ("'s global message: ");
 	msg.append (param);
+	msg.append ("\r\n");
 
 	std::list<boost::shared_ptr<Room>> roomList = pChatServer->GetRoomList ();
 	auto roomIter = roomList.begin ();

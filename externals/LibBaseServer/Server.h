@@ -11,10 +11,10 @@
 class Server
 {
 public:
-	Server (int port);
+	Server (boost::asio::io_service& io_service, int port);
 	virtual ~Server ();
 
-	virtual void Init (std::size_t maxSessionCount, std::size_t maxThreadCount, std::size_t maxRoomCount) = 0;
+	virtual void Init (boost::asio::io_service& io_service, std::size_t maxSessionCount, std::size_t maxThreadCount, std::size_t maxRoomCount) = 0;
 	void Start ();
 	void MoveSessionToQueue (int sessionId);
 	boost::shared_ptr<Session> GetSession (int sessionId) { return m_SessionList[sessionId]; }
@@ -27,7 +27,7 @@ private:
 protected:
 	virtual void OnAccept (int sessionId) = 0;
 
-	boost::asio::io_service io_service;
+	//boost::asio::io_service io_service;
 	boost::asio::ip::tcp::acceptor m_Acceptor;
 	std::vector<boost::shared_ptr<boost::thread>> m_ThreadPool;
 	int m_ThreadPoolSize;

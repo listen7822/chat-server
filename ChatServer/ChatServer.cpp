@@ -8,8 +8,8 @@
 #include "Config.h"
 
 
-ChatServer::ChatServer (int port)
-	: Server(port)
+ChatServer::ChatServer (boost::asio::io_service& io_service, int port)
+	: Server(io_service, port)
 {
 }
 
@@ -17,7 +17,7 @@ ChatServer::~ChatServer ()
 {
 }
 
-void ChatServer::Init (std::size_t maxSessionCount, std::size_t maxThreadCount, std::size_t maxRoomCount)
+void ChatServer::Init (boost::asio::io_service& io_service, std::size_t maxSessionCount, std::size_t maxThreadCount, std::size_t maxRoomCount)
 {
 	ChatODBCObject::Instance ()->AddDatabase<MySqlDatabase>();
 	
