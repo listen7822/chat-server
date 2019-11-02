@@ -13,3 +13,4 @@
 > * Doxygen(ClassDiagram, UML)
 > * Flow chart
 > * Requirement analysis
+> * SampleVideo(Server and client play)
