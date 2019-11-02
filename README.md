@@ -14,3 +14,6 @@
 > * Flow chart
 > * Requirement analysis
 > * SampleVideo(Server and client play)
+## 4.Server port
+> * LogonServer: 31400
+> * ChatServer: 31500
