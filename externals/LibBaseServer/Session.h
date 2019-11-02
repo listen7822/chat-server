@@ -7,11 +7,13 @@
 #include <boost/shared_ptr.hpp>
 #include <boost/enable_shared_from_this.hpp>
 #include <boost/noncopyable.hpp>
+#include <Monitor.h>
 #include "PacketDispatcher.h"
 
 class Server;
 
 class Session : public boost::enable_shared_from_this<Session>,
+	public Monitor,
 	private boost::noncopyable
 {
 public:
@@ -43,4 +45,5 @@ private:
 protected:
 	Server* m_pServer;
 	boost::shared_ptr<PacketDispatcher> m_pPacketDispatcher;
+	Monitor m_csSession;
 };

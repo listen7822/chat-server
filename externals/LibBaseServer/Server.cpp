@@ -17,12 +17,11 @@ Server::~Server ()
 
 void Server::Start ()
 {
-	std::cout << "서버 시작....." << std::endl;
 	Accept ();
+	std::cout << "서버 시작....." << std::endl;
 	for (std::size_t i = 0; i < m_ThreadPool.size(); ++i) {
 		m_ThreadPool[i]->join ();
 	}
-
 }
 
 void Server::MoveSessionToQueue (int sessionID)

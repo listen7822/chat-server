@@ -20,7 +20,7 @@ RoomPacketDispatcher::~RoomPacketDispatcher ()
 void RoomPacketDispatcher::GetCommandTypeAndParam (COMMAND_TYPE & commandType, std::string & param, const char * pData)
 {
 	if ('/' != pData[0]) {
-		commandType = COMMAND_TYPE::WRONG_COMMAND;
+		commandType = COMMAND_TYPE::SEND_MESSAGE;
 		param = pData;
 		return;
 	}

@@ -6,11 +6,10 @@
 #include <boost/shared_ptr.hpp>
 #include <boost/thread.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp>
-#include "Monitor.h"
 
 class Session;
 
-class Room : Monitor
+class Room 
 {
 public:
 	Room ();
@@ -18,7 +17,7 @@ public:
 
 	void AddUser (boost::shared_ptr<Session> pSession);
 	void RemoveUser (std::string nickname);
-	void SaveMessage (std::string message);
+	void SaveMessage (std::string nickname, std::string message);
 	void SetRoomName (std::string roomName) { m_RoomName = roomName; }
 	bool IsEmpty () { return m_UserList.size () > 0 ? false : true; }
 	void Clear ();
@@ -30,11 +29,10 @@ private:
 	static const int MAX_USER_COUNT = 5;
 	static const int MAX_MESSAGE_QUEUE_SIZE = 5;
 	static const int TimerCycleSec = 60;
+	void OnTimer ();
 
-	boost::asio::io_service io_service;
 	std::list<boost::shared_ptr<Session>> m_UserList;
 	std::queue<std::string> m_MessageQueue;
 	std::string m_RoomName;
-	Monitor m_csMonitor;
 };
 

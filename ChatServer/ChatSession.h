@@ -16,8 +16,9 @@ public:
 
 	LOCATION GetLocation () { return m_location; }
 	void SetLocation (LOCATION location) { m_location = location; }
-	void AddChatCount () { ++m_ChatCount; }
-	void ResetChatCount () { m_ChatCount = 0; }
+	void AddChatCount ();
+	void ResetChatCount ();
+	int GetChatCount ();
 	boost::shared_ptr<Room> GetRoom () { return m_pRoom; }
 	void SetRoom (boost::shared_ptr<Room> pRoom) { m_pRoom = pRoom; }
 

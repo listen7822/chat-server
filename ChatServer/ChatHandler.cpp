@@ -51,17 +51,24 @@ bool __stdcall ChatHandler::GetRoomList (boost::shared_ptr <Session> pSession, s
 	}
 	std::list<boost::shared_ptr<Room>> roomList = pChatServer->GetRoomList ();
 	std::string msg;
+	msg.append (">");
 	msg.append ("You can join these rooms.");
 	msg.append ("\r\n");
+	bool isEmpty = true;
 	auto iter = roomList.begin ();
-	if (roomList.empty ()) {
-		msg.append ("Empty");
-		msg.append ("\r\n");
-	} else {
-		for (iter; iter != roomList.end (); ++iter) {
-			msg.append (iter->get()->GetRoomName());
+	for (iter; iter != roomList.end (); ++iter) {
+		if (false == iter->get ()->GetRoomName ().empty ()) {
+			isEmpty = false;
+			msg.append (">");
+			msg.append (iter->get ()->GetRoomName ());
 			msg.append ("\r\n");
+			continue;
 		}
+	}
+
+	if (true == isEmpty) {
+		msg.append (">No rooms.");
+		msg.append ("\r\n");
 	}
 
 	pChatSession->Send (false, msg.length (), msg.c_str ());
@@ -104,13 +111,6 @@ bool __stdcall ChatHandler::ExitRoom (boost::shared_ptr <Session> pSession, std:
 		pRoom->Clear ();
 	} else {
 		pRoom->RemoveUser (pChatSession->GetNickname());
-		auto iter = pRoom->GetUserList ().begin ();
-		for (iter; iter != pRoom->GetUserList ().end (); ++iter) {
-			msg.append (pChatSession->GetNickname ());
-			msg.append ("leave this room.");
-			msg.append ("\r\n");
-			iter->get ()->Send (false, msg.length (), msg.c_str ());
-		}
 	}
 
 	pChatSession->SetDispatcher (new LobbyPacketDispatcher);
@@ -126,14 +126,18 @@ bool __stdcall ChatHandler::BroadcastMessage (boost::shared_ptr <Session> pSessi
 		return false;
 	}
 
+	//if(pChatSession)
+
+	std::string msg;
+	msg.append (">");
+	msg.append (pChatSession->GetNickname ());
+	msg.append ("'s global message: ");
+	msg.append (param);
+
 	std::list<boost::shared_ptr<Room>> roomList = pChatServer->GetRoomList ();
 	auto roomIter = roomList.begin ();
 	for (roomIter; roomIter != roomList.end (); ++roomIter) {
-		std::list<boost::shared_ptr<Session>> userList = roomIter->get ()->GetUserList ();
-		auto userIter = userList.begin ();
-		for (userIter; userIter != userList.end (); ++userIter) {
-			userIter->get ()->Send (false, param.length (), param.c_str ());
-		}
+		roomIter->get ()->SaveMessage(pChatSession->GetNickname(), msg);
 	}
 
 	return true;
@@ -149,12 +153,13 @@ bool __stdcall ChatHandler::SendMessage (boost::shared_ptr <Session> pSession, s
 	}
 
 	boost::shared_ptr<Room> pRoom = pChatSession->GetRoom ();
-	pRoom->SaveMessage (param);
+	std::string msg;
+	msg.append (">");
+	msg.append (pChatSession->GetNickname());
+	msg.append (": ");
+	msg.append (param);
+	pRoom->SaveMessage (pChatSession->GetNickname(), msg);
 	pChatSession->AddChatCount ();
-	auto iter = pRoom->GetUserList ().begin ();
-	for (iter; iter != pRoom->GetUserList ().begin (); ++iter) {
-		iter->get ()->Send (false, param.length (), param.c_str ());
-	}
 
 	return true;
 }
