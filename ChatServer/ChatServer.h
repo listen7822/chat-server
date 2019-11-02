@@ -8,10 +8,10 @@
 class ChatServer : public Server
 {
 public:
-	ChatServer (int threadPoolSize, int port);
+	ChatServer (int port);
 	virtual ~ChatServer ();
 
-	void Init (int nMaxSessionCount) override;
+	void Init (std::size_t maxSessionCount, std::size_t maxThreadCount, std::size_t maxRoomCount) override;
 	bool JoinRoom (boost::shared_ptr<Session> pSession, boost::shared_ptr<Room> pRoom, std::string param, std::string& error);
 	std::list<boost::shared_ptr<Room>> GetRoomList () { return m_RoomList; }
 

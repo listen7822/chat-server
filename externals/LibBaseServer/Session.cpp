@@ -6,9 +6,9 @@
 Session::Session(Server* pServer, int sessionId, boost::asio::io_service& io_service)
 		: m_pServer(pServer)
 		, m_SessionId(sessionId)
+		, m_Strand(io_service)
 		, m_Socket(io_service)
 		, m_Nickname("")
-		, m_Strand(io_service)
 {
 }
 
@@ -35,17 +35,17 @@ void Session::Send (const bool immediately, int size, const char * pData)
 {
 	char* pSendData = nullptr;
 
+	static const int MAX_MESSAGE_SIZE = 1024;
 	if(false == immediately)
 	{
-		static const int MAX_MESSAGE_SIZE = 128;
 		pSendData = new char[MAX_MESSAGE_SIZE];
-		memcpy( pSendData, pData, size + 1);
+		memcpy( pSendData, pData, MAX_MESSAGE_SIZE);
 
 		m_SendDataQueue.push_back( pSendData );
 	}
 	else
 	{
-		memcpy( pSendData, pData, size);
+		memcpy( pSendData, pData, MAX_MESSAGE_SIZE);
 	}
 
 	if (false == immediately && m_SendDataQueue.size() > 1)
@@ -69,11 +69,17 @@ void Session::OnReceive (const boost::system::error_code & error, std::size_t by
 	{
 		if( error == boost::asio::error::eof )
 		{
-			std::cout << "클라이언트와 연결이 끊어졌습니다" << std::endl;
+			BOOST_LOG_TRIVIAL (info) \
+				<< "Client is disconnected without error.";
 		}
 		else 
 		{
-			std::cout << "error No: " << error.value() << " error Message: " << error.message() << std::endl;
+			BOOST_LOG_TRIVIAL (error) \
+				<< "Client is disconnected with error." \
+				<< " ErrorNo: " \
+				<< error.value () \
+				<< " ErrorMsg: " \
+				<< error.message ();
 		}
 
 		m_pServer->MoveSessionToQueue(m_SessionId);

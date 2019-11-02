@@ -13,6 +13,7 @@
 #define BOOST_USE_WINDOWS_H
 #define WIN32_LEAN_AND_MEAN
 #include <iostream>
+#include <boost/log/trivial.hpp>
 #include <boost/winapi/basic_types.hpp>
 
 #endif //PCH_H

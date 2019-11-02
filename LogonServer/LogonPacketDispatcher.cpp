@@ -5,7 +5,6 @@
 LogonPacketDispatcher::LogonPacketDispatcher ()
 {
 	AddHandler (COMMAND_TYPE::WRONG_COMMAND, &LogonHandler::WrongCommand);
-	AddHandler (COMMAND_TYPE::QUIT, &LogonHandler::QuitServer);
 	AddHandler (COMMAND_TYPE::CAHNGE_NICKNAME, &LogonHandler::ChangeNickName);
 }
 
@@ -36,12 +35,8 @@ void LogonPacketDispatcher::GetCommandTypeAndParam (COMMAND_TYPE& commandType, s
 		splits.push_back (input.substr (pos + 1, input.length ()));
 	}
 
-	const std::string QUIT = "quit";
 	const std::string CHANGE_NICKNAME = "nick";
-	if (QUIT == splits[0]) {
-		commandType = COMMAND_TYPE::QUIT;
-	}
-	else if (CHANGE_NICKNAME == splits[0]) {
+	if (CHANGE_NICKNAME == splits[0]) {
 		commandType = COMMAND_TYPE::CAHNGE_NICKNAME;
 	}
 	else {

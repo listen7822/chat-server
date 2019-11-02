@@ -11,13 +11,14 @@
 class Server
 {
 public:
-	Server (int threadPoolSize, int port);
+	Server (int port);
 	virtual ~Server ();
 
-	virtual void Init (int nMaxSessionCount)= 0;
+	virtual void Init (std::size_t maxSessionCount, std::size_t maxThreadCount, std::size_t maxRoomCount) = 0;
 	void Start ();
-	void MoveSessionToQueue (int sessionID);
+	void MoveSessionToQueue (int sessionId);
 	boost::shared_ptr<Session> GetSession (int sessionId) { return m_SessionList[sessionId]; }
+	std::vector<boost::shared_ptr<Session>> GetSessionList () { return m_SessionList; }
 
 private:
 	bool Accept ();

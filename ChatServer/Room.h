@@ -12,7 +12,7 @@ class Session;
 class Room 
 {
 public:
-	Room ();
+	Room (boost::asio::io_service& io_service);
 	virtual ~Room ();
 
 	void AddUser (boost::shared_ptr<Session> pSession);
@@ -26,11 +26,9 @@ public:
 	std::queue<std::string> GetMessageQueue () { return m_MessageQueue; }
 
 private:
-	static const int MAX_USER_COUNT = 5;
-	static const int MAX_MESSAGE_QUEUE_SIZE = 5;
-	static const int TimerCycleSec = 60;
 	void OnTimer ();
 
+	boost::asio::deadline_timer m_Timer;
 	std::list<boost::shared_ptr<Session>> m_UserList;
 	std::queue<std::string> m_MessageQueue;
 	std::string m_RoomName;

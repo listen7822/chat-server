@@ -20,6 +20,14 @@ bool ChatODBCObject::GetUserNameUsingToken (std::string& nickname, std::string t
 	int nRet = scopedODBC.Execute (strQuery.c_str ());
 	if (false == IsSuccessQuery (nRet))
 	{
+		BOOST_LOG_TRIVIAL (error) \
+			<< "Func: " \
+			<< __FUNCTION__ \
+			<< " Line: " \
+			<< __LINE__ \
+			<< " ErrorCode: " \
+			<< scopedODBC->GetLastError ();
+
 		return false;
 	}
 	

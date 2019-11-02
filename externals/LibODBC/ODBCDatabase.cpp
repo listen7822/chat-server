@@ -18,9 +18,10 @@ ODBCDatabase::~ODBCDatabase ()
 	}
 }
 
+
+// Get Database.
 bool ODBCDatabase::Initialize ()
 {
-	// virtual 함수를 통해서 연결하는 DB 정보 가져오기
 	std::string strDBType = GetConfigDBType ();
 	if (strDBType == "")
 	{
@@ -69,7 +70,7 @@ bool ODBCDatabase::Initialize ()
 		return false;
 	}
 
-	// 개수만큼 루프돌면서 Connection 생성
+	// Make connection.
 	for (int i = 0; i < nDBCnt; ++i)
 	{
 		ODBC* pODBC = new ODBC ();
@@ -77,7 +78,7 @@ bool ODBCDatabase::Initialize ()
 		if (dwRet != SQL_SUCCESS)
 		{
 			break;
-			//_Logf (GLog::LL_ERROR, "[ODBC] ODBC Connect return Error(%d).", dwRet);
+			BOOST_LOG_TRIVIAL (error) << "Func: "<< __FUNCTION__ << " Line: " <<__LINE__;
 		}
 
 		mPool.push_back (pODBC);
@@ -99,13 +100,11 @@ ODBC* ODBCDatabase::GetConnection ()
 		{
 			pODBCCon = *iter;
 
-			// 사용중인 db connection 인지 체크
 			if (pODBCCon->IsOnUsing ())
 			{
 				pODBCCon = NULL;
 				++nUsing;
 			}
-			// 사용중이 아니라면
 			else
 			{
 				if (nMaxTerm < nUsing + 1)
@@ -122,7 +121,6 @@ ODBC* ODBCDatabase::GetConnection ()
 					// TODO: occurred error!
 					nMaxTerm = 0;
 				}
-				// 리턴하기전에 사용중으로 설정
 				pODBCCon->SetOnUsing (true);
 				break;
 			}
@@ -142,24 +140,21 @@ void ODBCDatabase::CheckConnection ()
 		{
 			pODBCCon = *iter;
 
-			// 사용중인 db connection 인지 체크
 			if (pODBCCon->IsOnUsing ())
 			{
 				pODBCCon = NULL;
 			}
-			// 사용중이 아니라면
 			else
 			{
-				// 쿼리 수행
+				// Excute query.
 				pODBCCon->SetOnUsing (true);
 				int retSQL = pODBCCon->Query (HEALTH_CHECK_QUERY_STRING.c_str ());
 				if (retSQL == SQL_SUCCESS)
 				{
-					//_Logf (GLog::LL_DEBUG, "[ODBC] DBType(%d), ODBCCon(%x) Do Query(%s)... Success", mType, pODBCCon, HEALTH_CHECK_QUERY_STRING.c_str ());
 				}
 				else
 				{
-					//_Logf (GLog::LL_ERROR, "[ODBC] DBType(%d), ODBCCon(%x) Do Query(%s) retSQL(%d)... Fail", mType, pODBCCon, HEALTH_CHECK_QUERY_STRING.c_str (), retSQL);
+					BOOST_LOG_TRIVIAL (error) << "Func: "<< __FUNCTION__ << " Line: " <<__LINE__;
 				}
 				pODBCCon->Commit ();
 				pODBCCon->SetOnUsing (false);

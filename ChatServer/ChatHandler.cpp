@@ -5,6 +5,7 @@
 #include "RoomPacketDispatcher.h"
 #include "LobbyPacketDispatcher.h"
 #include "ChatODBCObject.h"
+#include "Config.h"
 
 bool __stdcall ChatHandler::WrongCommand (boost::shared_ptr <Session> pSession, std::string param)
 {
@@ -19,6 +20,12 @@ bool __stdcall ChatHandler::AuthToken (boost::shared_ptr <Session> pSession, std
 	boost::shared_ptr<ChatSession> pChatSession(
 		boost::dynamic_pointer_cast<ChatSession>(pSession));
 	ChatServer* pChatServer = ((ChatServer*)pChatSession->GetServer ());
+	if (ChatSession::LOCATION::NONE != pChatSession->GetLocation ()) {
+		std::string message = "You sent wrong command.\r\n";
+		pSession->Send (false, message.length(), message.c_str());
+
+		return false;
+	}
 
 	std::string nickname;
 	((ChatODBCObject*)ChatODBCObject::Instance ())->GetUserNameUsingToken (nickname, param);
@@ -47,6 +54,9 @@ bool __stdcall ChatHandler::GetRoomList (boost::shared_ptr <Session> pSession, s
 		boost::dynamic_pointer_cast<ChatSession>(pSession));
 	ChatServer* pChatServer = ((ChatServer*)pChatSession->GetServer ());
 	if (ChatSession::LOCATION::LOBBY != pChatSession->GetLocation ()) {
+		std::string message = "You sent wrong command.\r\n";
+		pSession->Send (false, message.length(), message.c_str());
+
 		return false;
 	}
 	std::list<boost::shared_ptr<Room>> roomList = pChatServer->GetRoomList ();
@@ -81,6 +91,9 @@ bool __stdcall ChatHandler::JoinRoomList (boost::shared_ptr <Session> pSession, 
 		boost::dynamic_pointer_cast<ChatSession>(pSession));
 	ChatServer* pChatServer = ((ChatServer*)pChatSession->GetServer ());
 	if (ChatSession::LOCATION::LOBBY != pChatSession->GetLocation ()) {
+		std::string message = "You sent wrong command.\r\n";
+		pSession->Send (false, message.length(), message.c_str());
+
 		return false;
 	}
 	std::string error;
@@ -102,11 +115,13 @@ bool __stdcall ChatHandler::ExitRoom (boost::shared_ptr <Session> pSession, std:
 	ChatServer* pChatServer = ((ChatServer*)pChatSession->GetServer ());
 	boost::shared_ptr<Room> pRoom = pChatSession->GetRoom ();
 	if (ChatSession::LOCATION::ROOM != pChatSession->GetLocation ()) {
+		std::string message = "You sent wrong command.\r\n";
+		pSession->Send (false, message.length(), message.c_str());
+
 		return false;
 	}
 
 	pChatSession->SetLocation (ChatSession::LOCATION::LOBBY);
-	std::string msg;
 	if (1 == pRoom->GetUserList ().size ()) {
 		pRoom->Clear ();
 	} else {
@@ -123,10 +138,18 @@ bool __stdcall ChatHandler::BroadcastMessage (boost::shared_ptr <Session> pSessi
 		boost::dynamic_pointer_cast<ChatSession>(pSession));
 	ChatServer* pChatServer = ((ChatServer*)pChatSession->GetServer ());
 	if (ChatSession::LOCATION::ROOM != pChatSession->GetLocation ()) {
+		std::string message = "You sent wrong command.\r\n";
+		pSession->Send (false, message.length(), message.c_str());
+
 		return false;
 	}
 
-	//if(pChatSession)
+	if (ROOM::MAX_CHAT_COUNT_PER_MIN <= pChatSession->GetChatCount ()) {
+		std::string message = "You can't send message. Because you sent too much.\r\n";
+		pSession->Send (false, message.length(), message.c_str());
+
+		return false;
+	}
 
 	std::string msg;
 	msg.append (">");
@@ -149,6 +172,16 @@ bool __stdcall ChatHandler::SendMessage (boost::shared_ptr <Session> pSession, s
 		boost::dynamic_pointer_cast<ChatSession>(pSession));
 	ChatServer* pChatServer = ((ChatServer*)pChatSession->GetServer ());
 	if (ChatSession::LOCATION::ROOM != pChatSession->GetLocation ()) {
+		std::string message = "You sent wrong command.\r\n";
+		pSession->Send (false, message.length(), message.c_str());
+
+		return false;
+	}
+
+	if (ROOM::MAX_CHAT_COUNT_PER_MIN <= pChatSession->GetChatCount ()) {
+		std::string message = "You can't send message. Because you sent too much.\r\n";
+		pSession->Send (false, message.length(), message.c_str());
+
 		return false;
 	}
 

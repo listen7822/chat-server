@@ -2,17 +2,17 @@
 #include "pch.h"
 #include <boost/asio.hpp>
 #include "ChatServer.h"
+#include "Config.h"
 
-
-const int MAX_SESSION_COUNT = 1;
 
 int main ()
 {
-	ChatServer server (MAX_SESSION_COUNT, 31500);
-	server.Init (MAX_SESSION_COUNT);
+	ChatServer server (LOBBY::SERVER_PORT);
+	server.Init (LOBBY::MAX_SESSION_COUNT, LOBBY::MAX_THREAD_POOL_SIZE, LOBBY::MAX_ROOM_COUNT);
+	BOOST_LOG_TRIVIAL (info) << "Chat server start ...";
 	server.Start ();
 
-	std::cout << "네트웍 접속 종료" << std::endl;
+	BOOST_LOG_TRIVIAL (info) << "Closed server.";
 
 	getchar ();
 	return 0;

@@ -2,19 +2,20 @@
 #include "pch.h"
 #include <boost/asio.hpp>
 #include "LogonServer.h"
+#include "Config.h"
 
 
-static const int MAX_SESSION_COUNT = 1;
+const int MAX_SESSION_COUNT = 1;
 
-int main()
+int main ()
 {
-	LogonServer server(MAX_SESSION_COUNT, 31400);
-	server.Init(MAX_SESSION_COUNT);
-	server.Start();
+	LogonServer server (LOGON::SERVER_PORT);
+	server.Init (LOGON::MAX_SESSION_COUNT, LOGON::MAX_THREAD_POOL_SIZE, 0);
+	BOOST_LOG_TRIVIAL (info) << "Logon server start ...";
+	server.Start ();
 
+	BOOST_LOG_TRIVIAL (info) << "Closed server.";
 
-	std:: cout << "네트웍 접속 종료" << std::endl;
-
-	getchar();
+	getchar ();
 	return 0;
 }

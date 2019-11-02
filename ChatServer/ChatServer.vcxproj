@@ -113,7 +113,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\externals\3rdParty\boost\libs\;..\externals\LibBaseServer\libs\;..\externals\LibODBC\libs\;..\externals\LibUtil\libs\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libboost_date_time-vc141-mt-gd-x32-1_71.lib;libboost_exception-vc141-mt-gd-x32-1_71.lib;libboost_regex-vc141-mt-gd-x32-1_71.lib;libboost_thread-vc141-mt-gd-x32-1_71.lib;libboost_chrono-vc141-mt-gd-x32-1_71.lib;LibBaseServer-mdd.lib;LibODBC-mdd.lib;LibUtil-mdd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libboost_date_time-vc141-mt-gd-x32-1_71.lib;libboost_exception-vc141-mt-gd-x32-1_71.lib;libboost_regex-vc141-mt-gd-x32-1_71.lib;libboost_thread-vc141-mt-gd-x32-1_71.lib;libboost_chrono-vc141-mt-gd-x32-1_71.lib;libboost_log-vc141-mt-gd-x32-1_71.lib;libboost_filesystem-vc141-mt-gd-x32-1_71.lib;LibBaseServer-mdd.lib;LibODBC-mdd.lib;LibUtil-mdd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClInclude Include="ChatHandler.h" />
     <ClInclude Include="ChatODBCObject.h" />
+    <ClInclude Include="Config.h" />
     <ClInclude Include="LobbyPacketDispatcher.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="RoomPacketDispatcher.h" />

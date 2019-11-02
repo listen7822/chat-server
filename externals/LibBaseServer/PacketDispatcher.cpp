@@ -30,7 +30,7 @@ void PacketDispatcher::AddHandler (COMMAND_TYPE commandType, void* handler)
 	auto iter = m_HandlerMap.find (commandType);
 	if (m_HandlerMap.end () != iter)
 	{
-		std::cout << "Command is already exists." << std::endl;
+		BOOST_LOG_TRIVIAL (info) << "Command is already exists.";
 		return;
 	}
 

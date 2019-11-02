@@ -5,10 +5,10 @@
 class LogonServer : public Server
 {
 public:
-	LogonServer (int threadPoolSize, int port);
+	LogonServer (int port);
 	virtual ~LogonServer ();
 
-	void Init (int nMaxSessionCount) override;
+	void Init (std::size_t maxSessionCount, std::size_t maxThreadCount, std::size_t maxRoomCount) override;
 
 private:
 

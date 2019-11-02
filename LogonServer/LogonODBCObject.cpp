@@ -25,6 +25,12 @@ bool LogonODBCObject::ChangeUserNickname (std::string preNickname, std::string p
 	int nRet = scopedODBC.Execute (strQuery.c_str ());
 	if (false == IsSuccessQuery (nRet))
 	{
+		BOOST_LOG_TRIVIAL (error) \
+			<< " FUNC: " \
+			<< __FUNCTION__ \
+			<< " Line: " \
+			<< __LINE__;
+
 		return false;
 	}
 
@@ -43,6 +49,12 @@ bool LogonODBCObject::CreateUser (std::string& nickname, std::string& token)
 	int nRet = scopedODBC.Execute (strQuery.c_str ());
 	if (false == IsSuccessQuery (nRet))
 	{
+		BOOST_LOG_TRIVIAL (error) \
+			<< " FUNC: " \
+			<< __FUNCTION__ \
+			<< " Line: " \
+			<< __LINE__;
+
 		return false;
 	}
 
@@ -50,6 +62,11 @@ bool LogonODBCObject::CreateUser (std::string& nickname, std::string& token)
 	nRet = scopedODBC.Execute (strQuery.c_str ());
 	if (false == IsSuccessQuery (nRet))
 	{
+		BOOST_LOG_TRIVIAL (error) \
+			<< " FUNC: " \
+			<< __FUNCTION__ \
+			<< " Line: " \
+			<< __LINE__;
 		return false;
 	}
 

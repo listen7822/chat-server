@@ -1,7 +1,4 @@
 #include "stdafx.h"
-#if defined(WIN32) || defined(WIN64)
-//#include <Windows.h>
-#endif
 #include <boost/winapi/basic_types.hpp>
 #include <sql.h>
 #include "ODBCObject.h"
@@ -27,7 +24,7 @@ ODBC* ODBCObject::GetODBC ()
 		// connection pool null check
 		if (nullptr == m_Database)
 		{
-			//_Logf (GLog::LL_FATAL, "[ODBC] connection pool is null type[%d]", eType);
+			BOOST_LOG_TRIVIAL (error) << "Func: "<< __FUNCTION__ << " Line: " <<__LINE__;
 			return nullptr;
 		}
 

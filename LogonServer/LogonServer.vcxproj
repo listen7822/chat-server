@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Config.h" />
     <ClInclude Include="LogonHandler.h" />
     <ClInclude Include="LogonPacketDispatcher.h" />
     <ClInclude Include="LogonServer.h" />

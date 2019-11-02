@@ -23,7 +23,7 @@ const std::string MySqlDatabase::GetConfigDBDriver ()
 
 const std::string MySqlDatabase::GetConfigDBIP ()
 {
-	return "localhost";
+	return "database-1.cj8upqmhj1ia.ap-northeast-2.rds.amazonaws.com";
 }
 
 const std::string MySqlDatabase::GetConfigDBName ()
@@ -38,7 +38,7 @@ const std::string MySqlDatabase::GetConfigDBID ()
 
 const std::string MySqlDatabase::GetConfigDBPwd ()
 {
-	return "123!@#";
+	return "dkf2qkqk";
 }
 
 int MySqlDatabase::GetConfigDBPort ()

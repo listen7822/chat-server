@@ -7,8 +7,8 @@ class ODBC;
 class ScopedODBC
 {
 private:
-	ODBC* m_pODBC;			// ODBC 目池记
-	bool m_bIsQuerySucceed;	// 孽府 己傍 咯何
+	ODBC* m_pODBC;			
+	bool m_bIsQuerySucceed;
 	unsigned long mlStartSec;
 
 	void Init ();

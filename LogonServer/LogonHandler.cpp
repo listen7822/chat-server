@@ -11,11 +11,6 @@ bool __stdcall LogonHandler::WrongCommand (Session * pSession, std::string comma
 	return true;
 }
 
-bool __stdcall LogonHandler::QuitServer (Session * pSession, std::string param)
-{
-	return false;
-}
-
 bool __stdcall LogonHandler::ChangeNickName (Session * pSession, std::string param)
 {
 	((LogonODBCObject*)LogonODBCObject::Instance ())->ChangeUserNickname (pSession->GetNickname(), param);

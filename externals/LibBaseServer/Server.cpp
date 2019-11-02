@@ -1,15 +1,13 @@
 #include "stdafx.h"
 #include "Server.h"
 
-Server::Server (int threadPoolSize, int port)
+Server::Server (int port)
 	: m_IsAccepting (false),
-	m_ThreadPoolSize (threadPoolSize),
 	m_Acceptor (io_service,
 		boost::asio::ip::tcp::endpoint (boost::asio::ip::tcp::v4 (), port),
 		true)
-{
+{ 
 }
-
 
 Server::~Server ()
 {
@@ -18,7 +16,7 @@ Server::~Server ()
 void Server::Start ()
 {
 	Accept ();
-	std::cout << "서버 시작....." << std::endl;
+	BOOST_LOG_TRIVIAL (info) << "Start thread pool.";
 	for (std::size_t i = 0; i < m_ThreadPool.size(); ++i) {
 		m_ThreadPool[i]->join ();
 	}
@@ -26,8 +24,10 @@ void Server::Start ()
 
 void Server::MoveSessionToQueue (int sessionID)
 {
-	std::cout << "클라이언트 접속 종료. 세션 ID: " << sessionID << std::endl;
-	boost::system::error_code error;
+	BOOST_LOG_TRIVIAL (info) << "Return to client connectin pool. SessionId: " \
+		<< sessionID \
+		<< " Nickname: " \
+		<< m_SessionList[sessionID]->GetNickname ();
 	m_SessionList[sessionID]->Socket ().close ();
 	m_SessionQueue.push_back (sessionID);
 
@@ -63,7 +63,13 @@ void Server::OnAccept (int sessionId, const boost::system::error_code & error)
 {
 	if (error)
 	{
-		std::cout << "error No: " << error.value () << " error Message: " << error.message () << std::endl;
+		BOOST_LOG_TRIVIAL (error) \
+			<< "Func: " \
+			<< __FUNCTION__ \
+			<< " Line: " \
+			<< __LINE__ \
+			<< " ErrorCode: " \
+			<< error;
 	}
 
 	OnAccept (sessionId);

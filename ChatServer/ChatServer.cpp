@@ -5,10 +5,11 @@
 #include "LobbyPacketDispatcher.h"
 #include "RoomPacketDispatcher.h"
 #include <MySqlDatabase.h>
+#include "Config.h"
 
 
-ChatServer::ChatServer (int threadPoolSize, int port)
-	: Server(threadPoolSize, port)
+ChatServer::ChatServer (int port)
+	: Server(port)
 {
 }
 
@@ -16,26 +17,28 @@ ChatServer::~ChatServer ()
 {
 }
 
-void ChatServer::Init (int nMaxSessionCount)
+void ChatServer::Init (std::size_t maxSessionCount, std::size_t maxThreadCount, std::size_t maxRoomCount)
 {
 	ChatODBCObject::Instance ()->AddDatabase<MySqlDatabase>();
 	
-	for (int i = 0; i < 3; ++i)
+	for (std::size_t i = 0; i < maxSessionCount; ++i)
 	{
 		boost::shared_ptr<Session> pSession(new ChatSession (this, i, io_service));
 		m_SessionList.push_back (pSession);
 		m_SessionQueue.push_back (i);
 	}
 
-	for (int i = 0; i < 1; ++i) {
+	for (std::size_t i = 0; i < maxRoomCount; ++i) {
+		boost::shared_ptr<Room> pRoom (new Room(io_service));
+		m_RoomList.push_back (pRoom);
+	}
+
+	for (std::size_t i = 0; i < maxThreadCount; ++i) {
 		boost::shared_ptr<boost::thread> thread (
 			new boost::thread (boost::bind (&boost::asio::io_service::run, &io_service))
 		);
 		m_ThreadPool.push_back (thread);
 	}
-
-	boost::shared_ptr<Room> pRoom (new Room());
-	m_RoomList.push_back (pRoom);
 }
 
 bool ChatServer::JoinRoom (boost::shared_ptr<Session> pSession, boost::shared_ptr<Room> pRoom, std::string param, std::string& error)
@@ -61,11 +64,17 @@ bool ChatServer::JoinRoom (boost::shared_ptr<Session> pSession, boost::shared_pt
 			}
 		}
 
-		iter->get()->SetRoomName (param);
-		iter->get()->AddUser (pSession);
+		if (iter != m_RoomList.end ()) {
+			iter->get()->SetRoomName (param);
+			iter->get()->AddUser (pSession);
+		}
+		else {
+			error.append (">This server can't make a room anymore.");
+			error.append ("\r\n");
+			return false;
+		}
 	} else {
-		static const std::size_t MAX_USER_COUNT = 2;
-		if (MAX_USER_COUNT <= iter->get()->GetUserList ().size ()) {
+		if (ROOM::MAX_USER_COUNT <= iter->get()->GetUserList ().size ()) {
 			error.append (">Room is full.");
 			error.append ("\r\n");
 			return false;
